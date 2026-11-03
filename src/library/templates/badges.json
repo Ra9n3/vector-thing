@@ -1,0 +1,132 @@
+[
+  {
+    "id": "hex-badge",
+    "category": "badges",
+    "label": "Hex Badge",
+    "size": {
+      "w": 64,
+      "h": 64
+    },
+    "parts": [
+      {
+        "key": "body",
+        "shape": "hexagon",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64
+        },
+        "profile": {
+          "preset": "raised"
+        },
+        "material": {
+          "slot": 0
+        },
+        "main": true
+      }
+    ]
+  },
+  {
+    "id": "coin",
+    "category": "badges",
+    "label": "Coin",
+    "size": {
+      "w": 72,
+      "h": 72
+    },
+    "parts": [
+      {
+        "key": "rim",
+        "shape": "circle",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 72,
+          "h": 72
+        },
+        "profile": {
+          "preset": "raised"
+        },
+        "material": {
+          "slot": 0
+        },
+        "main": true
+      },
+      {
+        "key": "face",
+        "shape": "circle",
+        "rect": {
+          "x": 10,
+          "y": 10,
+          "w": 52,
+          "h": 52
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 0
+        },
+        "sitsOn": "rim",
+        "main": true
+      }
+    ]
+  },
+  {
+    "id": "round-badge",
+    "category": "badges",
+    "label": "Round Badge",
+    "size": {
+      "w": 48,
+      "h": 48
+    },
+    "parts": [
+      {
+        "key": "body",
+        "shape": "circle",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 48
+        },
+        "profile": {
+          "preset": "pillow"
+        },
+        "material": {
+          "slot": 0
+        },
+        "main": true
+      }
+    ]
+  },
+  {
+    "id": "pill-badge",
+    "category": "badges",
+    "label": "Pill Badge",
+    "size": {
+      "w": 64,
+      "h": 24
+    },
+    "parts": [
+      {
+        "key": "body",
+        "shape": "pill",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 24
+        },
+        "profile": {
+          "preset": "raised"
+        },
+        "material": {
+          "slot": 0
+        },
+        "main": true
+      }
+    ]
+  }
+]

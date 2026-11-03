@@ -1,29 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   AppBar,
   Box,
   Button,
-  Menu,
-  MenuItem,
   ToggleButton,
   ToggleButtonGroup,
   Toolbar,
-  Typography,
+  Typography, Tooltip,
 } from '@mui/material';
 import HexagonOutlinedIcon from '@mui/icons-material/HexagonOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useStore } from '../store';
 import type { ElementState, Mode } from '../store';
+import { leavesOf } from '../selection/targets';
+import { uniform } from '../store';
+import { ExportPopover } from './ExportPopover';
+import { StateIcon } from './StateIcon';
 import { ACCENT } from '../theme';
 
 export function TopBar() {
   const mode = useStore((s) => s.mode);
   const setMode = useStore((s) => s.setMode);
-  const elementState = useStore((s) => s.elementState);
+  const elements=useStore(s=>s.elements), selection=useStore(s=>s.selection), groups=useStore(s=>s.groups);
+  const targets=selection.length ? leavesOf(selection,elements,groups) : elements;
+  const elementState=uniform(targets.map(e=>e.state ?? 'default')) ?? null;
   const setElementState = useStore((s) => s.setElementState);
+  const exportButton=useRef<HTMLButtonElement>(null);
   const [anchor, setAnchor] = useState<HTMLElement | null>(null);
   const close = () => setAnchor(null);
+  useEffect(()=>{const key=(e:KeyboardEvent)=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='e'&&elements.length){e.preventDefault();setAnchor(exportButton.current);}};window.addEventListener('keydown',key);return ()=>window.removeEventListener('keydown',key);},[elements.length]);
 
   return (
     <AppBar position="static">
@@ -52,33 +58,25 @@ export function TopBar() {
           value={elementState}
           onChange={(_, v: ElementState | null) => v && setElementState(v)}
           aria-label="State"
+          disabled={!elements.length}
         >
-          <ToggleButton value="default" sx={{ px: 1.5 }}>Default</ToggleButton>
-          <ToggleButton value="pressed" sx={{ px: 1.5 }}>Pressed</ToggleButton>
-          <ToggleButton value="disabled" sx={{ px: 1.5 }}>Disabled</ToggleButton>
+          {(['default','pressed','disabled'] as const).map(state=><ToggleButton key={state} value={state} sx={{px:1.5,gap:.5}}><Tooltip title={state[0].toUpperCase()+state.slice(1)}><Box sx={{display:'flex',alignItems:'center',gap:.5}}><StateIcon state={state}/>{state[0].toUpperCase()+state.slice(1)}</Box></Tooltip></ToggleButton>)}
         </ToggleButtonGroup>
 
         <Button
           variant="contained"
+          ref={exportButton}
+          disabled={!elements.length}
           startIcon={<FileDownloadOutlinedIcon />}
           endIcon={<KeyboardArrowDownIcon />}
           onClick={(e) => setAnchor(e.currentTarget)}
-          aria-haspopup="menu"
+          aria-haspopup="dialog"
           aria-expanded={Boolean(anchor)}
           sx={{ ml: 1 }}
         >
           Export
         </Button>
-        <Menu
-          anchorEl={anchor}
-          open={Boolean(anchor)}
-          onClose={close}
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-          transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-        >
-          <MenuItem onClick={close}>SVG</MenuItem>
-          <MenuItem onClick={close}>PNG</MenuItem>
-        </Menu>
+        {anchor && <ExportPopover anchor={anchor} onClose={close} />}
       </Toolbar>
     </AppBar>
   );

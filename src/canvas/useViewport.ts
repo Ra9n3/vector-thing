@@ -67,11 +67,12 @@ export const useViewport = create<ViewportState>((set, get) => ({
 }));
 
 /** Measures the container, handles wheel zoom, and tracks the Space pan key. */
-export function useViewportControls(containerRef: RefObject<HTMLElement | null>) {
+export function useViewportControls(containerRef: RefObject<HTMLElement | null>, enabled = true) {
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     const vp = useViewport;
+    if (!enabled) vp.setState({ space: false, panning: false });
     let inside = false;
 
     const measure = () => {
@@ -84,6 +85,7 @@ export function useViewportControls(containerRef: RefObject<HTMLElement | null>)
 
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
+      if (!enabled) return;
       const r = el.getBoundingClientRect();
       const factor = Math.exp(-e.deltaY * (e.deltaMode === 1 ? 0.05 : 0.0015));
       const s = vp.getState();
@@ -100,7 +102,7 @@ export function useViewportControls(containerRef: RefObject<HTMLElement | null>)
       (t as HTMLElement | null)?.closest?.('input, textarea, select, [contenteditable="true"]');
 
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.code !== 'Space' || !inside || isTyping(e.target)) return;
+      if (!enabled || e.code !== 'Space' || !inside || isTyping(e.target)) return;
       e.preventDefault();
       if (!vp.getState().space) vp.setState({ space: true });
     };
@@ -125,5 +127,5 @@ export function useViewportControls(containerRef: RefObject<HTMLElement | null>)
       window.removeEventListener('keyup', onKeyUp);
       window.removeEventListener('blur', onBlur);
     };
-  }, [containerRef]);
+  }, [containerRef, enabled]);
 }

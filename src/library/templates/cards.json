@@ -1,0 +1,268 @@
+[
+  {
+    "id": "card",
+    "category": "cards",
+    "label": "Card",
+    "size": {
+      "w": 200,
+      "h": 140
+    },
+    "parts": [
+      {
+        "key": "body",
+        "shape": "rounded",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 200,
+          "h": 140
+        },
+        "profile": "pack",
+        "material": {
+          "slot": 0
+        },
+        "main": true,
+        "fallback": {
+          "preset": "raised"
+        }
+      }
+    ]
+  },
+  {
+    "id": "panel",
+    "category": "cards",
+    "label": "Panel",
+    "size": {
+      "w": 240,
+      "h": 160
+    },
+    "parts": [
+      {
+        "key": "panel",
+        "shape": "rect",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 240,
+          "h": 160
+        },
+        "profile": {
+          "preset": "raised"
+        },
+        "material": {
+          "slot": 0
+        },
+        "main": true
+      },
+      {
+        "key": "screw0",
+        "shape": "circle",
+        "rect": {
+          "x": 8,
+          "y": 8,
+          "w": 14,
+          "h": 14
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 5
+        },
+        "sitsOn": "panel"
+      },
+      {
+        "key": "screw0-slot",
+        "shape": "pill",
+        "rect": {
+          "x": 10,
+          "y": 14,
+          "w": 10,
+          "h": 2
+        },
+        "profile": {
+          "preset": "inset"
+        },
+        "material": {
+          "slot": 4
+        },
+        "sitsOn": "screw0"
+      },
+      {
+        "key": "screw1",
+        "shape": "circle",
+        "rect": {
+          "x": 218,
+          "y": 8,
+          "w": 14,
+          "h": 14
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 5
+        },
+        "sitsOn": "panel"
+      },
+      {
+        "key": "screw1-slot",
+        "shape": "pill",
+        "rect": {
+          "x": 220,
+          "y": 14,
+          "w": 10,
+          "h": 2
+        },
+        "profile": {
+          "preset": "inset"
+        },
+        "material": {
+          "slot": 4
+        },
+        "sitsOn": "screw1"
+      },
+      {
+        "key": "screw2",
+        "shape": "circle",
+        "rect": {
+          "x": 8,
+          "y": 138,
+          "w": 14,
+          "h": 14
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 5
+        },
+        "sitsOn": "panel"
+      },
+      {
+        "key": "screw2-slot",
+        "shape": "pill",
+        "rect": {
+          "x": 10,
+          "y": 144,
+          "w": 10,
+          "h": 2
+        },
+        "profile": {
+          "preset": "inset"
+        },
+        "material": {
+          "slot": 4
+        },
+        "sitsOn": "screw2"
+      },
+      {
+        "key": "screw3",
+        "shape": "circle",
+        "rect": {
+          "x": 218,
+          "y": 138,
+          "w": 14,
+          "h": 14
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 5
+        },
+        "sitsOn": "panel"
+      },
+      {
+        "key": "screw3-slot",
+        "shape": "pill",
+        "rect": {
+          "x": 220,
+          "y": 144,
+          "w": 10,
+          "h": 2
+        },
+        "profile": {
+          "preset": "inset"
+        },
+        "material": {
+          "slot": 4
+        },
+        "sitsOn": "screw3"
+      }
+    ]
+  },
+  {
+    "id": "display",
+    "category": "cards",
+    "label": "Display",
+    "size": {
+      "w": 160,
+      "h": 64
+    },
+    "parts": [
+      {
+        "key": "window",
+        "shape": "rect",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 160,
+          "h": 64
+        },
+        "profile": {
+          "preset": "inset"
+        },
+        "material": {
+          "slot": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "card-header",
+    "category": "cards",
+    "label": "Card + Header",
+    "size": {
+      "w": 200,
+      "h": 140
+    },
+    "parts": [
+      {
+        "key": "body",
+        "shape": "rounded",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 200,
+          "h": 140
+        },
+        "profile": "pack",
+        "material": {
+          "slot": 0
+        },
+        "main": true,
+        "fallback": {
+          "preset": "raised"
+        }
+      },
+      {
+        "key": "header",
+        "shape": "pill",
+        "rect": {
+          "x": 14,
+          "y": 8,
+          "w": 172,
+          "h": 18
+        },
+        "profile": {
+          "preset": "flat"
+        },
+        "material": {
+          "slot": 5
+        },
+        "sitsOn": "body"
+      }
+    ]
+  }
+]

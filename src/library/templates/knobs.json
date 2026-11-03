@@ -1,0 +1,252 @@
+[
+  {
+    "id": "knob",
+    "category": "knobs",
+    "label": "Knob",
+    "size": {
+      "w": 64,
+      "h": 64
+    },
+    "parts": [
+      {
+        "key": "skirt",
+        "shape": "circle",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64
+        },
+        "profile": {
+          "preset": "raised"
+        },
+        "material": {
+          "slot": 4
+        }
+      },
+      {
+        "key": "cap",
+        "shape": "circle",
+        "rect": {
+          "x": 8,
+          "y": 8,
+          "w": 48,
+          "h": 48
+        },
+        "profile": "pack",
+        "material": {
+          "slot": 0
+        },
+        "main": true,
+        "sitsOn": "skirt",
+        "fallback": {
+          "preset": "dome"
+        }
+      },
+      {
+        "key": "pointer",
+        "shape": "pill",
+        "rect": {
+          "x": 30,
+          "y": 12,
+          "w": 4,
+          "h": 20
+        },
+        "profile": {
+          "preset": "flat"
+        },
+        "material": {
+          "slot": 5
+        },
+        "sitsOn": "cap"
+      }
+    ]
+  },
+  {
+    "id": "knob-dot",
+    "category": "knobs",
+    "label": "Knob Dot",
+    "size": {
+      "w": 64,
+      "h": 64
+    },
+    "parts": [
+      {
+        "key": "skirt",
+        "shape": "circle",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 64
+        },
+        "profile": {
+          "preset": "raised"
+        },
+        "material": {
+          "slot": 4
+        }
+      },
+      {
+        "key": "cap",
+        "shape": "circle",
+        "rect": {
+          "x": 8,
+          "y": 8,
+          "w": 48,
+          "h": 48
+        },
+        "profile": "pack",
+        "material": {
+          "slot": 0
+        },
+        "main": true,
+        "sitsOn": "skirt",
+        "fallback": {
+          "preset": "dome"
+        }
+      },
+      {
+        "key": "pointer",
+        "shape": "circle",
+        "rect": {
+          "x": 16,
+          "y": 17,
+          "w": 7,
+          "h": 7
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 5
+        },
+        "sitsOn": "cap"
+      }
+    ]
+  },
+  {
+    "id": "knob-scale",
+    "category": "knobs",
+    "label": "Knob + Scale",
+    "size": {
+      "w": 120,
+      "h": 120
+    },
+    "parts": [
+      {
+        "key": "scale",
+        "generate": "ring",
+        "count": 11,
+        "startDeg": 135,
+        "sweepDeg": 270,
+        "radius": 0.62,
+        "size": 0.035,
+        "shape": "circle",
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 5
+        }
+      },
+      {
+        "key": "skirt",
+        "shape": "circle",
+        "rect": {
+          "x": 28,
+          "y": 28,
+          "w": 64,
+          "h": 64
+        },
+        "profile": {
+          "preset": "raised"
+        },
+        "material": {
+          "slot": 4
+        }
+      },
+      {
+        "key": "cap",
+        "shape": "circle",
+        "rect": {
+          "x": 36,
+          "y": 36,
+          "w": 48,
+          "h": 48
+        },
+        "profile": "pack",
+        "material": {
+          "slot": 0
+        },
+        "main": true,
+        "sitsOn": "skirt",
+        "fallback": {
+          "preset": "dome"
+        }
+      },
+      {
+        "key": "pointer",
+        "shape": "pill",
+        "rect": {
+          "x": 58,
+          "y": 40,
+          "w": 4,
+          "h": 20
+        },
+        "profile": {
+          "preset": "flat"
+        },
+        "material": {
+          "slot": 5
+        },
+        "sitsOn": "cap"
+      }
+    ]
+  },
+  {
+    "id": "flat-knob",
+    "category": "knobs",
+    "label": "Flat Knob",
+    "size": {
+      "w": 56,
+      "h": 56
+    },
+    "parts": [
+      {
+        "key": "body",
+        "shape": "circle",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 56,
+          "h": 56
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 0
+        },
+        "main": true
+      },
+      {
+        "key": "pointer",
+        "shape": "pill",
+        "rect": {
+          "x": 26,
+          "y": 5,
+          "w": 4,
+          "h": 16
+        },
+        "profile": {
+          "preset": "flat"
+        },
+        "material": {
+          "slot": 5
+        },
+        "sitsOn": "body"
+      }
+    ]
+  }
+]

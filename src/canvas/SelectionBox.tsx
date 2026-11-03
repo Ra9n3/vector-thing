@@ -3,8 +3,12 @@ import { boundsOf } from '../geometry/bounds';
 import type { HandleId } from '../geometry/bounds';
 import { shapePath } from '../geometry/shapePath';
 import { useStore } from '../store';
-import { ACCENT } from '../theme';
+import { isLightColor, selectionColor } from '../render/contrast';
 import { useViewport } from './useViewport';
+import { leavesOf, belongsTo } from '../selection/targets';
+import { GroupOutline } from './GroupOutline';
+import type { StackOptions } from '../render/stack';
+import { displayedElement } from '../render/stack';
 
 export interface ScreenRect {
   x: number;
@@ -28,35 +32,36 @@ const HANDLE = 8; // visible size, px
 const HIT = 16; // hit size, px
 
 // Drawn in screen space, so sizes and strokes never change with zoom.
-export function SelectionBox({ marquee }: { marquee: ScreenRect | null }) {
+export function SelectionBox({ marquee, stackOptions }: { marquee: ScreenRect | null; stackOptions:StackOptions }) {
   const mode = useStore((s) => s.mode);
+  const background = useStore((s) => s.canvasBackground);
+  const accent = selectionColor(background);
   const elements = useStore((s) => s.elements);
   const selection = useStore((s) => s.selection);
+  const groups = useStore((s) => s.groups);
+  const hoveredId = useStore((s) => s.hoveredId);
+  const look = useStore((s) => s.look), direction = useStore((s) => s.direction);
   const zoom = useViewport((s) => s.zoom);
   const panX = useViewport((s) => s.panX);
   const panY = useViewport((s) => s.panY);
 
   const selected = useMemo(() => {
-    const set = new Set(selection);
-    return elements.filter((e) => set.has(e.id));
-  }, [elements, selection]);
+    return leavesOf(selection,elements,groups).map(e=>displayedElement(e,elements,look,direction,stackOptions));
+  }, [elements, selection, groups, look, direction, stackOptions]);
 
   if (mode === 'side') return null;
   const b = boundsOf(selected);
 
   return (
     <g pointerEvents="none">
-      {selected.map((e) => (
-        <path
-          key={e.id}
-          d={shapePath(e.type, e.width, e.height)}
-          transform={`translate(${panX + e.x * zoom} ${panY + e.y * zoom}) scale(${zoom})`}
-          fill="none"
-          stroke={ACCENT}
-          strokeWidth={1.5}
-          vectorEffect="non-scaling-stroke"
-        />
-      ))}
+      {selected.map((e) => {
+        const dashed = selection.some(id => groups.some(g=>g.id===id) && belongsTo(e.id,id,elements,groups));
+        return dashed ? <GroupOutline key={e.id} element={e} panX={panX} panY={panY} zoom={zoom} accent={accent} dashed /> : <g key={e.id}>
+          <path d={shapePath(e.type,e.width,e.height)} transform={`translate(${panX+e.x*zoom} ${panY+e.y*zoom}) scale(${zoom})`} fill="none" stroke={isLightColor(background)?'#fff':'#16171a'} strokeWidth={3.5} vectorEffect="non-scaling-stroke" />
+          <GroupOutline element={e} panX={panX} panY={panY} zoom={zoom} accent={accent}/>
+        </g>;
+      })}
+      {hoveredId && (() => { const raw=elements.find(e=>e.id===hoveredId); const el=raw && displayedElement(raw,elements,look,direction,stackOptions); return el ? <GroupOutline element={el} panX={panX} panY={panY} zoom={zoom} accent={accent} hover/> : null; })()}
 
       {b && (() => {
         const sx = panX + b.x * zoom;
@@ -71,7 +76,7 @@ export function SelectionBox({ marquee }: { marquee: ScreenRect | null }) {
               width={sw}
               height={sh}
               fill="none"
-              stroke={ACCENT}
+              stroke={accent}
               strokeWidth={1}
               strokeOpacity={0.7}
               strokeDasharray={selected.length > 1 ? '4 3' : undefined}
@@ -98,7 +103,7 @@ export function SelectionBox({ marquee }: { marquee: ScreenRect | null }) {
                     height={HANDLE}
                     rx={2}
                     fill="#fff"
-                    stroke={ACCENT}
+                    stroke={accent}
                     strokeWidth={1.5}
                   />
                 </g>
@@ -114,9 +119,9 @@ export function SelectionBox({ marquee }: { marquee: ScreenRect | null }) {
           y={marquee.y}
           width={marquee.w}
           height={marquee.h}
-          fill={ACCENT}
+          fill={accent}
           fillOpacity={0.12}
-          stroke={ACCENT}
+          stroke={accent}
           strokeWidth={1}
         />
       )}

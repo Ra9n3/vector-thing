@@ -1,0 +1,81 @@
+{
+  "elements": [
+    {
+      "id": "glass-0",
+      "type": "rounded",
+      "state": "default",
+      "pressable": true,
+      "x": -80,
+      "y": -55,
+      "width": 150,
+      "height": 150,
+      "props": {
+        "profile": {
+          "preset": "pillow",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "softness": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "brushed-steel"
+      },
+      "materialSlot": null
+    },
+    {
+      "id": "glass-1",
+      "type": "circle",
+      "state": "default",
+      "pressable": true,
+      "x": -20,
+      "y": -30,
+      "width": 140,
+      "height": 140,
+      "props": {
+        "profile": {
+          "preset": "pillow",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "softness": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "glass"
+      },
+      "materialSlot": null
+    },
+    {
+      "id": "glass-2",
+      "type": "circle",
+      "state": "default",
+      "pressable": true,
+      "x": 40,
+      "y": -5,
+      "width": 36,
+      "height": 36,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "led-orange"
+      },
+      "materialSlot": null
+    }
+  ],
+  "groups": [],
+  "styleId": "glossy-mobile",
+  "look": "slight",
+  "direction": "s",
+  "selection": []
+}

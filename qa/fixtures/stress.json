@@ -1,0 +1,1545 @@
+{
+  "elements": [
+    {
+      "id": "stress-0",
+      "type": "rect",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-0",
+      "x": -377,
+      "y": -200,
+      "width": 52,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "flat",
+          "height": 0.5,
+          "wall": 1,
+          "params": {},
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "materialSlot": 0
+    },
+    {
+      "id": "stress-1",
+      "type": "rounded",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-0",
+      "x": -295.5,
+      "y": -202.5,
+      "width": 45,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-red"
+      },
+      "materialSlot": 1
+    },
+    {
+      "id": "stress-2",
+      "type": "circle",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-0",
+      "x": -220,
+      "y": -205,
+      "width": 50,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "pillow",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "softness": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-green"
+      },
+      "materialSlot": 2
+    },
+    {
+      "id": "stress-3",
+      "type": "pill",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-0",
+      "x": -144.5,
+      "y": -207.5,
+      "width": 55,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "dip",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "depth": 0.65,
+            "width": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-blue"
+      },
+      "materialSlot": 3
+    },
+    {
+      "id": "stress-4",
+      "type": "hexagon",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-0",
+      "x": -62.09401076758503,
+      "y": -200,
+      "width": 46.188021535170066,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "ribbed",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "count": 0.25,
+            "depth": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "materialSlot": 4
+    },
+    {
+      "id": "stress-5",
+      "type": "rect",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-1",
+      "x": 10.5,
+      "y": -202.5,
+      "width": 57,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "materialSlot": 5
+    },
+    {
+      "id": "stress-6",
+      "type": "rounded",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-1",
+      "x": 92,
+      "y": -205,
+      "width": 50,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "materialSlot": 0
+    },
+    {
+      "id": "stress-7",
+      "type": "circle",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-1",
+      "x": 167.5,
+      "y": -207.5,
+      "width": 55,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "flat",
+          "height": 0.5,
+          "wall": 1,
+          "params": {},
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-red"
+      },
+      "materialSlot": 1
+    },
+    {
+      "id": "stress-8",
+      "type": "pill",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-1",
+      "x": 253,
+      "y": -200,
+      "width": 40,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-green"
+      },
+      "materialSlot": 2
+    },
+    {
+      "id": "stress-9",
+      "type": "hexagon",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-1",
+      "x": 325.01923788646684,
+      "y": -202.5,
+      "width": 51.96152422706632,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "pillow",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "softness": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-blue"
+      },
+      "materialSlot": 3
+    },
+    {
+      "id": "stress-10",
+      "type": "rect",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-2",
+      "x": -382,
+      "y": -133,
+      "width": 62,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "dip",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "depth": 0.65,
+            "width": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "materialSlot": 4
+    },
+    {
+      "id": "stress-11",
+      "type": "rounded",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-2",
+      "x": -300.5,
+      "y": -135.5,
+      "width": 55,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "ribbed",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "count": 0.25,
+            "depth": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "materialSlot": 5
+    },
+    {
+      "id": "stress-12",
+      "type": "circle",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-2",
+      "x": -215,
+      "y": -128,
+      "width": 40,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "materialSlot": 0
+    },
+    {
+      "id": "stress-13",
+      "type": "pill",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-2",
+      "x": -139.5,
+      "y": -130.5,
+      "width": 45,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-red"
+      },
+      "materialSlot": 1
+    },
+    {
+      "id": "stress-14",
+      "type": "hexagon",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-2",
+      "x": -67.86751345948129,
+      "y": -133,
+      "width": 57.73502691896258,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "flat",
+          "height": 0.5,
+          "wall": 1,
+          "params": {},
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-green"
+      },
+      "materialSlot": 2
+    },
+    {
+      "id": "stress-15",
+      "type": "rect",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-3",
+      "x": 5.5,
+      "y": -135.5,
+      "width": 67,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-blue"
+      },
+      "materialSlot": 3
+    },
+    {
+      "id": "stress-16",
+      "type": "rounded",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-3",
+      "x": 97,
+      "y": -128,
+      "width": 40,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "pillow",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "softness": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "materialSlot": 4
+    },
+    {
+      "id": "stress-17",
+      "type": "circle",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-3",
+      "x": 172.5,
+      "y": -130.5,
+      "width": 45,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "dip",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "depth": 0.65,
+            "width": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "materialSlot": 5
+    },
+    {
+      "id": "stress-18",
+      "type": "pill",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-3",
+      "x": 248,
+      "y": -133,
+      "width": 50,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "ribbed",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "count": 0.25,
+            "depth": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "materialSlot": 0
+    },
+    {
+      "id": "stress-19",
+      "type": "hexagon",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-3",
+      "x": 319.24573519457056,
+      "y": -135.5,
+      "width": 63.50852961085884,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-red"
+      },
+      "materialSlot": 1
+    },
+    {
+      "id": "stress-20",
+      "type": "rect",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-4",
+      "x": -377,
+      "y": -56,
+      "width": 52,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-green"
+      },
+      "materialSlot": 2
+    },
+    {
+      "id": "stress-21",
+      "type": "rounded",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-4",
+      "x": -295.5,
+      "y": -58.5,
+      "width": 45,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "flat",
+          "height": 0.5,
+          "wall": 1,
+          "params": {},
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-blue"
+      },
+      "materialSlot": 3
+    },
+    {
+      "id": "stress-22",
+      "type": "circle",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-4",
+      "x": -220,
+      "y": -61,
+      "width": 50,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "materialSlot": 4
+    },
+    {
+      "id": "stress-23",
+      "type": "pill",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-4",
+      "x": -144.5,
+      "y": -63.5,
+      "width": 55,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "pillow",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "softness": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "materialSlot": 5
+    },
+    {
+      "id": "stress-24",
+      "type": "hexagon",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-4",
+      "x": -62.09401076758503,
+      "y": -56,
+      "width": 46.188021535170066,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "dip",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "depth": 0.65,
+            "width": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "materialSlot": 0
+    },
+    {
+      "id": "stress-25",
+      "type": "rect",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-5",
+      "x": 10.5,
+      "y": -58.5,
+      "width": 57,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "ribbed",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "count": 0.25,
+            "depth": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-red"
+      },
+      "materialSlot": 1
+    },
+    {
+      "id": "stress-26",
+      "type": "rounded",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-5",
+      "x": 92,
+      "y": -61,
+      "width": 50,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-green"
+      },
+      "materialSlot": 2
+    },
+    {
+      "id": "stress-27",
+      "type": "circle",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-5",
+      "x": 167.5,
+      "y": -63.5,
+      "width": 55,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-blue"
+      },
+      "materialSlot": 3
+    },
+    {
+      "id": "stress-28",
+      "type": "pill",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-5",
+      "x": 253,
+      "y": -56,
+      "width": 40,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "flat",
+          "height": 0.5,
+          "wall": 1,
+          "params": {},
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "materialSlot": 4
+    },
+    {
+      "id": "stress-29",
+      "type": "hexagon",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-5",
+      "x": 325.01923788646684,
+      "y": -58.5,
+      "width": 51.96152422706632,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "materialSlot": 5
+    },
+    {
+      "id": "stress-30",
+      "type": "rect",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-6",
+      "x": -382,
+      "y": 11,
+      "width": 62,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "pillow",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "softness": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "materialSlot": 0
+    },
+    {
+      "id": "stress-31",
+      "type": "rounded",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-6",
+      "x": -300.5,
+      "y": 8.5,
+      "width": 55,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "dip",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "depth": 0.65,
+            "width": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-red"
+      },
+      "materialSlot": 1
+    },
+    {
+      "id": "stress-32",
+      "type": "circle",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-6",
+      "x": -215,
+      "y": 16,
+      "width": 40,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "ribbed",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "count": 0.25,
+            "depth": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-green"
+      },
+      "materialSlot": 2
+    },
+    {
+      "id": "stress-33",
+      "type": "pill",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-6",
+      "x": -139.5,
+      "y": 13.5,
+      "width": 45,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-blue"
+      },
+      "materialSlot": 3
+    },
+    {
+      "id": "stress-34",
+      "type": "hexagon",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-6",
+      "x": -67.86751345948129,
+      "y": 11,
+      "width": 57.73502691896258,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "materialSlot": 4
+    },
+    {
+      "id": "stress-35",
+      "type": "rect",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-7",
+      "x": 5.5,
+      "y": 8.5,
+      "width": 67,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "flat",
+          "height": 0.5,
+          "wall": 1,
+          "params": {},
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "materialSlot": 5
+    },
+    {
+      "id": "stress-36",
+      "type": "rounded",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-7",
+      "x": 97,
+      "y": 16,
+      "width": 40,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "materialSlot": 0
+    },
+    {
+      "id": "stress-37",
+      "type": "circle",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-7",
+      "x": 172.5,
+      "y": 13.5,
+      "width": 45,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "pillow",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "softness": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-red"
+      },
+      "materialSlot": 1
+    },
+    {
+      "id": "stress-38",
+      "type": "pill",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-7",
+      "x": 248,
+      "y": 11,
+      "width": 50,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "dip",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "depth": 0.65,
+            "width": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-green"
+      },
+      "materialSlot": 2
+    },
+    {
+      "id": "stress-39",
+      "type": "hexagon",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-7",
+      "x": 319.24573519457056,
+      "y": 8.5,
+      "width": 63.50852961085884,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "ribbed",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "count": 0.25,
+            "depth": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-blue"
+      },
+      "materialSlot": 3
+    },
+    {
+      "id": "stress-40",
+      "type": "rect",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-8",
+      "x": -377,
+      "y": 88,
+      "width": 52,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "materialSlot": 4
+    },
+    {
+      "id": "stress-41",
+      "type": "rounded",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-8",
+      "x": -295.5,
+      "y": 85.5,
+      "width": 45,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "materialSlot": 5
+    },
+    {
+      "id": "stress-42",
+      "type": "circle",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-8",
+      "x": -220,
+      "y": 83,
+      "width": 50,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "flat",
+          "height": 0.5,
+          "wall": 1,
+          "params": {},
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "materialSlot": 0
+    },
+    {
+      "id": "stress-43",
+      "type": "pill",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-8",
+      "x": -144.5,
+      "y": 80.5,
+      "width": 55,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-red"
+      },
+      "materialSlot": 1
+    },
+    {
+      "id": "stress-44",
+      "type": "hexagon",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-8",
+      "x": -62.09401076758503,
+      "y": 88,
+      "width": 46.188021535170066,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "pillow",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "softness": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-green"
+      },
+      "materialSlot": 2
+    },
+    {
+      "id": "stress-45",
+      "type": "rect",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-9",
+      "x": 10.5,
+      "y": 85.5,
+      "width": 57,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "dip",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "depth": 0.65,
+            "width": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-blue"
+      },
+      "materialSlot": 3
+    },
+    {
+      "id": "stress-46",
+      "type": "rounded",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-9",
+      "x": 92,
+      "y": 83,
+      "width": 50,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "ribbed",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "count": 0.25,
+            "depth": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "materialSlot": 4
+    },
+    {
+      "id": "stress-47",
+      "type": "circle",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-9",
+      "x": 167.5,
+      "y": 80.5,
+      "width": 55,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "materialSlot": 5
+    },
+    {
+      "id": "stress-48",
+      "type": "pill",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-9",
+      "x": 253,
+      "y": 88,
+      "width": 40,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "materialSlot": 0
+    },
+    {
+      "id": "stress-49",
+      "type": "hexagon",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-9",
+      "x": 325.01923788646684,
+      "y": 85.5,
+      "width": 51.96152422706632,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "flat",
+          "height": 0.5,
+          "wall": 1,
+          "params": {},
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-red"
+      },
+      "materialSlot": 1
+    },
+    {
+      "id": "stress-50",
+      "type": "rect",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-10",
+      "x": -382,
+      "y": 155,
+      "width": 62,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-green"
+      },
+      "materialSlot": 2
+    },
+    {
+      "id": "stress-51",
+      "type": "rounded",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-10",
+      "x": -300.5,
+      "y": 152.5,
+      "width": 55,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "pillow",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "softness": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-blue"
+      },
+      "materialSlot": 3
+    },
+    {
+      "id": "stress-52",
+      "type": "circle",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-10",
+      "x": -215,
+      "y": 160,
+      "width": 40,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "dip",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "depth": 0.65,
+            "width": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "materialSlot": 4
+    },
+    {
+      "id": "stress-53",
+      "type": "pill",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-10",
+      "x": -139.5,
+      "y": 157.5,
+      "width": 45,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "ribbed",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "count": 0.25,
+            "depth": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "materialSlot": 5
+    },
+    {
+      "id": "stress-54",
+      "type": "hexagon",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-10",
+      "x": -67.86751345948129,
+      "y": 155,
+      "width": 57.73502691896258,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "materialSlot": 0
+    },
+    {
+      "id": "stress-55",
+      "type": "rect",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-11",
+      "x": 5.5,
+      "y": 152.5,
+      "width": 67,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-red"
+      },
+      "materialSlot": 1
+    },
+    {
+      "id": "stress-56",
+      "type": "rounded",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-11",
+      "x": 97,
+      "y": 160,
+      "width": 40,
+      "height": 40,
+      "props": {
+        "profile": {
+          "preset": "flat",
+          "height": 0.5,
+          "wall": 1,
+          "params": {},
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-green"
+      },
+      "materialSlot": 2
+    },
+    {
+      "id": "stress-57",
+      "type": "circle",
+      "state": "default",
+      "pressable": true,
+      "groupId": "g-11",
+      "x": 172.5,
+      "y": 157.5,
+      "width": 45,
+      "height": 45,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-blue"
+      },
+      "materialSlot": 3
+    },
+    {
+      "id": "stress-58",
+      "type": "pill",
+      "state": "pressed",
+      "pressable": true,
+      "groupId": "g-11",
+      "x": 248,
+      "y": 155,
+      "width": 50,
+      "height": 50,
+      "props": {
+        "profile": {
+          "preset": "pillow",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "softness": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "materialSlot": 4
+    },
+    {
+      "id": "stress-59",
+      "type": "hexagon",
+      "state": "disabled",
+      "pressable": true,
+      "groupId": "g-11",
+      "x": 319.24573519457056,
+      "y": 152.5,
+      "width": 63.50852961085884,
+      "height": 55,
+      "props": {
+        "profile": {
+          "preset": "dip",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "depth": 0.65,
+            "width": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "materialSlot": 5
+    }
+  ],
+  "groups": [
+    {
+      "id": "g-0"
+    },
+    {
+      "id": "g-1"
+    },
+    {
+      "id": "g-2"
+    },
+    {
+      "id": "g-3"
+    },
+    {
+      "id": "g-4"
+    },
+    {
+      "id": "g-5"
+    },
+    {
+      "id": "g-6"
+    },
+    {
+      "id": "g-7"
+    },
+    {
+      "id": "g-8"
+    },
+    {
+      "id": "g-9"
+    },
+    {
+      "id": "g-10"
+    },
+    {
+      "id": "g-11"
+    }
+  ],
+  "styleId": "studio-hardware",
+  "look": "slight",
+  "direction": "s",
+  "selection": []
+}

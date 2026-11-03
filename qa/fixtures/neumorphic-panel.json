@@ -1,0 +1,149 @@
+{
+  "elements": [
+    {
+      "id": "part-0",
+      "type": "rounded",
+      "state": "default",
+      "pressable": false,
+      "x": -160,
+      "y": -112,
+      "width": 320,
+      "height": 224,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "neumo-1"
+      },
+      "partKey": "body",
+      "main": true,
+      "materialSlot": 0
+    },
+    {
+      "id": "part-1",
+      "type": "rounded",
+      "state": "default",
+      "pressable": true,
+      "x": -118.4,
+      "y": -69,
+      "width": 76.8,
+      "height": 48,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "neumo-1"
+      },
+      "partKey": "body",
+      "main": true,
+      "materialSlot": 0
+    },
+    {
+      "id": "part-3",
+      "type": "rounded",
+      "state": "pressed",
+      "pressable": true,
+      "x": 31.200000000000003,
+      "y": -73.8,
+      "width": 57.599999999999994,
+      "height": 57.599999999999994,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "neumo-1"
+      },
+      "partKey": "body",
+      "main": true,
+      "materialSlot": 0,
+      "groupId": "part-2"
+    },
+    {
+      "id": "part-4",
+      "type": "circle",
+      "state": "pressed",
+      "pressable": false,
+      "x": 55.2,
+      "y": -33,
+      "width": 9.6,
+      "height": 9.6,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "led-orange"
+      },
+      "partKey": "led",
+      "main": false,
+      "materialSlot": null,
+      "groupId": "part-2",
+      "sitsOn": "part-3"
+    },
+    {
+      "id": "part-5",
+      "type": "rect",
+      "state": "default",
+      "pressable": false,
+      "x": -80,
+      "y": 13,
+      "width": 160,
+      "height": 64,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "neumo-5"
+      },
+      "partKey": "window",
+      "main": false,
+      "materialSlot": 4
+    }
+  ],
+  "groups": [
+    {
+      "id": "part-2",
+      "template": {
+        "id": "square-button"
+      }
+    }
+  ],
+  "styleId": "neumorphic",
+  "look": "slight",
+  "direction": "s",
+  "selection": []
+}

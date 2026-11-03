@@ -1,0 +1,183 @@
+[
+  {
+    "id": "studio-hardware",
+    "label": "Studio Hardware",
+    "canvasBackground": "#25262a",
+    "palette": [
+      "speckle-grey",
+      "plastic-red",
+      "plastic-green",
+      "plastic-blue",
+      "plastic-black",
+      "plastic-white"
+    ],
+    "look": "slight",
+    "direction": "s",
+    "defaultProfile": {
+      "knobs": "dome",
+      "faders": "dip",
+      "buttons": "raised"
+    },
+    "shadow": {
+      "color": "#000000",
+      "strength": 0.6
+    },
+    "goodDirections": [
+      "s",
+      "se",
+      "e"
+    ],
+    "pressMode": "lower"
+  },
+  {
+    "id": "soft-clay",
+    "label": "Soft Clay",
+    "canvasBackground": "#eee5dc",
+    "palette": [
+      {
+        "base": "clay",
+        "id": "clay-sand",
+        "color": "#d9b9a8"
+      },
+      {
+        "base": "clay",
+        "id": "clay-rose",
+        "color": "#d99e9d"
+      },
+      {
+        "base": "clay",
+        "id": "clay-sage",
+        "color": "#aebda8"
+      },
+      {
+        "base": "clay",
+        "id": "clay-blue",
+        "color": "#aabfc9"
+      },
+      {
+        "base": "clay",
+        "id": "clay-lavender",
+        "color": "#c3b4c9"
+      },
+      {
+        "base": "clay",
+        "id": "clay-cream",
+        "color": "#e4d5bb"
+      }
+    ],
+    "look": "slight",
+    "direction": "se",
+    "defaultProfile": {
+      "buttons": "pillow",
+      "knobs": "pillow",
+      "faders": "pillow",
+      "toggles": "pillow",
+      "cards": "pillow",
+      "badges": "pillow"
+    },
+    "shadow": {
+      "color": "#6f4c3b",
+      "strength": 0.35
+    },
+    "goodDirections": [
+      "se",
+      "s",
+      "e"
+    ],
+    "pressMode": "lower"
+  },
+  {
+    "id": "glossy-mobile",
+    "label": "Glossy Mobile",
+    "canvasBackground": "#66798a",
+    "palette": [
+      "glass",
+      "plastic-red",
+      "plastic-green",
+      "plastic-blue",
+      "metal-gold",
+      "plastic-white"
+    ],
+    "look": "strong",
+    "direction": "s",
+    "defaultProfile": {
+      "knobs": "dome",
+      "faders": "dome",
+      "buttons": "raised",
+      "toggles": "raised",
+      "cards": "raised",
+      "badges": "dome"
+    },
+    "shadow": {
+      "color": "#101d30",
+      "strength": 0.5
+    },
+    "goodDirections": [
+      "s",
+      "se",
+      "sw"
+    ],
+    "pressMode": "lower"
+  },
+  {
+    "id": "neumorphic",
+    "label": "Neumorphic",
+    "canvasBackground": "#e2e6ed",
+    "palette": [
+      {
+        "base": "clay",
+        "id": "neumo-1",
+        "color": "#d1d7e1"
+      },
+      {
+        "base": "clay",
+        "id": "neumo-2",
+        "color": "#c7d0de"
+      },
+      {
+        "base": "clay",
+        "id": "neumo-3",
+        "color": "#d8dee7"
+      },
+      {
+        "base": "clay",
+        "id": "neumo-4",
+        "color": "#bac5d5"
+      },
+      {
+        "base": "clay",
+        "id": "neumo-5",
+        "color": "#aebaca"
+      },
+      {
+        "base": "clay",
+        "id": "neumo-6",
+        "color": "#e5e9ef"
+      }
+    ],
+    "look": "slight",
+    "direction": "se",
+    "defaultProfile": {
+      "knobs": "raised",
+      "faders": "inset",
+      "buttons": "raised",
+      "toggles": "inset",
+      "cards": "raised",
+      "badges": "raised"
+    },
+    "shadow": {
+      "color": "#75869e",
+      "strength": 0.35
+    },
+    "highlightShadow": {
+      "color": "#ffffff",
+      "strength": 0.8
+    },
+    "goodDirections": [
+      "se",
+      "s",
+      "e"
+    ],
+    "pressMode": "inset"
+  }
+]

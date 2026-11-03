@@ -1,0 +1,170 @@
+[
+  {
+    "id": "toggle",
+    "category": "toggles",
+    "label": "Toggle",
+    "size": {
+      "w": 56,
+      "h": 28
+    },
+    "parts": [
+      {
+        "key": "track",
+        "shape": "pill",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 56,
+          "h": 28
+        },
+        "profile": {
+          "preset": "inset"
+        },
+        "material": {
+          "slot": 4
+        },
+        "states": {
+          "pressed": {
+            "material": {
+              "slot": 2
+            }
+          }
+        }
+      },
+      {
+        "key": "thumb",
+        "shape": "circle",
+        "rect": {
+          "x": 3,
+          "y": 3,
+          "w": 22,
+          "h": 22
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 0
+        },
+        "main": true,
+        "states": {
+          "pressed": {
+            "offset": {
+              "x": 28,
+              "y": 0
+            }
+          }
+        },
+        "sitsOn": "track"
+      }
+    ]
+  },
+  {
+    "id": "rocker",
+    "category": "toggles",
+    "label": "Rocker",
+    "size": {
+      "w": 40,
+      "h": 56
+    },
+    "parts": [
+      {
+        "key": "body",
+        "shape": "rect",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 56
+        },
+        "profile": {
+          "preset": "pillow"
+        },
+        "material": {
+          "slot": 0
+        },
+        "main": true,
+        "pressable": true
+      }
+    ]
+  },
+  {
+    "id": "checkbox",
+    "category": "toggles",
+    "label": "Checkbox",
+    "size": {
+      "w": 28,
+      "h": 28
+    },
+    "parts": [
+      {
+        "key": "body",
+        "shape": "rounded",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 28
+        },
+        "profile": {
+          "preset": "inset"
+        },
+        "material": {
+          "slot": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "radio",
+    "category": "toggles",
+    "label": "Radio",
+    "size": {
+      "w": 28,
+      "h": 28
+    },
+    "parts": [
+      {
+        "key": "rim",
+        "shape": "circle",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 28
+        },
+        "profile": {
+          "preset": "inset"
+        },
+        "material": {
+          "slot": 5
+        },
+        "main": true
+      },
+      {
+        "key": "dot",
+        "shape": "circle",
+        "rect": {
+          "x": 8,
+          "y": 8,
+          "w": 12,
+          "h": 12
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 0
+        },
+        "main": false,
+        "states": {
+          "disabled": {
+            "material": {
+              "slot": 5
+            }
+          }
+        }
+      }
+    ]
+  }
+]
