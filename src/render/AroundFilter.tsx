@@ -9,7 +9,7 @@ import { surfaceMaterial } from './shade';
 import type { Material } from '../materials/types';
 
 interface GeometryProps { id: string; type: ShapeType; width: number; height: number; profile: ResolvedProfile; geometryKey: string }
-interface FilterProps extends Omit<GeometryProps, 'type' | 'geometryKey'> { mapId: string; material: Material; relief: number; filterScale?:number }
+interface FilterProps extends Omit<GeometryProps, 'geometryKey'> { material: Material; relief: number; filterScale?:number }
 const gray = (n: number) => `rgb(${n * 100}%, ${n * 100}%, ${n * 100}%)`;
 
 /** Geometry is independent of material and remains mounted across style changes. */
@@ -26,14 +26,30 @@ export const AroundHeightmap = memo(function AroundHeightmap({ id, type, width, 
   </>;
 }, (a, b) => a.id === b.id && a.geometryKey === b.geometryKey);
 
-export function AroundFilter({ id, mapId, width, height, profile, material, relief, filterScale=1 }: FilterProps) {
+// Firefox does not render local fragment references in feImage. Embed the same geometry as an image.
+const embeddedMaps = new Map<string,string>();
+function embeddedHeightmap(type:ShapeType, width:number, height:number, profile:ResolvedProfile):string {
+  const key=JSON.stringify([type,width,height,profile]);
+  const cached=embeddedMaps.get(key);
+  if(cached) return cached;
+  const map=aroundHeightmap(type,width,height,profile), pad=map.padding;
+  const w=width+2*pad,h=height+2*pad;
+  const rings=map.rings.map(r=>`<path d="${r.path}" fill="${gray(r.gray)}"/>`).join('');
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect width="${w}" height="${h}" fill="${gray(map.edgeGray)}"/><g transform="translate(${pad} ${pad})">${rings}</g></svg>`;
+  const uri=`data:image/svg+xml;base64,${btoa(svg)}`;
+  embeddedMaps.set(key,uri);
+  if(embeddedMaps.size>256) embeddedMaps.delete(embeddedMaps.keys().next().value!);
+  return uri;
+}
+
+export function AroundFilter({ id, type, width, height, profile, material, relief, filterScale=1 }: FilterProps) {
   const pad = HEIGHTMAP_PADDING;
   const pitch = heightmapPitch(width, height);
   const light = <feDistantLight azimuth={LIGHT_AZIMUTH} elevation={LIGHT_ELEVATION} />;
   const params = filterParams(material);
   return <filter id={id} x={-pad} y={-pad} width={width + 2 * pad} height={height + 2 * pad}
     filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-    <feImage href={`#${mapId}`} x={-pad} y={-pad} width={width + 2 * pad} height={height + 2 * pad} preserveAspectRatio="none" result="map" />
+    <feImage href={embeddedHeightmap(type,width,height,profile)} x={-pad} y={-pad} width={width + 2 * pad} height={height + 2 * pad} preserveAspectRatio="none" result="map" />
     <feGaussianBlur in="map" stdDeviation={0.75 * pitch} result="smooth" />
     <feColorMatrix in="smooth" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0" result="height" />
     {/* Chromium transforms surfaceScale with the SVG; multiplying by zoom/DPR exaggerates the drift. */}

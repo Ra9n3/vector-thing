@@ -30,7 +30,7 @@ const Definition = memo(function Definition({ id, spec, mapId, filterScale=1 }: 
     if (counts) counts[id] = (counts[id] ?? 0) + 1;
   }
   const { width, height, profile, mode, axis, material } = spec;
-  if (mode === 'around') return <AroundFilter id={id} mapId={mapId!} width={width} height={height} profile={profile} material={material} relief={spec.relief} filterScale={filterScale} />;
+  if (mode === 'around') return <AroundFilter id={id} type={spec.type} width={width} height={height} profile={profile} material={material} relief={spec.relief} filterScale={filterScale} />;
   const stops = acrossStops(profile, material, axis === 'vertical' ? height : width, spec.relief, axis);
   return <linearGradient id={id} x1="0" y1="0" x2={axis === 'horizontal' ? '1' : '0'} y2={axis === 'vertical' ? '1' : '0'}>
     {stops.map((stop, i) => <stop key={i} offset={stop.offset} stopColor={stop.color} />)}

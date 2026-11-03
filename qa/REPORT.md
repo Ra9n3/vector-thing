@@ -306,3 +306,9 @@
 [visual] [WebKit] @zoom neumorphic-panel 4x dpr2 → <1% vs 0.02 changed-pixel ratio (14410 pixels) → unfinished
 [visual] [WebKit] @zoom glass-glow 4x dpr1 → <1% vs 0.05 changed-pixel ratio (32547 pixels) → unfinished
 [visual] [WebKit] @zoom glass-glow 4x dpr2 → <1% vs 0.10 changed-pixel ratio (73700 pixels) → unfinished
+
+[memory] [Chromium dev] 100→300 cycles, strong-edge dominators → native PerformanceMeasure +357683 instances/+43305880 retained bytes; native Performance +43232768; blink::UserTiming +43231776 → unfinished
+[memory] [Chromium dev] retained constructor totals overlap; full top 50 → qa/memory-retained-round3.json → measured
+[memory] [Chromium dev] 20 place/delete cycles after clearing timing entries → 35823 PerformanceMeasure entries; top Insertion6 10684, MuiButtonBaseRoot 2416, ButtonBase2 1832 → measured
+[visual] [Firefox] shape-grid and glass-glow embedded height-map diagnostic → lighting visible with data SVG vs flat with fragment reference → workaround under test
+[visual] [WebKit] glass-glow embedded height-map diagnostic → no apparent improvement vs fragment reference → unfinished
