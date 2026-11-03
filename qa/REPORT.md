@@ -312,3 +312,5 @@
 [memory] [Chromium dev] 20 place/delete cycles after clearing timing entries → 35823 PerformanceMeasure entries; top Insertion6 10684, MuiButtonBaseRoot 2416, ButtonBase2 1832 → measured
 [visual] [Firefox] shape-grid and glass-glow embedded height-map diagnostic → lighting visible with data SVG vs flat with fragment reference → workaround under test
 [visual] [WebKit] glass-glow embedded height-map diagnostic → no apparent improvement vs fragment reference → unfinished
+[visual] [WebKit] glass-glow 400% diagnostic surfaceScale ×1/×2/×4 → ×4 visually closer to Chromium vs ×1 → workaround not yet validated at other zooms/DPRs; unfinished
+[visual] [Firefox] glass-glow 400% embedded height map → lighting visible vs flat fragment reference → full suite pending
