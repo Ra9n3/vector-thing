@@ -314,3 +314,6 @@
 [visual] [WebKit] glass-glow embedded height-map diagnostic → no apparent improvement vs fragment reference → unfinished
 [visual] [WebKit] glass-glow 400% diagnostic surfaceScale ×1/×2/×4 → ×4 visually closer to Chromium vs ×1 → workaround not yet validated at other zooms/DPRs; unfinished
 [visual] [Firefox] glass-glow 400% embedded height map → lighting visible vs flat fragment reference → full suite pending
+[visual] [WebKit] glass-glow 400% DPR1/DPR2, surfaceScale ×1 → 32414/73838 differing pixels vs ×4 → 90/99 pixels → workaround under test
+[visual] [WebKit] neumorphic-panel 400% DPR2, surfaceScale ×1 → 15180 differing pixels vs ×4 → 96 pixels → workaround under test
+[visual] [WebKit] glass-glow/neumorphic zoom 25/100/400%, DPR1/2, scale variants → qa/ci-results/webkit-scale.json → measured

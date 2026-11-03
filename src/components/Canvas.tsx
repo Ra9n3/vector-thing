@@ -19,6 +19,9 @@ import { displayedElement, stackedShadowClip } from '../render/stack';
 
 const EMPTY_ELEMENTS: Element[] = [];
 const DOT_SPACING = 32; // world units
+// WebKit evaluates SVG lighting in device pixels without scaling surfaceScale.
+const webkitLighting = typeof navigator !== 'undefined' && /AppleWebKit/.test(navigator.userAgent)
+  && !/Chrome|Chromium|Edg|OPR|Android/.test(navigator.userAgent);
 
 export function Canvas() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -78,7 +81,7 @@ export function Canvas() {
   }) : elements, [elements, resizeOrigins, originalSizes]);
   const selectedLeaves = useMemo(() => leavesOf(selection,elements,groups), [selection,elements,groups]);
   const selectedIds = useMemo(() => selectedLeaves.map(e=>e.id), [selectedLeaves]);
-  const shading = useShadingDefinitions(mode === 'face' ? shadingElements : EMPTY_ELEMENTS, selectedIds, { elements: mode === 'face' ? elements : EMPTY_ELEMENTS, look, direction, style, background:canvasBackground, frames });
+  const shading = useShadingDefinitions(mode === 'face' ? shadingElements : EMPTY_ELEMENTS, selectedIds, { elements: mode === 'face' ? elements : EMPTY_ELEMENTS, look, direction, style, background:canvasBackground, frames, filterScale:webkitLighting ? zoom * window.devicePixelRatio : 1 });
   const targetIds = useMemo(() => new Set(resolveTargets(selection,elements,groups,matchMode,activeId)), [selection,elements,groups,matchMode,activeId]);
   const selected = useMemo(() => selectedLeaves.filter(e=>targetIds.has(e.id)), [selectedLeaves,targetIds]);
   const primary = selected[selected.length - 1];

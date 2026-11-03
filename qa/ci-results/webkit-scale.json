@@ -1,0 +1,184 @@
+[
+  {
+    "fixture": "glass-glow",
+    "zoom": 0.25,
+    "dpr": 1,
+    "factor": 1,
+    "diff": "123 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 0.25,
+    "dpr": 1,
+    "factor": 0.25,
+    "diff": "63 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 1,
+    "dpr": 1,
+    "factor": 1,
+    "diff": "82 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 4,
+    "dpr": 1,
+    "factor": 1,
+    "diff": "32414 pixels (ratio 0.05 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 4,
+    "dpr": 1,
+    "factor": 4,
+    "diff": "90 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 0.25,
+    "dpr": 1,
+    "factor": 1,
+    "diff": "63 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 0.25,
+    "dpr": 1,
+    "factor": 0.25,
+    "diff": "63 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 1,
+    "dpr": 1,
+    "factor": 1,
+    "diff": "82 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 4,
+    "dpr": 1,
+    "factor": 1,
+    "diff": "90 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 4,
+    "dpr": 1,
+    "factor": 4,
+    "diff": "90 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 0.25,
+    "dpr": 2,
+    "factor": 1,
+    "diff": "68 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 0.25,
+    "dpr": 2,
+    "factor": 0.25,
+    "diff": "83 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 0.25,
+    "dpr": 2,
+    "factor": 0.5,
+    "diff": "68 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 1,
+    "dpr": 2,
+    "factor": 1,
+    "diff": "91 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 1,
+    "dpr": 2,
+    "factor": 2,
+    "diff": "88 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 4,
+    "dpr": 2,
+    "factor": 1,
+    "diff": "73838 pixels (ratio 0.10 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 4,
+    "dpr": 2,
+    "factor": 4,
+    "diff": "99 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "glass-glow",
+    "zoom": 4,
+    "dpr": 2,
+    "factor": 8,
+    "diff": "96 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 0.25,
+    "dpr": 2,
+    "factor": 1,
+    "diff": "68 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 0.25,
+    "dpr": 2,
+    "factor": 0.25,
+    "diff": "68 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 0.25,
+    "dpr": 2,
+    "factor": 0.5,
+    "diff": "68 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 1,
+    "dpr": 2,
+    "factor": 1,
+    "diff": "88 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 1,
+    "dpr": 2,
+    "factor": 2,
+    "diff": "88 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 4,
+    "dpr": 2,
+    "factor": 1,
+    "diff": "15180 pixels (ratio 0.02 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 4,
+    "dpr": 2,
+    "factor": 4,
+    "diff": "96 pixels (ratio 0.01 of all image pixels) are different."
+  },
+  {
+    "fixture": "neumorphic-panel",
+    "zoom": 4,
+    "dpr": 2,
+    "factor": 8,
+    "diff": "96 pixels (ratio 0.01 of all image pixels) are different."
+  }
+]
