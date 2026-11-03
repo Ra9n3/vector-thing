@@ -1,0 +1,517 @@
+{
+  "elements": [
+    {
+      "id": "part-1",
+      "type": "pill",
+      "state": "default",
+      "pressable": false,
+      "stateOverrides": {
+        "pressed": {
+          "material": {
+            "slot": 2
+          }
+        }
+      },
+      "x": -192,
+      "y": -91,
+      "width": 84,
+      "height": 42,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "partKey": "track",
+      "main": false,
+      "materialSlot": 4,
+      "groupId": "part-0"
+    },
+    {
+      "id": "part-2",
+      "type": "circle",
+      "state": "default",
+      "pressable": false,
+      "stateOverrides": {
+        "pressed": {
+          "offset": {
+            "x": 42,
+            "y": 0
+          }
+        }
+      },
+      "x": -187.5,
+      "y": -86.5,
+      "width": 33,
+      "height": 33,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "partKey": "thumb",
+      "main": true,
+      "materialSlot": 0,
+      "groupId": "part-0",
+      "sitsOn": "part-1"
+    },
+    {
+      "id": "part-3",
+      "type": "rounded",
+      "state": "default",
+      "pressable": false,
+      "x": -171,
+      "y": 24,
+      "width": 42,
+      "height": 42,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "partKey": "body",
+      "main": false,
+      "materialSlot": 5
+    },
+    {
+      "id": "part-5",
+      "type": "circle",
+      "state": "default",
+      "pressable": false,
+      "x": -171,
+      "y": 119,
+      "width": 42,
+      "height": 42,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "partKey": "rim",
+      "main": true,
+      "materialSlot": 5,
+      "groupId": "part-4"
+    },
+    {
+      "id": "part-6",
+      "type": "circle",
+      "state": "default",
+      "pressable": false,
+      "stateOverrides": {
+        "disabled": {
+          "material": {
+            "slot": 5
+          }
+        }
+      },
+      "x": -159,
+      "y": 131,
+      "width": 18,
+      "height": 18,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "partKey": "dot",
+      "main": false,
+      "materialSlot": 0,
+      "groupId": "part-4"
+    },
+    {
+      "id": "part-8",
+      "type": "pill",
+      "state": "pressed",
+      "pressable": false,
+      "stateOverrides": {
+        "pressed": {
+          "material": {
+            "slot": 2
+          }
+        }
+      },
+      "x": -42,
+      "y": -91,
+      "width": 84,
+      "height": 42,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "partKey": "track",
+      "main": false,
+      "materialSlot": 4,
+      "groupId": "part-7"
+    },
+    {
+      "id": "part-9",
+      "type": "circle",
+      "state": "pressed",
+      "pressable": false,
+      "stateOverrides": {
+        "pressed": {
+          "offset": {
+            "x": 42,
+            "y": 0
+          }
+        }
+      },
+      "x": -37.5,
+      "y": -86.5,
+      "width": 33,
+      "height": 33,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "partKey": "thumb",
+      "main": true,
+      "materialSlot": 0,
+      "groupId": "part-7",
+      "sitsOn": "part-8"
+    },
+    {
+      "id": "part-10",
+      "type": "rounded",
+      "state": "pressed",
+      "pressable": false,
+      "x": -21,
+      "y": 24,
+      "width": 42,
+      "height": 42,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "partKey": "body",
+      "main": false,
+      "materialSlot": 5
+    },
+    {
+      "id": "part-12",
+      "type": "circle",
+      "state": "pressed",
+      "pressable": false,
+      "x": -21,
+      "y": 119,
+      "width": 42,
+      "height": 42,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "partKey": "rim",
+      "main": true,
+      "materialSlot": 5,
+      "groupId": "part-11"
+    },
+    {
+      "id": "part-13",
+      "type": "circle",
+      "state": "pressed",
+      "pressable": false,
+      "stateOverrides": {
+        "disabled": {
+          "material": {
+            "slot": 5
+          }
+        }
+      },
+      "x": -9,
+      "y": 131,
+      "width": 18,
+      "height": 18,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "partKey": "dot",
+      "main": false,
+      "materialSlot": 0,
+      "groupId": "part-11"
+    },
+    {
+      "id": "part-15",
+      "type": "pill",
+      "state": "disabled",
+      "pressable": false,
+      "stateOverrides": {
+        "pressed": {
+          "material": {
+            "slot": 2
+          }
+        }
+      },
+      "x": 108,
+      "y": -91,
+      "width": 84,
+      "height": 42,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-black"
+      },
+      "partKey": "track",
+      "main": false,
+      "materialSlot": 4,
+      "groupId": "part-14"
+    },
+    {
+      "id": "part-16",
+      "type": "circle",
+      "state": "disabled",
+      "pressable": false,
+      "stateOverrides": {
+        "pressed": {
+          "offset": {
+            "x": 42,
+            "y": 0
+          }
+        }
+      },
+      "x": 112.5,
+      "y": -86.5,
+      "width": 33,
+      "height": 33,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "partKey": "thumb",
+      "main": true,
+      "materialSlot": 0,
+      "groupId": "part-14",
+      "sitsOn": "part-15"
+    },
+    {
+      "id": "part-17",
+      "type": "rounded",
+      "state": "disabled",
+      "pressable": false,
+      "x": 129,
+      "y": 24,
+      "width": 42,
+      "height": 42,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "partKey": "body",
+      "main": false,
+      "materialSlot": 5
+    },
+    {
+      "id": "part-19",
+      "type": "circle",
+      "state": "disabled",
+      "pressable": false,
+      "x": 129,
+      "y": 119,
+      "width": 42,
+      "height": 42,
+      "props": {
+        "profile": {
+          "preset": "inset",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "plastic-white"
+      },
+      "partKey": "rim",
+      "main": true,
+      "materialSlot": 5,
+      "groupId": "part-18"
+    },
+    {
+      "id": "part-20",
+      "type": "circle",
+      "state": "disabled",
+      "pressable": false,
+      "stateOverrides": {
+        "disabled": {
+          "material": {
+            "slot": 5
+          }
+        }
+      },
+      "x": 141,
+      "y": 131,
+      "width": 18,
+      "height": 18,
+      "props": {
+        "profile": {
+          "preset": "dome",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "roundness": 0
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      },
+      "partKey": "dot",
+      "main": false,
+      "materialSlot": 0,
+      "groupId": "part-18"
+    }
+  ],
+  "groups": [
+    {
+      "id": "part-0",
+      "template": {
+        "id": "toggle"
+      }
+    },
+    {
+      "id": "part-4",
+      "template": {
+        "id": "radio"
+      }
+    },
+    {
+      "id": "part-7",
+      "template": {
+        "id": "toggle"
+      }
+    },
+    {
+      "id": "part-11",
+      "template": {
+        "id": "radio"
+      }
+    },
+    {
+      "id": "part-14",
+      "template": {
+        "id": "toggle"
+      }
+    },
+    {
+      "id": "part-18",
+      "template": {
+        "id": "radio"
+      }
+    }
+  ],
+  "styleId": "studio-hardware",
+  "look": "slight",
+  "direction": "s",
+  "selection": []
+}
