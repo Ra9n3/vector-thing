@@ -24,7 +24,7 @@ const EffectDefinition = memo(function EffectDefinition({id,spec}:{id:string;spe
   return <><WallDefinition id={id} spec={spec}/><ShadowDefinition id={id} spec={spec}/>{spec.recessed && <RecessDefinition id={id} spec={spec}/>}</>;
 }, (a,b) => a.id === b.id && a.spec.key === b.spec.key);
 
-const Definition = memo(function Definition({ id, spec, mapId, filterScale=1 }: { id: string; spec: ShadingSpec; mapId?: string; filterScale?:number }) {
+const Definition = memo(function Definition({ id, spec, filterScale=1 }: { id: string; spec: ShadingSpec; mapId?: string; filterScale?:number }) {
   if (import.meta.env.DEV) {
     const counts = (globalThis as typeof globalThis & { __qaSurfaceBuilds?: Record<string, number> }).__qaSurfaceBuilds;
     if (counts) counts[id] = (counts[id] ?? 0) + 1;
