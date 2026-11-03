@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  checks: write
 jobs:
   playwright:
     runs-on: ubuntu-latest
@@ -23,6 +24,26 @@ jobs:
       - run: npx playwright install-deps
       - run: npm run check
       - run: npm run qa:setup && npm run qa -- --project=${{ matrix.browser }}
+      - uses: actions/github-script@v7
+        if: always()
+        with:
+          script: |
+            const fs = require('fs');
+            const file = 'test-results/results.json';
+            const lines = [];
+            if (fs.existsSync(file)) {
+              const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+              const visit = suite => {
+                for (const spec of suite.specs || []) for (const test of spec.tests || []) {
+                  const result = test.results?.at(-1);
+                  lines.push(`${result?.status || 'not_run'} | ${spec.title} | ${(result?.error?.message || '').replace(/\u001b\[[0-9;]*m/g, '').replace(/\s+/g, ' ').slice(0, 150)}`);
+                }
+                for (const child of suite.suites || []) visit(child);
+              };
+              for (const suite of report.suites || []) visit(suite);
+            } else lines.push('not_run | results.json missing');
+            const bad = lines.some(line => !line.startsWith('passed |') && !line.startsWith('skipped |'));
+            await github.rest.checks.create({owner:context.repo.owner,repo:context.repo.repo,head_sha:context.sha,name:'QA details - ${{ matrix.browser }}',status:'completed',conclusion:bad?'failure':'success',output:{title:`${lines.length} cases`,summary:lines.join('\n').slice(0,65000)}});
       - uses: actions/upload-artifact@v4
         if: always()
         with:
