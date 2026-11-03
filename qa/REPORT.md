@@ -152,3 +152,157 @@
 [visual] [Chromium] 230 baseline comparisons after delayed previews → within 1% vs within 1% → pass
 [parity] [Chromium] 7 fixtures after delayed previews → within tolerance vs within tolerance → pass
 [cache] [Chromium] independent wall/AO and shadow keys → split layer keys vs combined effect key → unfinished
+
+# CI results: d20f109
+
+| Browser | Passed | Failed | Skipped | Total |
+|---|---:|---:|---:|---:|
+| Chromium | 262 | 5 | 0 | 267 |
+| Firefox | 124 | 134 | 9 | 267 |
+| WebKit | 255 | 3 | 9 | 267 |
+
+[coverage] [Firefox/WebKit] previous 254 unrun cases → suite executed; per-case results: qa/ci-results/*.txt
+[export parity] [Firefox/WebKit] all seven fixtures including glass-glow 3× → <2% live/<3% PNG vs within limits → pass
+[setup] [all] GitHub Actions → three browser jobs executed vs three executed → pass
+[memory] [Chromium] @performance place/delete memory and defs → < 102400 vs 256256.4 → unfinished
+[performance] [Chromium] @settled medium style → < 100 vs 176.20000000001164 → unfinished
+[performance] [Chromium] @settled medium look → < 100 vs 141.09999999997672 → unfinished
+[performance] [Chromium] @settled medium state → < 100 vs 151.70000000001164 → unfinished
+[performance] [Chromium] @settled stress state → < 250 vs 250.79999999998836 → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware flat nw → <1% vs 0.02 changed-pixel ratio (11415 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware flat ne → <1% vs 0.02 changed-pixel ratio (11415 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware flat sw → <1% vs 0.02 changed-pixel ratio (11415 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware flat se → <1% vs 0.02 changed-pixel ratio (11415 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware flat s → <1% vs 0.02 changed-pixel ratio (11415 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware slight nw → <1% vs 0.02 changed-pixel ratio (10512 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware slight ne → <1% vs 0.02 changed-pixel ratio (11176 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware slight sw → <1% vs 0.02 changed-pixel ratio (11352 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware slight se → <1% vs 0.02 changed-pixel ratio (11986 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware slight s → <1% vs 0.02 changed-pixel ratio (11765 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware strong nw → <1% vs 0.02 changed-pixel ratio (9563 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware strong ne → <1% vs 0.02 changed-pixel ratio (10734 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware strong sw → <1% vs 0.02 changed-pixel ratio (10981 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware strong se → <1% vs 0.02 changed-pixel ratio (12131 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid studio-hardware strong s → <1% vs 0.02 changed-pixel ratio (11713 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay flat nw → <1% vs 0.02 changed-pixel ratio (12677 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay flat ne → <1% vs 0.02 changed-pixel ratio (12677 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay flat sw → <1% vs 0.02 changed-pixel ratio (12677 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay flat se → <1% vs 0.02 changed-pixel ratio (12677 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay flat s → <1% vs 0.02 changed-pixel ratio (12677 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay slight nw → <1% vs 0.02 changed-pixel ratio (12218 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay slight ne → <1% vs 0.02 changed-pixel ratio (12453 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay slight sw → <1% vs 0.02 changed-pixel ratio (12514 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay slight se → <1% vs 0.02 changed-pixel ratio (12728 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay slight s → <1% vs 0.02 changed-pixel ratio (12657 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay strong nw → <1% vs 0.02 changed-pixel ratio (11327 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay strong ne → <1% vs 0.02 changed-pixel ratio (12002 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay strong sw → <1% vs 0.02 changed-pixel ratio (12030 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay strong se → <1% vs 0.02 changed-pixel ratio (12643 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid soft-clay strong s → <1% vs 0.02 changed-pixel ratio (12504 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile flat nw → <1% vs 0.02 changed-pixel ratio (12056 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile flat ne → <1% vs 0.02 changed-pixel ratio (12056 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile flat sw → <1% vs 0.02 changed-pixel ratio (12056 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile flat se → <1% vs 0.02 changed-pixel ratio (12056 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile flat s → <1% vs 0.02 changed-pixel ratio (12056 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile slight nw → <1% vs 0.02 changed-pixel ratio (11209 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile slight ne → <1% vs 0.02 changed-pixel ratio (11489 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile slight sw → <1% vs 0.02 changed-pixel ratio (11741 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile slight se → <1% vs 0.02 changed-pixel ratio (11887 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile slight s → <1% vs 0.02 changed-pixel ratio (11855 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile strong nw → <1% vs 0.02 changed-pixel ratio (10694 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile strong ne → <1% vs 0.02 changed-pixel ratio (11268 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile strong sw → <1% vs 0.02 changed-pixel ratio (11399 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile strong se → <1% vs 0.02 changed-pixel ratio (11987 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid glossy-mobile strong s → <1% vs 0.02 changed-pixel ratio (11988 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic flat nw → <1% vs 0.02 changed-pixel ratio (15380 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic flat ne → <1% vs 0.02 changed-pixel ratio (15380 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic flat sw → <1% vs 0.02 changed-pixel ratio (15380 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic flat se → <1% vs 0.02 changed-pixel ratio (15380 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic flat s → <1% vs 0.02 changed-pixel ratio (15380 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic slight nw → <1% vs 0.02 changed-pixel ratio (14807 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic slight ne → <1% vs 0.02 changed-pixel ratio (14928 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic slight sw → <1% vs 0.02 changed-pixel ratio (15134 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic slight se → <1% vs 0.02 changed-pixel ratio (15343 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic slight s → <1% vs 0.02 changed-pixel ratio (15355 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic strong nw → <1% vs 0.02 changed-pixel ratio (14003 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic strong ne → <1% vs 0.02 changed-pixel ratio (14701 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic strong sw → <1% vs 0.02 changed-pixel ratio (14575 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic strong se → <1% vs 0.02 changed-pixel ratio (15258 pixels) → unfinished
+[visual] [Firefox] @visual shape-grid neumorphic strong s → <1% vs 0.02 changed-pixel ratio (15150 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware flat nw → <1% vs 0.02 changed-pixel ratio (13975 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware flat ne → <1% vs 0.02 changed-pixel ratio (13975 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware flat sw → <1% vs 0.02 changed-pixel ratio (13975 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware flat se → <1% vs 0.02 changed-pixel ratio (13975 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware flat s → <1% vs 0.02 changed-pixel ratio (13975 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware slight nw → <1% vs 0.02 changed-pixel ratio (14065 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware slight ne → <1% vs 0.02 changed-pixel ratio (14078 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware slight sw → <1% vs 0.02 changed-pixel ratio (13918 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware slight se → <1% vs 0.02 changed-pixel ratio (13949 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware slight s → <1% vs 0.02 changed-pixel ratio (13492 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware strong nw → <1% vs 0.02 changed-pixel ratio (14068 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware strong ne → <1% vs 0.02 changed-pixel ratio (14095 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware strong sw → <1% vs 0.02 changed-pixel ratio (12690 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware strong se → <1% vs 0.02 changed-pixel ratio (12706 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel studio-hardware strong s → <1% vs 0.02 changed-pixel ratio (11767 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay flat nw → <1% vs 0.02 changed-pixel ratio (13497 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay flat ne → <1% vs 0.02 changed-pixel ratio (13497 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay flat sw → <1% vs 0.02 changed-pixel ratio (13497 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay flat se → <1% vs 0.02 changed-pixel ratio (13497 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay flat s → <1% vs 0.02 changed-pixel ratio (13497 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay slight nw → <1% vs 0.02 changed-pixel ratio (13635 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay slight ne → <1% vs 0.02 changed-pixel ratio (13774 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay slight sw → <1% vs 0.02 changed-pixel ratio (13200 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay slight se → <1% vs 0.02 changed-pixel ratio (13345 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay slight s → <1% vs 0.02 changed-pixel ratio (12926 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay strong nw → <1% vs 0.02 changed-pixel ratio (13565 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay strong ne → <1% vs 0.02 changed-pixel ratio (13607 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay strong sw → <1% vs 0.02 changed-pixel ratio (12176 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay strong se → <1% vs 0.02 changed-pixel ratio (12247 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel soft-clay strong s → <1% vs 0.02 changed-pixel ratio (11130 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile flat nw → <1% vs 0.02 changed-pixel ratio (13192 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile flat ne → <1% vs 0.02 changed-pixel ratio (13192 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile flat sw → <1% vs 0.02 changed-pixel ratio (13192 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile flat se → <1% vs 0.02 changed-pixel ratio (13192 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile flat s → <1% vs 0.02 changed-pixel ratio (13192 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile slight nw → <1% vs 0.02 changed-pixel ratio (13157 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile slight ne → <1% vs 0.02 changed-pixel ratio (13262 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile slight sw → <1% vs 0.02 changed-pixel ratio (13033 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile slight se → <1% vs 0.02 changed-pixel ratio (12973 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile slight s → <1% vs 0.02 changed-pixel ratio (12580 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile strong nw → <1% vs 0.02 changed-pixel ratio (12444 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile strong ne → <1% vs 0.02 changed-pixel ratio (12881 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile strong sw → <1% vs 0.02 changed-pixel ratio (11732 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile strong se → <1% vs 0.02 changed-pixel ratio (11961 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel glossy-mobile strong s → <1% vs 0.02 changed-pixel ratio (10788 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic flat nw → <1% vs 0.02 changed-pixel ratio (13747 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic flat ne → <1% vs 0.02 changed-pixel ratio (13747 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic flat sw → <1% vs 0.02 changed-pixel ratio (13747 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic flat se → <1% vs 0.02 changed-pixel ratio (13747 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic flat s → <1% vs 0.02 changed-pixel ratio (13747 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic slight nw → <1% vs 0.02 changed-pixel ratio (13709 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic slight ne → <1% vs 0.02 changed-pixel ratio (13915 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic slight sw → <1% vs 0.02 changed-pixel ratio (13311 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic slight se → <1% vs 0.02 changed-pixel ratio (13529 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic slight s → <1% vs 0.02 changed-pixel ratio (13162 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic strong nw → <1% vs 0.02 changed-pixel ratio (13396 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic strong ne → <1% vs 0.02 changed-pixel ratio (13638 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic strong sw → <1% vs 0.02 changed-pixel ratio (12132 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic strong se → <1% vs 0.02 changed-pixel ratio (12399 pixels) → unfinished
+[visual] [Firefox] @visual neumorphic-panel neumorphic strong s → <1% vs 0.02 changed-pixel ratio (11276 pixels) → unfinished
+[visual] [Firefox] @zoom shape-grid 1x dpr1 → <1% vs 0.02 changed-pixel ratio (11765 pixels) → unfinished
+[visual] [Firefox] @zoom shape-grid 4x dpr1 → <1% vs 0.04 changed-pixel ratio (25294 pixels) → unfinished
+[visual] [Firefox] @zoom shape-grid 1x dpr2 → <1% vs 0.02 changed-pixel ratio (11771 pixels) → unfinished
+[visual] [Firefox] @zoom shape-grid 4x dpr2 → <1% vs 0.04 changed-pixel ratio (25300 pixels) → unfinished
+[visual] [Firefox] @zoom toggles 4x dpr1 → <1% vs 0.03 changed-pixel ratio (16770 pixels) → unfinished
+[visual] [Firefox] @zoom toggles 4x dpr2 → <1% vs 0.03 changed-pixel ratio (16776 pixels) → unfinished
+[visual] [Firefox] @zoom neumorphic-panel 1x dpr1 → <1% vs 0.02 changed-pixel ratio (13162 pixels) → unfinished
+[visual] [Firefox] @zoom neumorphic-panel 4x dpr1 → <1% vs 0.15 changed-pixel ratio (116222 pixels) → unfinished
+[visual] [Firefox] @zoom neumorphic-panel 1x dpr2 → <1% vs 0.02 changed-pixel ratio (13168 pixels) → unfinished
+[visual] [Firefox] @zoom neumorphic-panel 4x dpr2 → <1% vs 0.15 changed-pixel ratio (116228 pixels) → unfinished
+[visual] [Firefox] @zoom stress 4x dpr1 → <1% vs 0.02 changed-pixel ratio (13464 pixels) → unfinished
+[visual] [Firefox] @zoom stress 4x dpr2 → <1% vs 0.02 changed-pixel ratio (13470 pixels) → unfinished
+[visual] [Firefox] @zoom glass-glow 4x dpr1 → <1% vs 0.12 changed-pixel ratio (95380 pixels) → unfinished
+[visual] [Firefox] @zoom glass-glow 4x dpr2 → <1% vs 0.12 changed-pixel ratio (95386 pixels) → unfinished
+[visual] [WebKit] @zoom neumorphic-panel 4x dpr2 → <1% vs 0.02 changed-pixel ratio (14410 pixels) → unfinished
+[visual] [WebKit] @zoom glass-glow 4x dpr1 → <1% vs 0.05 changed-pixel ratio (32547 pixels) → unfinished
+[visual] [WebKit] @zoom glass-glow 4x dpr2 → <1% vs 0.10 changed-pixel ratio (73700 pixels) → unfinished
