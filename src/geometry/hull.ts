@@ -1,3 +1,4 @@
+import type {OutlineData} from '../outline/types';
 import type { Point } from './outline';
 import { shapeOutline } from './outline';
 import type { ShapeType } from './shapePath';
@@ -15,13 +16,14 @@ export function polygonPath(points: Point[]): string {
   const f = (n:number) => Number(n.toFixed(4));
   return `M${points.map(p => `${f(p.x)} ${f(p.y)}`).join('L')}Z`;
 }
-export function sweepPath(type: ShapeType, w: number, h: number, vec: Point): string {
-  const outline = shapeOutline(type,w,h);
+export function sweepPath(type: ShapeType, w: number, h: number, vec: Point, path?:OutlineData): string {
+  const outline = shapeOutline(type,w,h,path);
   return polygonPath(convexHull([...outline,...outline.map(p => ({x:p.x+vec.x,y:p.y+vec.y}))]));
 }
 
-export function sweepBounds(type: ShapeType, w: number, h: number, vec: Point) {
-  const points = shapeOutline(type,w,h);
+export function sweepBounds(type: ShapeType, w: number, h: number, vec: Point, path?:OutlineData) {
+  const points = shapeOutline(type,w,h,path);
+  if(!points.length)return {x:0,y:0,w:0,h:0};
   const xs = points.map(p=>p.x), ys = points.map(p=>p.y);
   const minX=Math.min(...xs)+Math.min(0,vec.x), minY=Math.min(...ys)+Math.min(0,vec.y);
   const maxX=Math.max(...xs)+Math.max(0,vec.x), maxY=Math.max(...ys)+Math.max(0,vec.y);

@@ -57,7 +57,7 @@ export function SelectionBox({ marquee, stackOptions }: { marquee: ScreenRect | 
       {selected.map((e) => {
         const dashed = selection.some(id => groups.some(g=>g.id===id) && belongsTo(e.id,id,elements,groups));
         return dashed ? <GroupOutline key={e.id} element={e} panX={panX} panY={panY} zoom={zoom} accent={accent} dashed /> : <g key={e.id}>
-          <path d={shapePath(e.type,e.width,e.height)} transform={`translate(${panX+e.x*zoom} ${panY+e.y*zoom}) scale(${zoom})`} fill="none" stroke={isLightColor(background)?'#fff':'#16171a'} strokeWidth={3.5} vectorEffect="non-scaling-stroke" />
+          <path d={shapePath(e.type,e.width,e.height,e.outline)} transform={`translate(${panX+e.x*zoom} ${panY+e.y*zoom}) scale(${zoom})`} fill="none" stroke={isLightColor(background)?'#fff':'#16171a'} strokeWidth={3.5} vectorEffect="non-scaling-stroke" />
           <GroupOutline element={e} panX={panX} panY={panY} zoom={zoom} accent={accent}/>
         </g>;
       })}

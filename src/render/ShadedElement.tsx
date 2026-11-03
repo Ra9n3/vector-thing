@@ -30,7 +30,7 @@ const Definition = memo(function Definition({ id, spec, filterScale=1 }: { id: s
     if (counts) counts[id] = (counts[id] ?? 0) + 1;
   }
   const { width, height, profile, mode, axis, material } = spec;
-  if (mode === 'around') return <AroundFilter id={id} type={spec.type} width={width} height={height} profile={profile} material={material} relief={spec.relief} filterScale={filterScale} />;
+  if (mode === 'around') return <AroundFilter id={id} type={spec.type} width={width} height={height} profile={profile} outline={spec.outline} material={material} relief={spec.relief} filterScale={filterScale} />;
   const stops = acrossStops(profile, material, axis === 'vertical' ? height : width, spec.relief, axis);
   return <linearGradient id={id} x1="0" y1="0" x2={axis === 'horizontal' ? '1' : '0'} y2={axis === 'vertical' ? '1' : '0'}>
     {stops.map((stop, i) => <stop key={i} offset={stop.offset} stopColor={stop.color} />)}
@@ -77,7 +77,7 @@ export function useShadingDefinitions(elements: Element[], selection: string[], 
       if (!ids.current.has(spec.filterKey)) ids.current.set(spec.filterKey, `shading-${prefix}-${nextId.current++}`);
       elementIds.set(el.id, ids.current.get(spec.filterKey)!);
       if (spec.mode === 'around') {
-        const key = JSON.stringify(['heightmap', spec.type, spec.width, spec.height, spec.profile]);
+        const key = JSON.stringify(['heightmap', spec.type, spec.width, spec.height, spec.profile, spec.outline]);
         if (!auxIds.current.has(key)) auxIds.current.set(key, `shading-${prefix}-map-${nextId.current++}`);
         const mapId = auxIds.current.get(key)!;
         geometry.set(key, { id: mapId, spec });
@@ -101,7 +101,7 @@ export function useShadingDefinitions(elements: Element[], selection: string[], 
     if (effects) for (const el of effects.elements) {
       const visual=visualElement(el,effects.style,effects.background ?? effects.style.canvasBackground,effects.frames?.get(el.id),effects.surfaceOnly);
       visuals.set(el.id,visual);
-      const input = { type:el.type, width:el.width, height:el.height, profile:visual.element.props.profile,
+      const input = { type:el.type, outline:el.outline, width:el.width, height:el.height, profile:visual.element.props.profile,
         material:visual.material, look:effects.look, direction:effects.direction, style:effects.style, press:visual.frame.press, state:visual.frame.state };
       const key = effectKey(input);
       let spec = effectCache.current.get(key);
@@ -128,7 +128,7 @@ export function useShadingDefinitions(elements: Element[], selection: string[], 
     const defs = <defs>
       {Array.from(effectEntries.current.values(), ({id,spec}) => <EffectDefinition key={id} id={id} spec={spec}/>)}
       {Array.from(geometryDefs.current, ([key, { id, spec }]) => <AroundHeightmap key={key} id={id} geometryKey={key}
-        type={spec.type} width={spec.width} height={spec.height} profile={spec.profile} />)}
+        type={spec.type} width={spec.width} height={spec.height} profile={spec.profile} outline={spec.outline} />)}
       {Array.from(shadeDefs.current, ([key,{id,spec,mapId}]) => <Definition key={key} id={id} spec={spec} mapId={mapId} filterScale={effects?.filterScale} />)}
       {Array.from(auxDefs.current.values(), ({ id, spec, kind }) => kind === 'glow'
         ? <GlowDefinition key={id} id={id} width={spec.width} height={spec.height} radius={spec.material.glow!.radius} />
@@ -195,12 +195,12 @@ export function useShadingDefinitions(elements: Element[], selection: string[], 
 export function ShadedElement({ el, shadingId, heightId, glowId, textureId, original, preview, effect, tilt = true, material:materialOverride, shadowClip, animating = false, interactive = true }: {
   el: Element; shadingId: string; heightId?: string; glowId?: string; textureId?: string; original?: Element; preview?: string;
   effect?: { id:string; spec:EffectSpec }; tilt?: boolean; material?:Material; animating?:boolean; interactive?:boolean;
-  shadowClip?: {type:Element['type']; width:number; height:number; x:number; y:number};
+  shadowClip?: {type:Element['type']; outline?:Element['outline']; width:number; height:number; x:number; y:number};
 }) {
   const unique = useId().replace(/[^a-zA-Z0-9_-]/g, '');
   const mode = resolveMode(el.props.profile, el.type);
   const material = materialOverride ?? resolveMaterial(el.props.material, el.props.customColor);
-  const path = shapePath(el.type, el.width, el.height);
+  const path = shapePath(el.type, el.width, el.height,el.outline);
   const active = tilt ? effect : undefined;
   const offset = active?.spec.capOffset ?? {x:0,y:0};
   const previewClip = `resize-clip-${el.id}`;
@@ -219,7 +219,7 @@ export function ShadedElement({ el, shadingId, heightId, glowId, textureId, orig
   </g>;
   return <g transform={`translate(${el.x} ${el.y})`} data-el={el.id} style={{ cursor: 'move', transition:animating ? 'transform 30ms linear' : undefined }}>
     {shadowClip && <defs>
-      {shadowClip && <clipPath id={`stack-clip-${unique}`} clipPathUnits="userSpaceOnUse"><path d={shapePath(shadowClip.type,shadowClip.width,shadowClip.height)} transform={`translate(${shadowClip.x} ${shadowClip.y})`}/></clipPath>}
+      {shadowClip && <clipPath id={`stack-clip-${unique}`} clipPathUnits="userSpaceOnUse"><path d={shapePath(shadowClip.type,shadowClip.width,shadowClip.height,shadowClip.outline)} transform={`translate(${shadowClip.x} ${shadowClip.y})`}/></clipPath>}
     </defs>}
     {active?.spec.recessed ? <RecessLayer id={active.id} spec={active.spec}>{cap}</RecessLayer> : <>
       {active && <g clipPath={shadowClip ? `url(#stack-clip-${unique})` : undefined}><ShadowLayer id={active.id} spec={active.spec}/></g>}
@@ -227,6 +227,6 @@ export function ShadedElement({ el, shadingId, heightId, glowId, textureId, orig
       {active && <WallLayer id={active.id}/>}
       {cap}
     </>}
-    {interactive && active && <path d={active.spec.hitPath} fill="transparent" pointerEvents="all" />}
+    {interactive && active && <path d={active.spec.hitPath} transform={el.type==='path'?`translate(${offset.x} ${offset.y})`:undefined} fill="transparent" pointerEvents="all" />}
   </g>;
 }

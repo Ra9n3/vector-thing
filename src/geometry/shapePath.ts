@@ -1,4 +1,6 @@
-export type ShapeType = 'rect' | 'rounded' | 'circle' | 'pill' | 'hexagon';
+import {outlinePath} from '../outline/geometry';
+import type {OutlineData} from '../outline/types';
+export type ShapeType = 'rect' | 'rounded' | 'circle' | 'pill' | 'hexagon' | 'path';
 
 export const ROUNDED_RATIO = 0.18; // of the shorter side
 export const HEX_RATIO = 2 / Math.sqrt(3); // flat-top regular hexagon, width / height
@@ -24,8 +26,9 @@ function roundRect(w: number, h: number, r: number): string {
 }
 
 /** SVG path "d" for a shape fitted to a w x h box, origin at 0,0. */
-export function shapePath(type: ShapeType, w: number, h: number): string {
+export function shapePath(type: ShapeType, w: number, h: number, outline?:OutlineData): string {
   switch (type) {
+    case 'path': return outline ? outlinePath(outline.nodes,w,h) : '';
     case 'rect':
       return `M0 0H${f(w)}V${f(h)}H0Z`;
     case 'rounded':

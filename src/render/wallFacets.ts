@@ -1,3 +1,4 @@
+import type {OutlineData} from '../outline/types';
 import type { ShapeType } from '../geometry/shapePath';
 import { shapeOutline } from '../geometry/outline';
 import type { Point } from '../geometry/outline';
@@ -7,9 +8,9 @@ import { colorString, shadeWall } from './shade';
 import type { RGB } from './shade';
 
 /** Adjacent wall strips are grouped when their colors differ by under 1%. */
-export function wallFacets(type: ShapeType, w: number, h: number, wallVec: Point, dirVec: Point, material: Material, recessed: boolean): { d: string; fill: string }[] {
+export function wallFacets(type: ShapeType, w: number, h: number, wallVec: Point, dirVec: Point, material: Material, recessed: boolean, path?:OutlineData): { d: string; fill: string }[] {
   if (Math.hypot(wallVec.x, wallVec.y) < 1e-9) return [];
-  const outline = shapeOutline(type, w, h);
+  const outline = shapeOutline(type, w, h, path);
   const groups: { edge: Point[]; color: RGB; normal: Point }[] = [];
   for (let i=0; i<outline.length-1; i++) {
     const a=outline[i], b=outline[i+1], dx=b.x-a.x, dy=b.y-a.y, len=Math.hypot(dx,dy);

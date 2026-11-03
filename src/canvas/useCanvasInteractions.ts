@@ -202,7 +202,7 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>, s
             const visual=visualElement(el,stackOptions.pack,st.canvasBackground,stackOptions.frames?.get(el.id));
             const profile=visual.element.props.profile;
             const offset = tiltGeometry(st.look,st.direction,wallPx(profile,el.width,el.height)*(1-.8*visual.frame.press),resolveProfile(profile).recessed).capOffset;
-            const hull = sweepBounds(el.type,el.width,el.height,offset);
+            const hull = sweepBounds(el.type,el.width,el.height,offset,el.outline);
             const shown=displayedElement(el,st.elements,st.look,st.direction,stackOptions);
             return intersects(box,{...hull,x:shown.x+hull.x,y:shown.y+hull.y});
           })

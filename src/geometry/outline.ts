@@ -1,11 +1,14 @@
+import {flattenOutline} from '../outline/geometry';
+import type {OutlineData} from '../outline/types';
 import { ROUNDED_RATIO } from './shapePath';
 import type { ShapeType } from './shapePath';
 export interface Point { x: number; y: number }
 
 /** Clockwise in SVG coordinates, with the initial point repeated at the end. */
-export function shapeOutline(type: ShapeType, w: number, h: number): Point[] {
+export function shapeOutline(type: ShapeType, w: number, h: number, outline?:OutlineData): Point[] {
   let points: Point[] = [];
-  if (type === 'rect') points = [{ x: 0, y: 0 }, { x: w, y: 0 }, { x: w, y: h }, { x: 0, y: h }];
+  if (type === 'path') points = outline ? flattenOutline(outline.nodes,w,h) : [];
+  else if (type === 'rect') points = [{ x: 0, y: 0 }, { x: w, y: 0 }, { x: w, y: h }, { x: 0, y: h }];
   else if (type === 'hexagon') {
     const r = Math.min(w / 2, h / Math.sqrt(3)), hh = r * Math.sqrt(3) / 2, cx = w / 2, cy = h / 2;
     points = [{ x: cx + r, y: cy }, { x: cx + r / 2, y: cy + hh }, { x: cx - r / 2, y: cy + hh }, { x: cx - r, y: cy }, { x: cx - r / 2, y: cy - hh }, { x: cx + r / 2, y: cy - hh }];
@@ -25,5 +28,5 @@ export function shapeOutline(type: ShapeType, w: number, h: number): Point[] {
     }
     if (points.length > 1 && Math.hypot(points[0].x-points[points.length-1].x, points[0].y-points[points.length-1].y) < 1e-8) points.pop();
   }
-  return [...points, { ...points[0] }];
+  return points.length ? [...points, { ...points[0] }] : [];
 }

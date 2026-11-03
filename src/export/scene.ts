@@ -19,8 +19,8 @@ export function exportScene(opts:SceneOptions):ExportVariant[] {
     const elements=selected?context.filter(e=>selected.has(e.id)):context;
     for(const el of elements) {
       const visual=visualElement(el,opts.pack,opts.pack.canvasBackground),shown=displayedElement(el,context,opts.look,opts.direction,{pack:opts.pack});
-      const spec=effectSpec({type:el.type,width:el.width,height:el.height,profile:visual.element.props.profile,material:visual.material,look:opts.look,direction:opts.direction,style:opts.pack,press:visual.frame.press,state:visual.frame.state});
-      const hull=sweepBounds(el.type,el.width,el.height,spec.capOffset);
+      const spec=effectSpec({type:el.type,outline:el.outline,width:el.width,height:el.height,profile:visual.element.props.profile,material:visual.material,look:opts.look,direction:opts.direction,style:opts.pack,press:visual.frame.press,state:visual.frame.state});
+      const hull=sweepBounds(el.type,el.width,el.height,spec.capOffset,el.outline);
       const extent=Math.max(4,Math.hypot(spec.shadow.x,spec.shadow.y)+4*spec.paths.blur,2*(visual.material.glow?.radius ?? 0));
       left=Math.min(left,shown.x+hull.x-extent);top=Math.min(top,shown.y+hull.y-extent);
       right=Math.max(right,shown.x+hull.x+hull.w+extent);bottom=Math.max(bottom,shown.y+hull.y+hull.h+extent);

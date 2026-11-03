@@ -1,3 +1,4 @@
+import type {OutlineData} from '../outline/types';
 import type { StateOverride } from '../selection/types';
 import type { ShapeType } from '../geometry/shapePath';
 import type { ProfilePoint, ProfilePresetId, ProfileSettings } from '../profiles/types';
@@ -9,7 +10,7 @@ export interface ProfileDef {
 export type PartMaterial = {slot:number}|{id:string};
 export interface PartDef {
   pressable?:boolean; states?:{pressed?:StateOverride; disabled?:StateOverride};
-  key:string; shape:ShapeType; rect:{x:number;y:number;w:number;h:number}; profile:ProfileDef|'pack';
+  key:string; shape:ShapeType; outline?:OutlineData; rect:{x:number;y:number;w:number;h:number}; profile:ProfileDef|'pack';
   fallback?:ProfileDef; modeOverride?: {mode: ProfileSettings['mode']; acrossAxis: ProfileSettings['acrossAxis']}; material:PartMaterial; main?:boolean; sitsOn?:string; customColor?:string;
 }
 export interface RingDef {

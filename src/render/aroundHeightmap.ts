@@ -1,3 +1,4 @@
+import type {OutlineData} from '../outline/types';
 import { insetPath } from '../geometry/insetPath';
 import type { ShapeType } from '../geometry/shapePath';
 import { prepareProfile } from '../profiles/sample';
@@ -11,7 +12,7 @@ export function heightmapPitch(w: number, h: number): number {
   return radius / Math.max(16, Math.min(64, Math.round(radius / 2)));
 }
 
-export function aroundHeightmap(type: ShapeType, w: number, h: number, profile: ResolvedProfile) {
+export function aroundHeightmap(type: ShapeType, w: number, h: number, profile: ResolvedProfile, outline?:OutlineData) {
   const radius = Math.min(w, h) / 2;
   const count = Math.max(16, Math.min(64, Math.round(radius / 2)));
   const sample = prepareProfile(profile);
@@ -21,7 +22,7 @@ export function aroundHeightmap(type: ShapeType, w: number, h: number, profile: 
   };
   const rings: HeightRing[] = Array.from({ length: count }, (_, i) => {
     const u = (i + 0.5) / count;
-    return { u, gray: grayAt(u), path: insetPath(type, w, h, u * radius) };
+    return { u, gray: grayAt(u), path: insetPath(type, w, h, u * radius,outline) };
   });
   return { edgeGray: grayAt(0), rings, pitch: radius / count, padding: HEIGHTMAP_PADDING };
 }

@@ -41,4 +41,5 @@ export const SHAPE_ICONS: Record<Shape, () => ReactNode> = {
   circle: CircleIcon,
   pill: PillIcon,
   hexagon: HexagonIcon,
+  path: SquareIcon,
 };

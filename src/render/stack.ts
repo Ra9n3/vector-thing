@@ -39,6 +39,6 @@ export function stackedShadowClip(el:Element,elements:Element[],look:Look,direct
   const parent=opts?renderedOffset(base,elements,look,direction,opts):stackOffset(base,elements,look,direction,legacyPress);
   const child=opts?renderedOffset(el,elements,look,direction,opts):stackOffset(el,elements,look,direction,legacyPress);
   const cap=capOffset(base,look,direction,opts,legacyPress);
-  return {type:base.type,width:base.width,height:base.height,
+  return {type:base.type,outline:base.outline,width:base.width,height:base.height,
     x:base.x+parent.x+cap.x-el.x-child.x,y:base.y+parent.y+cap.y-el.y-child.y};
 }

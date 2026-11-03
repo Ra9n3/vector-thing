@@ -12,7 +12,7 @@ function LeafThumbnail({el}:{el:Element}) {
   const scale=Math.min(22/el.width,22/el.height), x=(28-el.width*scale)/2,y=(28-el.height*scale)/2;
   return <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
     <defs><radialGradient id={id} cx="32%" cy="27%" r="75%"><stop offset="0" stopColor={colorString(shadeColor(m,0.3,0.3))}/><stop offset="0.6" stopColor={colorString(shadeColor(m,0,0))}/><stop offset="1" stopColor={colorString(shadeColor(m,-0.8,-0.8))}/></radialGradient></defs>
-    <path d={shapePath(el.type,el.width,el.height)} transform={`translate(${x} ${y}) scale(${scale})`} fill={`url(#${id})`} opacity={m.opacity}/>
+    <path d={shapePath(el.type,el.width,el.height,el.outline)} transform={`translate(${x} ${y}) scale(${scale})`} fill={`url(#${id})`} opacity={m.opacity}/>
   </svg>;
 }
 export function LeafStrip({leaves}:{leaves:Element[]}) {

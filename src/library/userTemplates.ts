@@ -15,7 +15,7 @@ export function snapshotTemplate(id:string, selection:string[], elements:Element
     const slot=pack.palette.findIndex(p=>materialId(p)===e.props.material);
     // A saved main part must never have its color replaced by a state override.
     const hasStateMaterial=!!(e.stateOverrides?.pressed?.material || e.stateOverrides?.disabled?.material);
-    return {key:keys.get(e.id)!,shape:e.type,rect:{x:e.x-bounds.x,y:e.y-bounds.y,w:e.width,h:e.height},
+    return {key:keys.get(e.id)!,shape:e.type,...(e.outline?{outline:structuredClone(e.outline)}:{}),rect:{x:e.x-bounds.x,y:e.y-bounds.y,w:e.width,h:e.height},
       profile:{...e.props.profile,params:{...e.props.profile.params},...(e.props.profile.customPoints?{customPoints:e.props.profile.customPoints.map(p=>({...p}))}:{})},
       material:slot<0?{id:e.props.material}:{slot},main:!hasStateMaterial && (fromTemplate?!!e.main:true), pressable:e.pressable ?? true,
       ...(e.stateOverrides?{states:e.stateOverrides}:{}),

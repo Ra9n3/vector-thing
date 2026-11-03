@@ -3,7 +3,7 @@ import { shapePath } from '../geometry/shapePath';
 import type { EffectSpec } from './effectSpec';
 import { WallLayer } from './WallLayer';
 export function RecessDefinition({id,spec}:{id:string;spec:EffectSpec}) {
-  return <clipPath id={`${id}-rim`} clipPathUnits="userSpaceOnUse"><path d={shapePath(spec.type,spec.width,spec.height)} /></clipPath>;
+  return <clipPath id={`${id}-rim`} clipPathUnits="userSpaceOnUse"><path d={shapePath(spec.type,spec.width,spec.height,spec.outline)} /></clipPath>;
 }
 export function RecessLayer({ id, spec, children }: { id:string; spec:EffectSpec; children:ReactNode }) {
   const offset = Math.min(4,0.15*spec.wall)*Math.SQRT1_2;

@@ -1,10 +1,14 @@
+import type {OutlineData} from '../outline/types';
+import {insetOutline} from './insetOutline';
+import {polygonPath} from './hull';
 import { ROUNDED_RATIO } from './shapePath';
 import type { ShapeType } from './shapePath';
 
 const f = (n: number) => Number(n.toFixed(3));
 
 /** The inward parallel curve, in the same coordinates as shapePath. */
-export function insetPath(type: ShapeType, w: number, h: number, d: number): string {
+export function insetPath(type: ShapeType, w: number, h: number, d: number, outline?:OutlineData): string {
+  if(type==='path')return polygonPath(insetOutline(type,w,h,d,outline));
   w = Math.max(0, w); h = Math.max(0, h);
   d = Math.max(0, d);
   const cx = w / 2, cy = h / 2;

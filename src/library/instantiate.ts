@@ -34,7 +34,7 @@ export function instantiate(t:ComponentTemplate, at:{x:number;y:number}, scale:n
     const material=slot===null ? (part.material as {id:string}).id : materialId(pack.palette[slot]);
     let {x,y,w,h}=part.rect;
     if(part.shape==='circle') {const d=Math.min(w,h);x+=(w-d)/2;y+=(h-d)/2;w=d;h=d;}
-    const el:Element={id:id(),type:part.shape,state:'default',pressable:part.pressable ?? false,stateOverrides:scaleOverrides(part.states,scale,scale),x:origin.x+x*scale,y:origin.y+y*scale,width:w*scale,height:h*scale,
+    const el:Element={id:id(),type:part.shape,...(part.outline?{outline:structuredClone(part.outline)}:{}),state:'default',pressable:part.pressable ?? false,stateOverrides:scaleOverrides(part.states,scale,scale),x:origin.x+x*scale,y:origin.y+y*scale,width:w*scale,height:h*scale,
       props:{profile,material,...(part.customColor?{customColor:part.customColor}:{})},partKey:part.key,main:!!part.main,materialSlot:slot,
       ...(groupId?{groupId}:{})};
     byKey.set(part.key,el.id);return el;

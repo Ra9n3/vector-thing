@@ -1,3 +1,4 @@
+import type {OutlineData} from '../../outline/types';
 import type { ShapeType } from '../../geometry/shapePath';
 import type { ResolvedProfile } from '../../profiles/types';
 import type { Material } from '../../materials/types';
@@ -7,12 +8,12 @@ import { prepareProfile } from '../../profiles/sample';
 import { shadeColor,colorString } from '../../render/shade';
 import type { RGB } from '../../render/shade';
 export interface BandFacet {d:string;fill:string;u:number;slopeX:number;slopeY:number}
-export function bandFacets(type:ShapeType,w:number,h:number,profile:ResolvedProfile,material:Material,relief:number):BandFacet[] {
+export function bandFacets(type:ShapeType,w:number,h:number,profile:ResolvedProfile,material:Material,relief:number,path?:OutlineData):BandFacet[] {
   const radius=Math.min(w,h)/2;if(radius<=0)return [];
-  const n=Math.max(8,Math.min(24,Math.round(radius/3))),sample=prepareProfile(profile),outer=insetOutline(type,w,h,0);
-  const total=outer.length-1;const segments=Math.min(total,60,Math.max(3,Math.floor(590/n)));
+  const n=Math.max(8,Math.min(24,Math.round(radius/3))),sample=prepareProfile(profile),outer=insetOutline(type,w,h,0,path);
+  const total=outer.length-1;if(total<3)return [];const segments=Math.min(total,60,Math.max(3,Math.floor(590/n)));
   const indices=Array.from({length:segments},(_,i)=>Math.floor(i*total/segments));indices.push(total);
-  const rings=Array.from({length:n+1},(_,i)=>{const ring=insetOutline(type,w,h,radius*i/n);return indices.map(j=>ring[j]);});
+  const rings=Array.from({length:n+1},(_,i)=>{const ring=insetOutline(type,w,h,radius*i/n,path);return indices.map(j=>ring[j]);});
   const result:BandFacet[]=[];
   for(let k=0;k<n;k++) {
     const u=(k+.5)/n,slope=relief*sample(u).slope/radius*(profile.recessed?-1:1);
