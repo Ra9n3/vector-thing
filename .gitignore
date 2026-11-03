@@ -1,0 +1,29 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# QA output, not fixtures or visual baselines
+qa/traces/
+qa/ci-results/
+qa/results/
+qa/measurements/
+qa/*measurements*.json
+qa/memory-*.json
+qa/**/*-actual.png
+qa/**/*-diff.png
+qa/**/*-failed.png
+
+# Caches and build output
+.cache/
+.vite/
+.next/
+build/
+out/
+coverage/
+*.tsbuildinfo
