@@ -1,6 +1,6 @@
 import { test,expect } from '@playwright/test';
 import { Resvg } from '@resvg/resvg-js';
-const fixtures=['ssl-strip','shape-grid','toggles','neumorphic-panel','stress','glass-glow','medium'];
+const fixtures=['ssl-strip','shape-grid','toggles','neumorphic-panel','stress','glass-glow','medium','outlines'];
 for(const fixture of fixtures)test(`@export ${fixture} XML and flat renderer`,async({page})=>{
  await page.goto(`/?fixture=${fixture}`);await expect(page.locator('svg[data-view="face"]')).toBeVisible();
  const output=await page.evaluate(async()=>{

@@ -1,3 +1,4 @@
+import {presetOutline,primitiveOutline} from '../src/outline/presets';
 import { writeFileSync } from 'node:fs';
 import { BUILTIN_TEMPLATES } from '../src/library/catalog';
 import { instantiate } from '../src/library/instantiate';
@@ -51,3 +52,14 @@ for(let i=0;i<20;i++) {
  if(group && i%5===0)medium.groups.push({id:group});
  medium.elements.push({id:`medium-${i}`,type,state:'default',pressable:i%4!==0,...(group?{groupId:group}:{}),x:(i%5-2)*110-width/2,y:(Math.floor(i/5)-1.5)*100-size/2,width,height:size,props:{profile:defaultProfile(PRESETS[i%7].id),material:style.palette[i%6] as string},materialSlot:i%6});
 }write('medium',medium);
+
+// Fixture 8: editable outline families and non-primitive edges.
+const outlines=doc();
+const outlineCases=[
+ ['polygon-3',presetOutline('polygon',3)],['polygon-6',presetOutline('polygon',6)],['polygon-12',presetOutline('polygon',12)],
+ ['star-5',presetOutline('star',5,.45)],['star-8',presetOutline('star',8,.45)],['arrow',presetOutline('arrow')],
+ ['corner',(()=>{const o=primitiveOutline('rect',90,70);o.nodes[0].radius=.15;return o;})()],
+ ['arc',(()=>{const o=primitiveOutline('rect',90,70);o.nodes[0].edge={type:'arc',bulge:.35};return o;})()],
+] as const;
+for(const [i,[id,outline]] of outlineCases.entries())outlines.elements.push({id:`outline-${id}`,type:'path',outline,state:'default',pressable:true,x:(i%4-1.5)*125-45,y:(Math.floor(i/4)-.5)*120-35,width:90,height:70,props:{profile:defaultProfile('raised'),material:style.palette[0] as string}});
+write('outlines',outlines);

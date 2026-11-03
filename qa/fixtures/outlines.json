@@ -1,0 +1,858 @@
+{
+  "elements": [
+    {
+      "id": "outline-polygon-3",
+      "type": "path",
+      "outline": {
+        "preset": "polygon",
+        "sides": 3,
+        "nodes": [
+          {
+            "x": 0.5,
+            "y": 0,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.9330127018922194,
+            "y": 0.7499999999999999,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.06698729810778076,
+            "y": 0.7500000000000002,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          }
+        ]
+      },
+      "state": "default",
+      "pressable": true,
+      "x": -232.5,
+      "y": -95,
+      "width": 90,
+      "height": 70,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      }
+    },
+    {
+      "id": "outline-polygon-6",
+      "type": "path",
+      "outline": {
+        "preset": "polygon",
+        "sides": 6,
+        "nodes": [
+          {
+            "x": 0.5,
+            "y": 0,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.9330127018922193,
+            "y": 0.25,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.9330127018922194,
+            "y": 0.7499999999999999,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.5,
+            "y": 1,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.06698729810778076,
+            "y": 0.7500000000000002,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.0669872981077807,
+            "y": 0.24999999999999994,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          }
+        ]
+      },
+      "state": "default",
+      "pressable": true,
+      "x": -107.5,
+      "y": -95,
+      "width": 90,
+      "height": 70,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      }
+    },
+    {
+      "id": "outline-polygon-12",
+      "type": "path",
+      "outline": {
+        "preset": "polygon",
+        "sides": 12,
+        "nodes": [
+          {
+            "x": 0.5,
+            "y": 0,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.75,
+            "y": 0.06698729810778065,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.9330127018922193,
+            "y": 0.25,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 1,
+            "y": 0.5,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.9330127018922194,
+            "y": 0.7499999999999999,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.75,
+            "y": 0.9330127018922194,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.5,
+            "y": 1,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.2500000000000001,
+            "y": 0.9330127018922194,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.06698729810778076,
+            "y": 0.7500000000000002,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0,
+            "y": 0.5000000000000001,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.0669872981077807,
+            "y": 0.24999999999999994,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.24999999999999978,
+            "y": 0.06698729810778076,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          }
+        ]
+      },
+      "state": "default",
+      "pressable": true,
+      "x": 17.5,
+      "y": -95,
+      "width": 90,
+      "height": 70,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      }
+    },
+    {
+      "id": "outline-star-5",
+      "type": "path",
+      "outline": {
+        "preset": "star",
+        "points": 5,
+        "innerRatio": 0.45,
+        "nodes": [
+          {
+            "x": 0.5,
+            "y": 0,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.6322516817658065,
+            "y": 0.3179711762656368,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.9755282581475768,
+            "y": 0.3454915028125263,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.7139877161664095,
+            "y": 0.5695288237343632,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.7938926261462366,
+            "y": 0.9045084971874737,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.5,
+            "y": 0.725,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.2061073738537635,
+            "y": 0.9045084971874737,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.28601228383359045,
+            "y": 0.5695288237343632,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.02447174185242318,
+            "y": 0.3454915028125264,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.3677483182341935,
+            "y": 0.31797117626563687,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          }
+        ]
+      },
+      "state": "default",
+      "pressable": true,
+      "x": 142.5,
+      "y": -95,
+      "width": 90,
+      "height": 70,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      }
+    },
+    {
+      "id": "outline-star-8",
+      "type": "path",
+      "outline": {
+        "preset": "star",
+        "points": 8,
+        "innerRatio": 0.45,
+        "nodes": [
+          {
+            "x": 0.5,
+            "y": 0,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.5861037722821452,
+            "y": 0.2921271051849605,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.8535533905932737,
+            "y": 0.14644660940672627,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.7078728948150395,
+            "y": 0.4138962277178548,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 1,
+            "y": 0.5,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.7078728948150395,
+            "y": 0.5861037722821452,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.8535533905932737,
+            "y": 0.8535533905932737,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.5861037722821452,
+            "y": 0.7078728948150395,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.5,
+            "y": 1,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.41389622771785484,
+            "y": 0.7078728948150395,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.14644660940672627,
+            "y": 0.8535533905932737,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.29212710518496054,
+            "y": 0.5861037722821453,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0,
+            "y": 0.5000000000000001,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.29212710518496054,
+            "y": 0.4138962277178547,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.14644660940672616,
+            "y": 0.14644660940672627,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.41389622771785467,
+            "y": 0.29212710518496054,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          }
+        ]
+      },
+      "state": "default",
+      "pressable": true,
+      "x": -232.5,
+      "y": 25,
+      "width": 90,
+      "height": 70,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      }
+    },
+    {
+      "id": "outline-arrow",
+      "type": "path",
+      "outline": {
+        "preset": "arrow",
+        "nodes": [
+          {
+            "x": 0,
+            "y": 0.3,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.55,
+            "y": 0.3,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.55,
+            "y": 0,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 1,
+            "y": 0.5,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.55,
+            "y": 1,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0.55,
+            "y": 0.7,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0,
+            "y": 0.7,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          }
+        ]
+      },
+      "state": "default",
+      "pressable": true,
+      "x": -107.5,
+      "y": 25,
+      "width": 90,
+      "height": 70,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      }
+    },
+    {
+      "id": "outline-corner",
+      "type": "path",
+      "outline": {
+        "nodes": [
+          {
+            "x": 0,
+            "y": 0,
+            "radius": 0.15,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 1,
+            "y": 0,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          }
+        ]
+      },
+      "state": "default",
+      "pressable": true,
+      "x": 17.5,
+      "y": 25,
+      "width": 90,
+      "height": 70,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      }
+    },
+    {
+      "id": "outline-arc",
+      "type": "path",
+      "outline": {
+        "nodes": [
+          {
+            "x": 0,
+            "y": 0,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "arc",
+              "bulge": 0.35
+            }
+          },
+          {
+            "x": 1,
+            "y": 0,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "radius": 0,
+            "smooth": false,
+            "edge": {
+              "type": "straight",
+              "bulge": 0
+            }
+          }
+        ]
+      },
+      "state": "default",
+      "pressable": true,
+      "x": 142.5,
+      "y": 25,
+      "width": 90,
+      "height": 70,
+      "props": {
+        "profile": {
+          "preset": "raised",
+          "height": 0.5,
+          "wall": 1,
+          "params": {
+            "bevel": 0.5
+          },
+          "mode": "auto",
+          "acrossAxis": "vertical"
+        },
+        "material": "speckle-grey"
+      }
+    }
+  ],
+  "groups": [],
+  "styleId": "studio-hardware",
+  "look": "slight",
+  "direction": "s",
+  "selection": []
+}

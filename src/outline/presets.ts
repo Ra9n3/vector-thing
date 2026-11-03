@@ -15,7 +15,7 @@ export function presetOutline(preset:OutlinePreset,sides=6,innerRatio=.5):Outlin
  return {preset,nodes:[node(.33,0),node(.67,0),node(.67,.33),node(1,.33),node(1,.67),node(.67,.67),node(.67,1),node(.33,1),node(.33,.67),node(0,.67),node(0,.33),node(.33,.33)]};
 }
 /** Convert the five built-in primitives to dimension-independent nodes. */
-export function primitiveOutline(type:ShapeType,w:number,h:number):OutlineData {
+export function primitiveOutline(type:Exclude<ShapeType,'path'>,w:number,h:number):OutlineData {
  if(type==='rect'||type==='rounded')return {nodes:[node(0,0,type==='rounded'?.18:0),node(1,0,type==='rounded'?.18:0),node(1,1,type==='rounded'?.18:0),node(0,1,type==='rounded'?.18:0)]};
  if(type==='hexagon'){
   const r=Math.min(w/2,h/Math.sqrt(3)),hh=r*Math.sqrt(3)/2,cx=w/2,cy=h/2;

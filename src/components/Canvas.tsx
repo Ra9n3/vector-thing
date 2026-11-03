@@ -1,3 +1,5 @@
+import {OutlineOverlay} from '../outline/OutlineOverlay';
+import {useOutlineEditor} from '../outline/editorState';
 import { useMemo, useRef } from 'react';
 import type { DragEvent } from 'react';
 import { Box, Chip, Tooltip } from '@mui/material';
@@ -79,7 +81,9 @@ export function Canvas() {
     const original = originalSizes.get(el.id);
     return original ? { ...el, width: original.width, height: original.height } : el;
   }) : elements, [elements, resizeOrigins, originalSizes]);
+  const editingId=useOutlineEditor(s=>s.id), pen=useOutlineEditor(s=>s.pen);
   const selectedLeaves = useMemo(() => leavesOf(selection,elements,groups), [selection,elements,groups]);
+  const isOutlineEditing=!!editingId && selectedLeaves.length===1 && selectedLeaves[0].id===editingId && selectedLeaves[0].type==='path' && !!selectedLeaves[0].outline;
   const selectedIds = useMemo(() => selectedLeaves.map(e=>e.id), [selectedLeaves]);
   const shading = useShadingDefinitions(mode === 'face' ? shadingElements : EMPTY_ELEMENTS, selectedIds, { elements: mode === 'face' ? elements : EMPTY_ELEMENTS, look, direction, style, background:canvasBackground, frames, filterScale:webkitLighting ? zoom * window.devicePixelRatio : 1 });
   const targetIds = useMemo(() => new Set(resolveTargets(selection,elements,groups,matchMode,activeId)), [selection,elements,groups,matchMode,activeId]);
@@ -131,8 +135,9 @@ export function Canvas() {
               const shadowClip = stackedShadowClip(el,elements,look,direction,stackOptions);
               return <g key={el.id} data-dimmed={dimmed ? '' : undefined} opacity={dimmed ? 0.4 : 1} pointerEvents={dimmed ? 'none' : undefined}><ElementView el={shown} material={visual.material} animating={animatingIds.has(el.id) && !moving && !resizeOrigins} shadowClip={shadowClip} effect={shading.effectsByElement.get(el.id)} shadingId={shading.elementIds.get(el.id)!} heightId={shading.heightIds.get(el.id)} glowId={shading.glowIds.get(el.id)} textureId={shading.textureIds.get(el.id)} original={original} preview={original ? preview : undefined} /></g>;
             })}
+            {isOutlineEditing && (()=>{const el=selectedLeaves[0],shown=displayedElement(el,elements,look,direction,stackOptions),offset=shading.effectsByElement.get(el.id)?.spec.capOffset??{x:0,y:0};return <OutlineOverlay key={`${el.id}-${pen}`} element={el} x={shown.x+offset.x} y={shown.y+offset.y} zoom={zoom} accent="#8b7cff"/>;})()}
           </g>
-          <SelectionBox marquee={marquee} stackOptions={stackOptions} />
+          {!isOutlineEditing && <SelectionBox marquee={marquee} stackOptions={stackOptions} />}
         </svg>
       )}
 

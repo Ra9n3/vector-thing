@@ -1,3 +1,5 @@
+import {presetOutline,primitiveOutline} from './outline/presets';
+import type {OutlineData,OutlinePreset} from './outline/types';
 import { create } from 'zustand';
 import { History } from './history';
 import { fitSize, MIN_SIZE } from './geometry/shapePath';
@@ -105,6 +107,9 @@ interface AppState {
   nudge: (dx: number, dy: number) => void;
 
   setShapeType: (type: ShapeType) => void;
+  setOutlinePreset: (preset:OutlinePreset, count?:number, ratio?:number) => void;
+  convertToOutline: (id:string) => void;
+  setOutline: (id:string, outline:OutlineData, commit:boolean) => void;
   setSideProfile: (p: ProfilePresetId) => void;
   setWall: (value: number) => void;
   setProfileMode: (mode: ProfileSettings['mode']) => void;
@@ -130,6 +135,7 @@ export const useStore = create<AppState>((set, get) => {
   };
   const selectedSet = (mainOnly=false) => { const s=get(); return new Set(resolveTargets(s.selection,s.elements,s.groups,s.matchMode,s.activeId,mainOnly ? e=>!!e.main : undefined)); };
   const selectedLeavesSet = () => { const s=get(); return new Set(leavesOf(s.selection,s.elements,s.groups).map(e=>e.id)); };
+  let outlineEdit:Snapshot | null = null;
   let profileEdit: { before: Snapshot; ids: string[]; key: string } | null = null;
   const finishProfileEdit = () => {
     if (!profileEdit) return;
@@ -231,6 +237,7 @@ export const useStore = create<AppState>((set, get) => {
     reorder: (action) => { const s=get(); const next=reorderSelection(s,action); if(next===s) return; s.checkpoint(); set(next); },
 
     checkpoint: (key) => {
+      if(outlineEdit){history.push(outlineEdit);outlineEdit=null;}
       finishProfileEdit();
       const now = Date.now();
       if (key && key === lastKey && now - lastTime < 600) {
@@ -331,6 +338,21 @@ export const useStore = create<AppState>((set, get) => {
       }));
     },
 
+    setOutlinePreset: (preset,count,ratio) => {
+      const sel=selectedSet();if(!sel.size)return;
+      get().checkpoint();set(s=>({properties:{...s.properties,shape:'path'},elements:s.elements.map(e=>sel.has(e.id)?{...e,type:'path' as const,outline:presetOutline(preset,count,ratio)}:e)}));
+    },
+    convertToOutline: (id) => {
+      const el=get().elements.find(e=>e.id===id);if(!el||el.type==='path')return;
+      get().checkpoint();const outline=primitiveOutline(el.type,el.width,el.height);
+      set(s=>({elements:s.elements.map(e=>e.id===id?{...e,type:'path' as const,outline}:e),properties:{...s.properties,shape:'path'}}));
+    },
+    setOutline: (id,outline,commit) => {
+      const el=get().elements.find(e=>e.id===id);if(!el||el.type!=='path'||outline.nodes.length<3)return;
+      if(!outlineEdit)outlineEdit=snap();
+      set(s=>({elements:s.elements.map(e=>e.id===id?{...e,outline}:e)}));
+      if(commit&&outlineEdit){const before=outlineEdit;outlineEdit=null;if(JSON.stringify(before.elements.find(e=>e.id===id)?.outline)!==JSON.stringify(outline)){history.push(before);lastKey=null;}}
+    },
     setSideProfile: (preset) => {
       const sel = selectedSet();
       if (sel.size === 0) return;

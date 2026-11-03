@@ -1,3 +1,10 @@
+import PentagonOutlinedIcon from '@mui/icons-material/PentagonOutlined';
+import StarOutlineIcon from '@mui/icons-material/StarBorder';
+import ChangeHistoryIcon from '@mui/icons-material/ChangeHistory';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import AddIcon from '@mui/icons-material/Add';
+import {OutlineControls} from './OutlineControls';
+import type {OutlinePreset} from '../outline/types';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useMemo } from 'react';
 import type { ReactNode } from 'react';
@@ -78,6 +85,7 @@ export function PropertiesPanel() {
   const matchMode = useStore((s) => s.matchMode);
   const activeId = useStore((s) => s.activeId);
   const setShapeType = useStore((s) => s.setShapeType);
+  const setOutlinePreset = useStore(s=>s.setOutlinePreset);
   const setSideProfile = useStore((s) => s.setSideProfile);
   const setProfileMode = useStore((s) => s.setProfileMode);
   const setProfileAxis = useStore((s) => s.setProfileAxis);
@@ -133,8 +141,9 @@ export function PropertiesPanel() {
             exclusive
             fullWidth
             disabled={inactive}
-            value={shape ?? null}
-            onChange={(_, v: ShapeType | null) => v && setShapeType(v)}
+            value={shape === 'path' ? (uniform(sel.map(e=>e.outline?.preset)) ?? 'path') : shape ?? null}
+            onChange={(_, v: ShapeType | OutlinePreset | null) => {if(!v)return;if(['polygon','star','triangle','arrow','cross'].includes(v))setOutlinePreset(v as OutlinePreset);else if(v!=='path')setShapeType(v as ShapeType);}}
+            sx={{display:'grid',gridTemplateColumns:'repeat(5, 1fr)',gap:.5,'& > span':{minWidth:0},'& button':{width:'100%'}}}
             aria-label="Shape"
           >
             {SHAPES.map(({ value, tip }) => {
@@ -145,6 +154,9 @@ export function PropertiesPanel() {
                 </TipToggle>
               );
             })}
+            {([
+              ['polygon','Polygon',PentagonOutlinedIcon],['star','Star',StarOutlineIcon],['triangle','Triangle',ChangeHistoryIcon],['arrow','Arrow',ArrowForwardIcon],['cross','Cross',AddIcon],
+            ] as const).map(([value,tip,Icon])=><TipToggle key={value} value={value} tip={tip} disabled={inactive} sx={{py:.75}}><Icon fontSize="small"/></TipToggle>)}
           </ToggleButtonGroup>
         </Section>
 
@@ -239,6 +251,7 @@ export function PropertiesPanel() {
             </AccordionSummary>
             <AccordionDetails sx={{ minHeight: 48, display: 'grid', gap: 1.5 }}>
               <ColorOverride selected={colorSel} mainParts={mainGroup} />
+              <OutlineControls selected={leaves} />
               {has && <Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <Typography variant="overline" color="text.secondary">Wall</Typography>

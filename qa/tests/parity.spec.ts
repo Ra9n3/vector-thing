@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-const fixtures=['ssl-strip','shape-grid','toggles','neumorphic-panel','stress','glass-glow','medium'];
+const fixtures=['ssl-strip','shape-grid','toggles','neumorphic-panel','stress','glass-glow','medium','outlines'];
 for(const fixture of fixtures)test(`@parity ${fixture} live SVG and PNG`,async({page})=>{
  await page.goto(`/?fixture=${fixture}`);await expect(page.locator('svg[data-view="face"]')).toBeVisible();await page.waitForTimeout(1000);
  const diff=await page.evaluate(async()=>{
