@@ -3,45 +3,42 @@ import { History } from './history';
 import { fitSize, MIN_SIZE } from './geometry/shapePath';
 import type { ShapeType } from './geometry/shapePath';
 import { snapV } from './geometry/bounds';
+import { defaultProfile } from './profiles/presets';
+import { materialId } from './materials/resolve';
+import { resolveStyle } from './styles/catalog';
+import { applyStyle, remapMaterial } from './styles/applyStyle';
+import type { ProfilePresetId, ProfileSettings } from './profiles/types';
+import { simplifyStroke } from './profiles/custom';
+import type { CustomProfile } from './profiles/custom';
+import type { UserProfilePreset } from './profiles/userPresets';
+import { savePreset, renamePreset, deletePreset, loadProfilePresets, persistProfilePresets } from './profiles/userPresets';
 
 export type { ShapeType };
 export type Shape = ShapeType;
 export type Mode = 'face' | 'side';
-export type ElementState = 'default' | 'pressed' | 'disabled';
-export type Look = 'flat' | 'slight' | 'strong';
-export type Direction = 'n' | 'ne' | 'e' | 'se' | 's' | 'sw' | 'w' | 'nw' | 'c';
-export type SideProfile = 'flat' | 'raised' | 'pillow' | 'dip' | 'ribbed' | 'dome' | 'inset';
+import type { ElementState } from './selection/types';
+export type { ElementState } from './selection/types';
+import { scaleOverrides } from './states/apply';
+import type { Look, Direction } from './viewTypes';
+export type { Look, Direction } from './viewTypes';
 
-export interface ElementProps {
-  sideProfile: SideProfile;
-  material: string;
-}
-
-export interface Element {
-  id: string;
-  type: ShapeType;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  props: ElementProps;
-}
+import type { Element, Group } from './selection/types';
+export type { Element, ElementProps, Group } from './selection/types';
+import type { ElementProps } from './selection/types';
+import { belongsTo, leavesOf, resolveTargets, topLevelOf } from './selection/targets';
+import { groupSelection, ungroupSelection, duplicateSelection, reorderSelection, deleteSelection } from './selection/groupOps';
+import type { ReorderAction } from './selection/groupOps';
+import type { ComponentTemplate } from './library/types';
+import { instantiate } from './library/instantiate';
+import { BUILTIN_TEMPLATES } from './library/catalog';
+import { loadUserTemplates, saveUserTemplates, snapshotTemplate } from './library/userTemplates';
 
 export interface Properties {
   shape: Shape;
-  sideProfile: SideProfile;
+  profile: ProfileSettings;
   material: string;
   size: number;
 }
-
-export const MATERIALS = [
-  { id: 'slate', label: 'Slate', color: '#64748b' },
-  { id: 'sand', label: 'Sand', color: '#d6b98c' },
-  { id: 'coral', label: 'Coral', color: '#f2766b' },
-  { id: 'moss', label: 'Moss', color: '#6fae7b' },
-  { id: 'sky', label: 'Sky', color: '#5aa7e8' },
-  { id: 'plum', label: 'Plum', color: '#a46bd1' },
-] as const;
 
 /** Common value of a list, or undefined when values differ (or list is empty). */
 export function uniform<T>(values: T[]): T | undefined {
@@ -51,26 +48,59 @@ export function uniform<T>(values: T[]): T | undefined {
 
 interface Snapshot {
   elements: Element[];
+  groups: Group[];
+  userTemplates: ComponentTemplate[];
+  userProfiles: UserProfilePreset[];
   selection: string[];
+  styleId: string;
+  canvasBackground: string;
+  look: Look;
+  direction: Direction;
+  properties: Properties;
 }
 
 interface AppState {
   mode: Mode;
-  elementState: ElementState;
+  styleId: string;
+  canvasBackground: string;
+  stateChangeVersion: number;
+  instantStateVersion: number;
   look: Look;
   direction: Direction; // 'c' = straight on
   selectedLibraryItem: string | null;
+  drawProfile: boolean;
+  userProfiles: UserProfilePreset[];
+  setDrawProfile: (value:boolean) => void;
+  setCustomProfile: (profile:CustomProfile,commit:boolean) => void;
+  cancelCustomProfile: () => void;
+  saveProfilePreset: (profile:CustomProfile) => void;
+  renameProfilePreset: (id:string,name:string) => void;
+  deleteProfilePreset: (id:string) => void;
   selection: string[];
   elements: Element[];
+  groups: Group[];
+  userTemplates: ComponentTemplate[];
+  matchMode: boolean;
+  activeId: string | null;
+  hoveredId: string | null;
+  enteredGroupId: string | null;
   properties: Properties;
 
   setMode: (m: Mode) => void;
+  setStyle: (id: string) => void;
   setElementState: (s: ElementState) => void;
   setLook: (l: Look) => void;
   setDirection: (d: Direction) => void;
   setSelectedLibraryItem: (id: string | null) => void;
 
   setSelection: (ids: string[]) => void;
+  setMatchMode: (match: boolean) => void;
+  setActiveId: (id: string | null) => void;
+  setHoveredId: (id: string | null) => void;
+  setEnteredGroup: (id: string | null) => void;
+  group: () => void;
+  ungroup: () => void;
+  reorder: (action: ReorderAction) => void;
   selectAll: () => void;
   clearSelection: () => void;
 
@@ -78,56 +108,162 @@ interface AppState {
   undo: () => void;
   redo: () => void;
 
-  addElement: (type: ShapeType, width: number, height: number, cx: number, cy: number) => void;
+  placeTemplate: (id:string, at:{x:number;y:number}, scale?:number) => void;
+  saveToLibrary: () => void;
+  deleteUserTemplate: (id:string) => void;
+  addElement: (type: ShapeType, width: number, height: number, cx: number, cy: number, preset?: ProfilePresetId) => void;
   updateElements: (patches: Record<string, Partial<Element>>) => void;
   deleteSelection: () => void;
   duplicateSelection: () => void;
   nudge: (dx: number, dy: number) => void;
 
   setShapeType: (type: ShapeType) => void;
-  setSideProfile: (p: SideProfile) => void;
+  setSideProfile: (p: ProfilePresetId) => void;
+  setWall: (value: number) => void;
+  setProfileMode: (mode: ProfileSettings['mode']) => void;
+  setProfileAxis: (axis: ProfileSettings['acrossAxis']) => void;
+  setProfileParam: (ids: string[], key: string, value: number, commit: boolean) => void;
   setMaterial: (m: string) => void;
+  setCustomColor: (color?: string) => void;
   setSize: (v: number) => void;
 }
 
 const history = new History<Snapshot>();
 let lastKey: string | null = null;
 let lastTime = 0;
+export function clearHistoryForQA() { if (import.meta.env.DEV) { history.clear(); lastKey = null; } }
 let counter = 0;
 const newId = () => `el-${Date.now().toString(36)}-${(counter++).toString(36)}`;
 const r2 = (n: number) => Math.round(n * 100) / 100;
 
 export const useStore = create<AppState>((set, get) => {
-  const snap = (): Snapshot => ({ elements: get().elements, selection: get().selection });
-  const selectedSet = () => new Set(get().selection);
+  const snap = (): Snapshot => {
+    const { elements, groups, userTemplates, userProfiles, selection, styleId, canvasBackground, look, direction, properties } = get();
+    return { elements, groups, userTemplates, userProfiles, selection, styleId, canvasBackground, look, direction, properties };
+  };
+  const selectedSet = (mainOnly=false) => { const s=get(); return new Set(resolveTargets(s.selection,s.elements,s.groups,s.matchMode,s.activeId,mainOnly ? e=>!!e.main : undefined)); };
+  const selectedLeavesSet = () => { const s=get(); return new Set(leavesOf(s.selection,s.elements,s.groups).map(e=>e.id)); };
+  let customEdit: Snapshot | null = null;
+  let profileEdit: { before: Snapshot; ids: string[]; key: string } | null = null;
+  const finishProfileEdit = () => {
+    if (!profileEdit) return;
+    const { before, ids, key } = profileEdit;
+    const current = get().elements;
+    const changed = ids.some((id) => {
+      const a = before.elements.find((el) => el.id === id)?.props.profile;
+      const b = current.find((el) => el.id === id)?.props.profile;
+      return a && b && (key === 'height' ? (a.height ?? 0.5) !== (b.height ?? 0.5) : a.params[key] !== b.params[key]);
+    });
+    if (changed) { history.push(before); lastKey = null; }
+    profileEdit = null;
+  };
 
   const restore = (s: Snapshot) => {
-    const ids = new Set(s.elements.map((e) => e.id));
-    set({ elements: s.elements, selection: s.selection.filter((id) => ids.has(id)) });
+    const groups = s.groups ?? [];
+    saveUserTemplates(s.userTemplates ?? []);
+    persistProfilePresets(s.userProfiles ?? []);
+    const ids = new Set([...s.elements.map((e) => e.id), ...groups.map(g=>g.id)]);
+    const selection=s.selection.filter((id) => ids.has(id));
+    const leaves=leavesOf(selection,s.elements,groups);
+    set({ ...s, groups, selection, instantStateVersion:get().instantStateVersion+1, enteredGroupId: groups.some(g=>g.id===get().enteredGroupId) ? get().enteredGroupId : null, hoveredId:null,
+      activeId: get().matchMode ? null : (leaves.some(e=>e.id===get().activeId) ? get().activeId : leaves.at(-1)?.id ?? null) });
     lastKey = null;
   };
 
   return {
     mode: 'face',
-    elementState: 'default',
+    styleId: 'studio-hardware',
+    canvasBackground: resolveStyle('studio-hardware').canvasBackground,
+    stateChangeVersion: 0,
+    instantStateVersion: 0,
     look: 'slight',
     direction: 's',
     selectedLibraryItem: null,
+    drawProfile: false,
+    userProfiles: loadProfilePresets(),
+    setDrawProfile: (value) => set({drawProfile:value}),
+    setCustomProfile: (custom,commit) => {
+      const targets=selectedSet(); if(!targets.size)return;
+      if(custom.points.length<2 || custom.points.some(p=>!Number.isFinite(p.x)||!Number.isFinite(p.y)) || !Number.isFinite(custom.smooth))return;
+      const points=simplifyStroke(custom.points);
+      if(!customEdit)customEdit=snap();
+      const value:CustomProfile={points,mirror:custom.mirror,smooth:Math.max(0,Math.min(1,custom.smooth))};
+      set(s=>({elements:s.elements.map(el=>targets.has(el.id)?{...el,props:{...el.props,profile:{...el.props.profile,kind:'custom' as const,custom:value}}}:el),
+        properties:{...s.properties,profile:{...s.properties.profile,kind:'custom' as const,custom:value}}}));
+      if(commit&&customEdit){history.push(customEdit);customEdit=null;lastKey=null;}
+    },
+    cancelCustomProfile: () => {if(customEdit){const before=customEdit;customEdit=null;restore(before);}},
+    saveProfilePreset: profile => {get().checkpoint();const list=savePreset(get().userProfiles,newId(),'Custom',profile);persistProfilePresets(list);set({userProfiles:list});},
+    renameProfilePreset: (id,name) => {const list=renamePreset(get().userProfiles,id,name);if(JSON.stringify(list)===JSON.stringify(get().userProfiles))return;get().checkpoint();persistProfilePresets(list);set({userProfiles:list});},
+    deleteProfilePreset: id => {const list=deletePreset(get().userProfiles,id);if(list.length===get().userProfiles.length)return;get().checkpoint();persistProfilePresets(list);set({userProfiles:list});},
     selection: [],
     elements: [],
-    properties: { shape: 'rounded', sideProfile: 'raised', material: 'slate', size: 96 },
+    groups: [],
+    userTemplates: loadUserTemplates(),
+    matchMode: true,
+    activeId: null,
+    hoveredId: null,
+    enteredGroupId: null,
+    properties: { shape: 'rounded', profile: defaultProfile('raised'), material: materialId(resolveStyle('studio-hardware').palette[0]), size: 96 },
 
-    setMode: (mode) => set({ mode }),
-    setElementState: (elementState) => set({ elementState }),
-    setLook: (look) => set({ look }),
-    setDirection: (direction) => set({ direction }),
+    setMode: (mode) => set(mode === 'face' ? { mode, drawProfile: false } : { mode }),
+    setStyle: (id) => {
+      const next = resolveStyle(id);
+      const old = resolveStyle(get().styleId);
+      if (id === old.id) return;
+      get().checkpoint();
+      set((s) => ({
+        styleId: id, canvasBackground: next.canvasBackground, look: next.look, direction: next.direction,
+        elements: applyStyle(s.elements, old, next),
+        properties: { ...s.properties, material: remapMaterial(s.properties.material, old, next) },
+      }));
+    },
+    setElementState: (state) => {
+      const s=get();const ids=new Set((s.selection.length ? leavesOf(s.selection,s.elements,s.groups) : s.elements).map(e=>e.id));
+      if(!s.elements.some(e=>ids.has(e.id) && (e.state ?? 'default')!==state))return;
+      s.checkpoint();set({elements:s.elements.map(e=>ids.has(e.id)?{...e,state}:e),stateChangeVersion:s.stateChangeVersion+1});
+    },
+    setLook: (look) => {
+      const current = get();
+      if (look === current.look) return;
+      get().checkpoint();
+      // Older documents may have stored the old center direction.
+      const direction = look !== 'flat' && current.direction === 'c' ? resolveStyle(current.styleId).direction : current.direction;
+      set({ look, direction });
+    },
+    setDirection: (direction) => {
+      const current = get();
+      if (direction === 'c') {
+        if (current.look === 'flat') return;
+        get().checkpoint();
+        set({ look: 'flat' });
+        return;
+      }
+      if (current.direction === direction && current.look !== 'flat') return;
+      get().checkpoint();
+      set({ direction, look: current.look === 'flat' ? 'slight' : current.look });
+    },
     setSelectedLibraryItem: (selectedLibraryItem) => set({ selectedLibraryItem }),
 
-    setSelection: (selection) => set({ selection }),
-    selectAll: () => set((s) => ({ selection: s.elements.map((e) => e.id) })),
-    clearSelection: () => set((s) => (s.selection.length ? { selection: [] } : s)),
+    setSelection: (selection) => set((s) => {
+      const unique=[...new Set(selection)];
+      const leaves=leavesOf(unique,s.elements,s.groups);
+      const enteredGroupId = s.enteredGroupId && unique.some(id=>!belongsTo(id,s.enteredGroupId!,s.elements,s.groups)) ? null : s.enteredGroupId;
+      return { selection:unique, enteredGroupId, hoveredId:null, activeId:s.matchMode ? null : (leaves.some(e=>e.id===s.activeId) ? s.activeId : leaves.at(-1)?.id ?? null) };
+    }),
+    setMatchMode: (matchMode) => set((s) => ({ matchMode, activeId: matchMode ? null : leavesOf(s.selection,s.elements,s.groups).at(-1)?.id ?? null, hoveredId:null })),
+    setActiveId: (id) => set((s) => !s.matchMode && leavesOf(s.selection,s.elements,s.groups).some(e=>e.id===id) ? { activeId:id } : s),
+    setHoveredId: (hoveredId) => set({ hoveredId }),
+    setEnteredGroup: (enteredGroupId) => set({ enteredGroupId, selection:[], activeId:null, hoveredId:null }),
+    selectAll: () => { const s=get(); const eligible=s.enteredGroupId ? leavesOf([s.enteredGroupId],s.elements,s.groups) : s.elements;
+      get().setSelection([...new Set(eligible.map(e=>topLevelOf(e.id,s.elements,s.groups,s.enteredGroupId)))]); },
+    clearSelection: () => set((s) => (s.selection.length || s.enteredGroupId ? { selection: [], enteredGroupId:null, activeId:null, hoveredId:null } : s)),
+    group: () => { const s=get(); const next=groupSelection(s, newId()); if(next===s) return; s.checkpoint(); set({...next, hoveredId:null, enteredGroupId:next.groups.some(g=>g.id===s.enteredGroupId)?s.enteredGroupId:null, activeId:s.matchMode?null:leavesOf(next.selection,next.elements,next.groups).at(-1)?.id??null}); },
+    ungroup: () => { const s=get(); const next=ungroupSelection(s); if(next===s) return; s.checkpoint(); set({...next, hoveredId:null, enteredGroupId: next.groups.some(g=>g.id===s.enteredGroupId) ? s.enteredGroupId : null, activeId:s.matchMode?null:leavesOf(next.selection,next.elements,next.groups).at(-1)?.id??null}); },
+    reorder: (action) => { const s=get(); const next=reorderSelection(s,action); if(next===s) return; s.checkpoint(); set(next); },
 
     checkpoint: (key) => {
+      finishProfileEdit();
       const now = Date.now();
       if (key && key === lastKey && now - lastTime < 600) {
         lastTime = now;
@@ -138,20 +274,42 @@ export const useStore = create<AppState>((set, get) => {
       lastTime = now;
     },
     undo: () => {
+      finishProfileEdit();
       const prev = history.undo(snap());
       if (prev) restore(prev);
     },
     redo: () => {
+      finishProfileEdit();
       const next = history.redo(snap());
       if (next) restore(next);
     },
 
-    addElement: (type, width, height, cx, cy) => {
+    placeTemplate: (id, at, scale=1) => {
+      const s=get(); const template=[...BUILTIN_TEMPLATES,...s.userTemplates].find(t=>t.id===id);
+      if(!template || !Number.isFinite(scale) || scale<=0)return;
+      const result=instantiate(template,at,scale,resolveStyle(s.styleId),s.elements,s.groups);
+      s.checkpoint();
+      set({...result, enteredGroupId:null, hoveredId:null, selectedLibraryItem:id,
+        activeId:s.matchMode?null:leavesOf(result.selection,result.elements,result.groups).at(-1)?.id??null});
+    },
+    saveToLibrary: () => {
+      const s=get(); const id=`user-${Date.now().toString(36)}-${counter++}`;
+      const template=snapshotTemplate(id,s.selection,s.elements,s.groups,resolveStyle(s.styleId));
+      if(!template)return;
+      s.checkpoint(); const userTemplates=[...s.userTemplates,template]; saveUserTemplates(userTemplates); set({userTemplates});
+    },
+    deleteUserTemplate: (id) => {
+      const s=get(); const userTemplates=s.userTemplates.filter(t=>t.id!==id); if(userTemplates.length===s.userTemplates.length)return;
+      s.checkpoint(); saveUserTemplates(userTemplates); set({userTemplates,selectedLibraryItem:s.selectedLibraryItem===id?null:s.selectedLibraryItem});
+    },
+
+    addElement: (type, width, height, cx, cy, preset) => {
       get().checkpoint();
-      const { elements, selection, properties } = get();
-      const chosen = elements.filter((e) => selection.includes(e.id));
+      const { elements, properties } = get();
+      const targets = selectedSet();
+      const chosen = elements.filter((e) => targets.has(e.id));
       const props: ElementProps = {
-        sideProfile: uniform(chosen.map((e) => e.props.sideProfile)) ?? properties.sideProfile,
+        profile: defaultProfile(preset ?? uniform(chosen.map((e) => e.props.profile.preset)) ?? properties.profile.preset),
         material: uniform(chosen.map((e) => e.props.material)) ?? properties.material,
       };
       let x = snapV(cx - width / 2);
@@ -160,9 +318,12 @@ export const useStore = create<AppState>((set, get) => {
         x += 16;
         y += 16;
       }
-      const el: Element = { id: newId(), type, x, y, width, height, props };
+      const el: Element = { id: newId(), type, state:'default', pressable:true, x, y, width, height, props };
+      // Placing a new top-level item leaves group edit mode.
       set({
         elements: [...elements, el],
+        enteredGroupId: null,
+        activeId: get().matchMode ? null : el.id,
         selection: [el.id],
         properties: { ...properties, ...props, shape: type },
       });
@@ -173,29 +334,12 @@ export const useStore = create<AppState>((set, get) => {
         elements: s.elements.map((e) => (patches[e.id] ? { ...e, ...patches[e.id] } : e)),
       })),
 
-    deleteSelection: () => {
-      const { selection } = get();
-      if (selection.length === 0) return;
-      get().checkpoint();
-      const sel = selectedSet();
-      set((s) => ({ elements: s.elements.filter((e) => !sel.has(e.id)), selection: [] }));
-    },
+    deleteSelection: () => { const s=get(); const next=deleteSelection(s); if(next===s) return; s.checkpoint(); set({...next,activeId:null,hoveredId:null,enteredGroupId:next.groups.some(g=>g.id===s.enteredGroupId)?s.enteredGroupId:null}); },
 
-    duplicateSelection: () => {
-      const sel = selectedSet();
-      if (sel.size === 0) return;
-      get().checkpoint();
-      const clones = get()
-        .elements.filter((e) => sel.has(e.id))
-        .map((e) => ({ ...e, id: newId(), x: e.x + 16, y: e.y + 16, props: { ...e.props } }));
-      set((s) => ({
-        elements: [...s.elements, ...clones],
-        selection: clones.map((c) => c.id),
-      }));
-    },
+    duplicateSelection: () => { const s=get(); const next=duplicateSelection(s,newId); if(next===s) return; s.checkpoint(); set({...next,hoveredId:null,activeId:s.matchMode?null:leavesOf(next.selection,next.elements,next.groups).at(-1)?.id??null}); },
 
     nudge: (dx, dy) => {
-      const sel = selectedSet();
+      const sel = selectedLeavesSet();
       if (sel.size === 0) return;
       get().checkpoint('nudge');
       set((s) => ({
@@ -219,48 +363,133 @@ export const useStore = create<AppState>((set, get) => {
       }));
     },
 
-    setSideProfile: (sideProfile) => {
+    setSideProfile: (preset) => {
+      customEdit=null;
       const sel = selectedSet();
       if (sel.size === 0) return;
       get().checkpoint();
+      const withPreset = (profile: ProfileSettings): ProfileSettings => ({
+        ...defaultProfile(preset), height: profile.height ?? 0.5, wall: profile.wall ?? 1, mode: profile.mode, acrossAxis: profile.acrossAxis,
+      });
       set((s) => ({
-        properties: { ...s.properties, sideProfile },
+        drawProfile: false,
+        properties: { ...s.properties, profile: withPreset(s.properties.profile) },
         elements: s.elements.map((e) =>
-          sel.has(e.id) ? { ...e, props: { ...e.props, sideProfile } } : e,
+          sel.has(e.id) ? { ...e, props: { ...e.props, profile: withPreset(e.props.profile) } } : e,
         ),
       }));
     },
 
-    setMaterial: (material) => {
+    setWall: (value) => {
+      if (!Number.isFinite(value)) return;
+      const wall = Math.max(0, Math.min(2, value));
       const sel = selectedSet();
+      if (!sel.size || !get().elements.some((e) => sel.has(e.id) && (e.props.profile.wall ?? 1) !== wall)) return;
+      get().checkpoint('wall');
+      set((s) => ({
+        properties: { ...s.properties, profile: { ...s.properties.profile, wall } },
+        elements: s.elements.map((e) => sel.has(e.id) ? { ...e, props: { ...e.props, profile: { ...e.props.profile, wall } } } : e),
+      }));
+    },
+
+    setProfileMode: (mode) => {
+      const sel = selectedSet();
+      if (sel.size === 0) return;
+      get().checkpoint();
+      set((s) => ({
+        properties: { ...s.properties, profile: { ...s.properties.profile, mode } },
+        elements: s.elements.map((e) => sel.has(e.id)
+          ? { ...e, props: { ...e.props, profile: { ...e.props.profile, mode } } } : e),
+      }));
+    },
+
+    setProfileAxis: (acrossAxis) => {
+      const sel = selectedSet();
+      if (sel.size === 0) return;
+      get().checkpoint();
+      set((s) => ({
+        properties: { ...s.properties, profile: { ...s.properties.profile, acrossAxis } },
+        elements: s.elements.map((e) => sel.has(e.id)
+          ? { ...e, props: { ...e.props, profile: { ...e.props.profile, acrossAxis } } } : e),
+      }));
+    },
+
+    setProfileParam: (ids, key, value, commit) => {
+      if (!Number.isFinite(value) || !ids.length) return;
+      const next = Math.max(0, Math.min(1, value));
+      const allowed = selectedSet();
+      const targets = new Set(ids.filter(id => allowed.has(id)));
+      const signature = [...targets].sort().join('\0');
+      if (profileEdit && (profileEdit.key !== key || [...profileEdit.ids].sort().join('\0') !== signature)) finishProfileEdit();
+      const changed = get().elements.some((el) => targets.has(el.id) &&
+        (key === 'height' ? (el.props.profile.height ?? 0.5) !== next : el.props.profile.params[key] !== next));
+      if (changed && !profileEdit) profileEdit = { before: snap(), ids: [...targets], key };
+      if (changed) set((s) => ({
+        elements: s.elements.map((el) => {
+          if (!targets.has(el.id)) return el;
+          const profile = key === 'height' ? { ...el.props.profile, height: next }
+            : { ...el.props.profile, params: { ...el.props.profile.params, [key]: next } };
+          return { ...el, props: { ...el.props, profile } };
+        }),
+        properties: { ...s.properties, profile: key === 'height' ? { ...s.properties.profile, height: next }
+          : { ...s.properties.profile, params: { ...s.properties.profile.params, [key]: next } } },
+      }));
+      if (commit) finishProfileEdit();
+    },
+
+    setMaterial: (material) => {
+      const sel = selectedSet(true);
       if (sel.size === 0) return;
       get().checkpoint();
       set((s) => ({
         properties: { ...s.properties, material },
         elements: s.elements.map((e) =>
-          sel.has(e.id) ? { ...e, props: { ...e.props, material } } : e,
+          sel.has(e.id) ? { ...e, ...(e.materialSlot !== undefined ? {materialSlot: (()=>{const i=resolveStyle(s.styleId).palette.findIndex(p=>materialId(p)===material); return i<0?null:i;})()} : {}), props: { ...e.props, material } } : e,
         ),
       }));
+    },
+
+    setCustomColor: (customColor) => {
+      const sel = selectedSet(true);
+      if (!sel.size) return;
+      if (customColor !== undefined && !/^#[\da-f]{6}$/i.test(customColor)) return;
+      if (!get().elements.some((el) => sel.has(el.id) && el.props.customColor !== customColor)) return;
+      get().checkpoint('customColor');
+      set((s) => ({ elements: s.elements.map((el) => {
+        if (!sel.has(el.id)) return el;
+        const props = { ...el.props };
+        if (customColor === undefined) delete props.customColor;
+        else props.customColor = customColor;
+        return { ...el, props };
+      }) }));
     },
 
     // Sets the longer side of each selected element, scaling uniformly around its center.
     setSize: (v) => {
       const sel = selectedSet();
       if (sel.size === 0) return;
+      const selected = get().elements.filter(e => sel.has(e.id));
+      const templateGroup = get().matchMode && get().selection.length===1 && get().groups.some(g=>g.id===get().selection[0] && g.template);
+      const left=Math.min(...selected.map(e=>e.x)), top=Math.min(...selected.map(e=>e.y));
+      const right=Math.max(...selected.map(e=>e.x+e.width)), bottom=Math.max(...selected.map(e=>e.y+e.height));
+      const reference = templateGroup ? Math.max(right-left,bottom-top) : selected.reduce((sum,e)=>sum+Math.max(e.width,e.height),0) / selected.length;
+      const factor = Math.max(v / reference, ...selected.map(e => (templateGroup ? 0.01 : MIN_SIZE) / Math.min(e.width,e.height)));
+      const centerX=(left+right)/2, centerY=(top+bottom)/2;
       get().checkpoint('size');
       set((s) => ({
         properties: { ...s.properties, size: v },
         elements: s.elements.map((e) => {
           if (!sel.has(e.id)) return e;
-          const k = Math.max(v / Math.max(e.width, e.height), MIN_SIZE / Math.min(e.width, e.height));
+          const k = factor;
           const w = r2(e.width * k);
           const h = r2(e.height * k);
           return {
             ...e,
             width: w,
             height: h,
-            x: r2(e.x + (e.width - w) / 2),
-            y: r2(e.y + (e.height - h) / 2),
+            stateOverrides:scaleOverrides(e.stateOverrides,k,k),
+            x: r2((templateGroup ? centerX + (e.x + e.width/2 - centerX)*k : e.x + e.width/2) - w/2),
+            y: r2((templateGroup ? centerY + (e.y + e.height/2 - centerY)*k : e.y + e.height/2) - h/2),
           };
         }),
       }));

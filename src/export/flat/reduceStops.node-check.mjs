@@ -1,0 +1,2 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {reduceStops} from './reduceStops.ts';
+test('stop reduction retains extrema and endpoints within the limit',()=>{const stops=Array.from({length:50},(_,i)=>({offset:i/49,color:`rgb(${i===17?255:0}, 0, 0)`}));const out=reduceStops(stops,16);assert.ok(out.length<=16);assert.equal(out[0],stops[0]);assert.equal(out.at(-1),stops.at(-1));assert.ok(out.includes(stops[17]));});

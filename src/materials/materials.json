@@ -1,0 +1,15 @@
+[
+  { "id": "plastic-white", "label": "White plastic", "color": "#e4e4df", "opacity": 1, "specular": 0.45, "shininess": 1.1, "metallic": 0, "contrast": 1 },
+  { "id": "plastic-red", "label": "Red plastic", "color": "#c94741", "opacity": 1, "specular": 0.55, "shininess": 1.1, "metallic": 0, "contrast": 1.05 },
+  { "id": "plastic-green", "label": "Green plastic", "color": "#519b67", "opacity": 1, "specular": 0.5, "shininess": 1.1, "metallic": 0, "contrast": 1.05 },
+  { "id": "plastic-blue", "label": "Blue plastic", "color": "#4888c4", "opacity": 1, "specular": 0.55, "shininess": 1.1, "metallic": 0, "contrast": 1.05 },
+  { "id": "plastic-black", "label": "Black plastic", "color": "#303238", "opacity": 1, "specular": 0.48, "shininess": 1.2, "metallic": 0, "contrast": 1.15 },
+  { "id": "rubber", "label": "Rubber", "color": "#44464a", "opacity": 1, "specular": 0.015, "shininess": 1, "metallic": 0, "contrast": 0.65 },
+  { "id": "metal-silver", "label": "Silver", "color": "#b2bbc5", "opacity": 1, "specular": 0.85, "shininess": 1.3, "metallic": 0.9, "contrast": 1.6 },
+  { "id": "metal-gold", "label": "Gold", "color": "#c79b48", "opacity": 1, "specular": 0.95, "shininess": 1.25, "metallic": 1, "contrast": 1.65 },
+  { "id": "brushed-steel", "label": "Brushed steel", "color": "#aab2bb", "opacity": 1, "specular": 0.7, "shininess": 1.15, "metallic": 0.9, "contrast": 1.45, "texture": { "type": "brushed", "amount": 0.42 } },
+  { "id": "glass", "label": "Glass", "color": "#b0d2df", "opacity": 0.55, "specular": 1, "shininess": 1.25, "metallic": 0, "contrast": 1.15 },
+  { "id": "clay", "label": "Clay", "color": "#d9b4a4", "opacity": 1, "specular": 0.03, "shininess": 1, "metallic": 0, "contrast": 0.7 },
+  { "id": "led-orange", "label": "Orange LED", "color": "#ff9235", "opacity": 1, "specular": 0.25, "shininess": 1.15, "metallic": 0, "contrast": 0.55, "glow": { "color": "#ff8b20", "radius": 22, "strength": 0.8 } },
+  { "id": "speckle-grey", "label": "Speckled grey", "color": "#878982", "opacity": 1, "specular": 0.18, "shininess": 1.1, "metallic": 0, "contrast": 0.9, "texture": { "type": "speckle", "amount": 0.48 } }
+]

@@ -1,4 +1,5 @@
 import type { Element } from '../store';
+import { scaleOverrides } from '../states/apply';
 import { aspectLock, MIN_SIZE } from './shapePath';
 
 export const GRID = 8;
@@ -44,7 +45,7 @@ export function computeResize(
   els: Element[],
   b0: Box,
   p: { x: number; y: number },
-  opts: { free: boolean; snap: boolean },
+  opts: { free: boolean; snap: boolean; minSize?: number },
 ): Record<string, Partial<Element>> {
   const dx = handle.includes('e') ? 1 : handle.includes('w') ? -1 : 0;
   const dy = handle.includes('s') ? 1 : handle.includes('n') ? -1 : 0;
@@ -57,11 +58,12 @@ export function computeResize(
   let sx = dx ? (dx * (px - ax)) / b0.w : 1;
   let sy = dy ? (dy * (py - ay)) / b0.h : 1;
 
-  const sxMin = Math.max(...els.map((e) => MIN_SIZE / e.width));
-  const syMin = Math.max(...els.map((e) => MIN_SIZE / e.height));
+  const minSize=opts.minSize ?? MIN_SIZE;
+  const sxMin = Math.max(...els.map((e) => minSize / e.width));
+  const syMin = Math.max(...els.map((e) => minSize / e.height));
 
   const corner = dx !== 0 && dy !== 0;
-  const locked = els.some((e) => aspectLock(e.type) !== null) || (corner && !opts.free);
+  const locked = (els.length === 1 && aspectLock(els[0].type) !== null) || (!opts.free && (els.length > 1 || corner));
 
   if (locked) {
     let s = corner ? Math.max(sx, sy) : dx ? sx : sy;
@@ -75,12 +77,13 @@ export function computeResize(
 
   const out: Record<string, Partial<Element>> = {};
   for (const e of els) {
-    out[e.id] = {
-      x: r3(ax + (e.x - ax) * sx),
-      y: r3(ay + (e.y - ay) * sy),
-      width: r3(e.width * sx),
-      height: r3(e.height * sy),
-    };
+    const keepAspect = aspectLock(e.type) !== null;
+    const uniform = keepAspect ? Math.max(Math.min(sx, sy), minSize / Math.min(e.width, e.height)) : 0;
+    const w = e.width * (keepAspect ? uniform : sx);
+    const h = e.height * (keepAspect ? uniform : sy);
+    const cx = ax + (e.x + e.width / 2 - ax) * sx;
+    const cy = ay + (e.y + e.height / 2 - ay) * sy;
+    out[e.id] = { x: r3(cx - w / 2), y: r3(cy - h / 2), width: r3(w), height: r3(h), stateOverrides:scaleOverrides(e.stateOverrides,w/e.width,h/e.height) };
   }
   return out;
 }

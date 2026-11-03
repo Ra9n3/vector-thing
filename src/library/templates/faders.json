@@ -1,0 +1,119 @@
+[
+  {
+    "id": "fader-cap",
+    "category": "faders",
+    "label": "Fader Cap",
+    "size": {
+      "w": 40,
+      "h": 64
+    },
+    "parts": [
+      {
+        "key": "cap",
+        "shape": "rect",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 64
+        },
+        "profile": "pack",
+        "material": {
+          "slot": 5
+        },
+        "main": true,
+        "fallback": {
+          "preset": "dip",
+          "mode": "across",
+          "acrossAxis": "vertical"
+        },
+        "modeOverride": {
+          "mode": "across",
+          "acrossAxis": "vertical"
+        },
+        "pressable": true
+      }
+    ]
+  },
+  {
+    "id": "fader-ribbed",
+    "category": "faders",
+    "label": "Fader Cap Ribbed",
+    "size": {
+      "w": 40,
+      "h": 64
+    },
+    "parts": [
+      {
+        "key": "cap",
+        "shape": "rect",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 64
+        },
+        "profile": {
+          "preset": "ribbed"
+        },
+        "material": {
+          "slot": 5
+        },
+        "main": true,
+        "pressable": true
+      }
+    ]
+  },
+  {
+    "id": "fader",
+    "category": "faders",
+    "label": "Fader",
+    "size": {
+      "w": 40,
+      "h": 200
+    },
+    "parts": [
+      {
+        "key": "track",
+        "shape": "pill",
+        "rect": {
+          "x": 16,
+          "y": 0,
+          "w": 8,
+          "h": 200
+        },
+        "profile": {
+          "preset": "inset"
+        },
+        "material": {
+          "slot": 4
+        }
+      },
+      {
+        "key": "cap",
+        "shape": "rect",
+        "rect": {
+          "x": 0,
+          "y": 68,
+          "w": 40,
+          "h": 64
+        },
+        "profile": "pack",
+        "material": {
+          "slot": 5
+        },
+        "main": true,
+        "fallback": {
+          "preset": "dip",
+          "mode": "across",
+          "acrossAxis": "vertical"
+        },
+        "modeOverride": {
+          "mode": "across",
+          "acrossAxis": "vertical"
+        },
+        "pressable": true
+      }
+    ]
+  }
+]

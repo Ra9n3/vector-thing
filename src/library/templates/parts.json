@@ -1,0 +1,101 @@
+[
+  {
+    "id": "screw",
+    "category": "parts",
+    "label": "Screw",
+    "size": {
+      "w": 14,
+      "h": 14
+    },
+    "parts": [
+      {
+        "key": "screw",
+        "shape": "circle",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 14,
+          "h": 14
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 5
+        },
+        "main": true
+      },
+      {
+        "key": "screw-slot",
+        "shape": "pill",
+        "rect": {
+          "x": 2,
+          "y": 6,
+          "w": 10,
+          "h": 2
+        },
+        "profile": {
+          "preset": "inset"
+        },
+        "material": {
+          "slot": 4
+        },
+        "sitsOn": "screw"
+      }
+    ]
+  },
+  {
+    "id": "led",
+    "category": "parts",
+    "label": "LED",
+    "size": {
+      "w": 12,
+      "h": 12
+    },
+    "parts": [
+      {
+        "key": "led",
+        "shape": "circle",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 12,
+          "h": 12
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "id": "led-orange"
+        }
+      }
+    ]
+  },
+  {
+    "id": "rivet",
+    "category": "parts",
+    "label": "Rivet",
+    "size": {
+      "w": 8,
+      "h": 8
+    },
+    "parts": [
+      {
+        "key": "rivet",
+        "shape": "circle",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 8,
+          "h": 8
+        },
+        "profile": {
+          "preset": "dome"
+        },
+        "material": {
+          "slot": 5
+        }
+      }
+    ]
+  }
+]

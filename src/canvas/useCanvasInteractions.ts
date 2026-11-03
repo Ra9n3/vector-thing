@@ -6,6 +6,15 @@ import { useStore } from '../store';
 import type { Element } from '../store';
 import { useViewport } from './useViewport';
 import type { ScreenRect } from './SelectionBox';
+import { sweepBounds } from '../geometry/hull';
+import { tiltGeometry, wallPx } from '../render/tilt';
+import { resolveProfile } from '../profiles/sample';
+import { belongsTo, leavesOf, topLevelOf } from '../selection/targets';
+import { groupHit } from './useGroupInteractions';
+import type { StackOptions } from '../render/stack';
+import { displayedElement, renderedOffset } from '../render/stack';
+import { visualElement } from '../states/visual';
+import type { MouseEvent as RMouseEvent } from 'react';
 
 type Pt = { x: number; y: number };
 
@@ -29,9 +38,12 @@ const DRAG_THRESHOLD = 3;
 
 const sameIds = (a: string[], b: string[]) => a.length === b.length && a.every((v, i) => v === b[i]);
 
-export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
+export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>, stackOptions:StackOptions) {
   const gesture = useRef<Gesture | null>(null);
+  const lastPointerElement = useRef<string | null>(null);
+  const [moving, setMoving] = useState(false);
   const [marquee, setMarquee] = useState<ScreenRect | null>(null);
+  const [resizeOrigins, setResizeOrigins] = useState<Element[] | null>(null);
 
   const local = (e: { clientX: number; clientY: number }): Pt => {
     const r = svgRef.current!.getBoundingClientRect();
@@ -39,9 +51,8 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
   };
 
   const selectedElements = () => {
-    const { elements, selection } = useStore.getState();
-    const set = new Set(selection);
-    return elements.filter((e) => set.has(e.id));
+    const { elements, selection, groups, look, direction } = useStore.getState();
+    return leavesOf(selection,elements,groups).map(e=>displayedElement(e,elements,look,direction,stackOptions));
   };
 
   const onPointerDown = (e: RPointerEvent<SVGSVGElement>) => {
@@ -64,27 +75,33 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
     const target = e.target as SVGElement;
     const handle = target.closest?.('[data-handle]')?.getAttribute('data-handle') as HandleId | null;
     const elId = target.closest?.('[data-el]')?.getAttribute('data-el') ?? null;
+    lastPointerElement.current = elId;
 
     if (handle) {
       const origins = selectedElements();
       const box = boundsOf(origins);
       if (!box) return;
       gesture.current = { kind: 'resize', sx: p.x, sy: p.y, handle, origins, box, moved: false };
+      // Reuse the original shading while a multi-selection is being dragged.
+      if (origins.length > 1) setResizeOrigins(origins);
       svg.setPointerCapture(e.pointerId);
       return;
     }
 
     if (elId) {
+      const itemId = groupHit(elId,st.elements,st.groups,st.enteredGroupId);
+      if (!itemId) { st.setEnteredGroup(null); return; }
+      if (e.altKey && !st.matchMode && leavesOf(st.selection,st.elements,st.groups).some(el=>el.id===elId)) { st.setActiveId(elId); return; }
       let toggleOff: string | null = null;
       let collapseTo: string | null = null;
       const sel = st.selection;
       if (e.shiftKey) {
-        if (sel.includes(elId)) toggleOff = elId;
-        else st.setSelection([...sel, elId]);
-      } else if (!sel.includes(elId)) {
-        st.setSelection([elId]);
+        if (sel.includes(itemId)) toggleOff = itemId;
+        else st.setSelection([...sel, itemId]);
+      } else if (!sel.includes(itemId)) {
+        st.setSelection([itemId]);
       } else if (sel.length > 1) {
-        collapseTo = elId;
+        collapseTo = itemId;
       }
       const origins = selectedElements();
       const box = boundsOf(origins);
@@ -104,9 +121,9 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
       return;
     }
 
-    // Empty canvas: clear (unless Shift) and start a marquee.
+    // An empty click leaves group-edit mode before starting a fresh marquee.
     const base = e.shiftKey ? st.selection : [];
-    if (!e.shiftKey) st.clearSelection();
+    if (!e.shiftKey && !st.enteredGroupId) st.clearSelection();
     gesture.current = { kind: 'marquee', sx: p.x, sy: p.y, base, active: false };
     svg.setPointerCapture(e.pointerId);
   };
@@ -129,6 +146,7 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
         if (!g.moved) {
           if (dist < DRAG_THRESHOLD) return;
           g.moved = true;
+          setMoving(true);
           st.checkpoint();
         }
         let dx = w.x - g.start.x;
@@ -138,7 +156,10 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
           dy = snapV(g.box.y + dy) - g.box.y;
         }
         const patches: Record<string, Partial<Element>> = {};
-        for (const o of g.origins) patches[o.id] = { x: o.x + dx, y: o.y + dy };
+        for (const o of g.origins) {
+          const raw=st.elements.find(e=>e.id===o.id)!; const offset=renderedOffset(raw,st.elements,st.look,st.direction,stackOptions);
+          patches[o.id] = { x: o.x + dx - offset.x, y: o.y + dy - offset.y };
+        }
         st.updateElements(patches);
         break;
       }
@@ -149,9 +170,14 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
           g.moved = true;
           st.checkpoint();
         }
-        st.updateElements(
-          computeResize(g.handle, g.origins, g.box, w, { free: e.shiftKey, snap: !e.altKey }),
-        );
+        const templateGroup=st.selection.length===1 && st.groups.some(group=>group.id===st.selection[0] && group.template);
+        const patches=computeResize(g.handle, g.origins, g.box, w, { free: e.shiftKey, snap: !e.altKey, ...(templateGroup?{minSize:0.01}:{}) });
+        const interim=st.elements.map(el=>patches[el.id]?{...el,...patches[el.id]}:el);
+        for(const o of g.origins) {
+          const el=interim.find(item=>item.id===o.id)!; const offset=renderedOffset(el,interim,st.look,st.direction,stackOptions);
+          patches[o.id] = {...patches[o.id], x:patches[o.id].x!-offset.x, y:patches[o.id].y!-offset.y};
+        }
+        st.updateElements(patches);
         break;
       }
 
@@ -171,9 +197,18 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
         const b = vp.screenToWorld(rect.x + rect.w, rect.y + rect.h);
         const box: Box = { x: a.x, y: a.y, w: b.x - a.x, h: b.y - a.y };
         const hit = st.elements
-          .filter((el) => intersects(box, { x: el.x, y: el.y, w: el.width, h: el.height }))
-          .map((el) => el.id);
-        const next = g.base.length ? [...g.base, ...hit.filter((id) => !g.base.includes(id))] : hit;
+          .filter((el) => !st.enteredGroupId || belongsTo(el.id,st.enteredGroupId,st.elements,st.groups))
+          .filter((el) => {
+            const visual=visualElement(el,stackOptions.pack,st.canvasBackground,stackOptions.frames?.get(el.id));
+            const profile=visual.element.props.profile;
+            const offset = tiltGeometry(st.look,st.direction,wallPx(profile,el.width,el.height)*(1-.8*visual.frame.press),resolveProfile(profile).recessed).capOffset;
+            const hull = sweepBounds(el.type,el.width,el.height,offset);
+            const shown=displayedElement(el,st.elements,st.look,st.direction,stackOptions);
+            return intersects(box,{...hull,x:shown.x+hull.x,y:shown.y+hull.y});
+          })
+          .map((el) => topLevelOf(el.id,st.elements,st.groups,st.enteredGroupId));
+        const unique = [...new Set(hit)];
+        const next = g.base.length ? [...g.base, ...unique.filter((id) => !g.base.includes(id))] : unique;
         if (!sameIds(next, st.selection)) st.setSelection(next);
         break;
       }
@@ -184,9 +219,12 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
     const g = gesture.current;
     gesture.current = null;
     setMarquee(null);
+    setResizeOrigins(null);
+    setMoving(false);
     if (e.currentTarget.hasPointerCapture(e.pointerId)) e.currentTarget.releasePointerCapture(e.pointerId);
     if (!g) return;
     if (g.kind === 'pan') useViewport.setState({ panning: false });
+    if (g.kind === 'marquee' && !g.active && useStore.getState().enteredGroupId) useStore.getState().setEnteredGroup(null);
     if (g.kind === 'move' && !g.moved) {
       const st = useStore.getState();
       if (g.toggleOff) st.setSelection(st.selection.filter((id) => id !== g.toggleOff));
@@ -216,7 +254,14 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
         st.redo();
         return;
       }
-      if (st.mode !== 'face' || inField) return;
+      if (inField) return;
+      if (mod && key === 'g') { e.preventDefault(); if(e.shiftKey) st.ungroup(); else st.group(); return; }
+      if (!mod && (e.key === '[' || e.key === ']' || e.code === 'BracketLeft' || e.code === 'BracketRight')) {
+        e.preventDefault(); const forward=e.key === ']' || e.code === 'BracketRight';
+        st.reorder(e.shiftKey ? (forward ? 'front' : 'back') : (forward ? 'forward' : 'backward')); return;
+      }
+      if (!mod && e.key === 'Escape' && st.enteredGroupId) { st.setEnteredGroup(null); return; }
+      if (st.mode !== 'face') return;
 
       if (mod && key === 'a') {
         e.preventDefault();
@@ -231,7 +276,7 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
       } else if (!mod && e.key === 'Escape') {
         st.clearSelection();
       } else if (!mod && e.key.startsWith('Arrow')) {
-        if (t?.closest?.('.MuiToggleButtonGroup-root, [role="tablist"], [role="menu"]')) return;
+        if (t?.closest?.('.MuiToggleButtonGroup-root, [role="tablist"], [role="menu"], [role="radiogroup"]')) return;
         if (st.selection.length === 0) return;
         e.preventDefault();
         const n = e.shiftKey ? 10 : 1;
@@ -244,10 +289,22 @@ export function useCanvasInteractions(svgRef: RefObject<SVGSVGElement | null>) {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
+  const onDoubleClick = (e: RMouseEvent<SVGSVGElement>) => {
+    const st=useStore.getState();
+    // Pointer capture retargets dblclick to the SVG; remember the second down target.
+    const elId=lastPointerElement.current;
+    if(!elId || (st.enteredGroupId && !belongsTo(elId,st.enteredGroupId,st.elements,st.groups))) return;
+    const item=topLevelOf(elId,st.elements,st.groups,st.enteredGroupId);
+    if(st.groups.some(g=>g.id===item)) { e.preventDefault(); st.setEnteredGroup(item); }
+  };
+
   return {
     marquee,
+    resizeOrigins,
+    moving,
     handlers: {
       onPointerDown,
+      onDoubleClick,
       onPointerMove,
       onPointerUp: end,
       onPointerCancel: end,

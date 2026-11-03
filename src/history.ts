@@ -4,6 +4,8 @@ export class History<T> {
   private future: T[] = [];
   constructor(private limit = 200) {}
 
+  clear() { this.past = []; this.future = []; }
+
   push(snapshot: T) {
     this.past.push(snapshot);
     if (this.past.length > this.limit) this.past.shift();
