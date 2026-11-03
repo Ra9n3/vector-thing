@@ -1,6 +1,11 @@
 name: QA
 on:
   push:
+    paths-ignore:
+      - .github/workflows/engine-diagnostics.yml
+      - qa/engine-capture.mjs
+      - qa/REPORT.md
+      - qa/ci-results/**
   pull_request:
   workflow_dispatch:
 permissions:

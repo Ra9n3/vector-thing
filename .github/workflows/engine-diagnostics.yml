@@ -33,5 +33,5 @@ jobs:
             if (!fs.existsSync('/tmp/qa-engine.json')) throw new Error('capture failed');
             const data = JSON.parse(fs.readFileSync('/tmp/qa-engine.json', 'utf8'));
             for (const c of data.captures) {
-              await github.rest.checks.create({owner:context.repo.owner,repo:context.repo.repo,head_sha:context.sha,name:`QA capture ${data.engine} ${c.fixture} ${c.zoom}x`,status:'completed',conclusion:'success',output:{title:`${c.fixture} ${c.zoom}x`,summary:c.jpeg}});
+              await github.rest.checks.create({owner:context.repo.owner,repo:context.repo.repo,head_sha:context.sha,name:`QA capture ${data.engine} ${c.fixture} ${c.zoom}x ${c.variant}`,status:'completed',conclusion:'success',output:{title:`${c.fixture} ${c.zoom}x ${c.variant}`,summary:c.jpeg}});
             }
