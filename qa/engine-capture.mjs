@@ -10,9 +10,14 @@ try{
  for(const [fixture,zoom] of [['shape-grid',1],['glass-glow',4],['neumorphic-panel',4]]){
   await page.goto(`http://127.0.0.1:5174/?fixture=${fixture}`);await page.locator('svg[data-view="face"]').waitFor();
   await page.evaluate(async zoom=>{const {useViewport}=await import('/src/canvas/useViewport.ts');const s=useViewport.getState();s.zoomAt(s.width/2,s.height/2,zoom);},zoom);await page.waitForTimeout(1200);
-  for(const variant of ['reference','embedded']) {
+  for(const variant of (zoom===4 ? ['reference','embedded','scale2','scale4'] : ['reference','embedded'])) {
    if(variant==='embedded') {
     await page.evaluate(()=>{for(const image of document.querySelectorAll('feImage')){const href=image.getAttribute('href');if(!href?.startsWith('#'))continue;const map=document.getElementById(href.slice(1));if(!map)continue;const width=image.getAttribute('width'),height=image.getAttribute('height');const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${map.outerHTML}</svg>`;image.setAttribute('href',`data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`);}});
+    await page.waitForTimeout(1000);
+   }
+   if(variant==='scale2'||variant==='scale4') {
+    const factor=variant==='scale2'?2:4;
+    await page.evaluate(factor=>{for(const light of document.querySelectorAll('feDiffuseLighting,feSpecularLighting')){const original=light.getAttribute('data-qa-scale')??light.getAttribute('surfaceScale');if(original===null)continue;light.setAttribute('data-qa-scale',original);light.setAttribute('surfaceScale',String(Number(original)*factor));}},factor);
     await page.waitForTimeout(1000);
    }
    const png=await page.locator('main').screenshot();
