@@ -8,10 +8,6 @@ import { materialId } from './materials/resolve';
 import { resolveStyle } from './styles/catalog';
 import { applyStyle, remapMaterial } from './styles/applyStyle';
 import type { ProfilePresetId, ProfileSettings } from './profiles/types';
-import { simplifyStroke } from './profiles/custom';
-import type { CustomProfile } from './profiles/custom';
-import type { UserProfilePreset } from './profiles/userPresets';
-import { savePreset, renamePreset, deletePreset, loadProfilePresets, persistProfilePresets } from './profiles/userPresets';
 
 export type { ShapeType };
 export type Shape = ShapeType;
@@ -50,7 +46,6 @@ interface Snapshot {
   elements: Element[];
   groups: Group[];
   userTemplates: ComponentTemplate[];
-  userProfiles: UserProfilePreset[];
   selection: string[];
   styleId: string;
   canvasBackground: string;
@@ -68,14 +63,6 @@ interface AppState {
   look: Look;
   direction: Direction; // 'c' = straight on
   selectedLibraryItem: string | null;
-  drawProfile: boolean;
-  userProfiles: UserProfilePreset[];
-  setDrawProfile: (value:boolean) => void;
-  setCustomProfile: (profile:CustomProfile,commit:boolean) => void;
-  cancelCustomProfile: () => void;
-  saveProfilePreset: (profile:CustomProfile) => void;
-  renameProfilePreset: (id:string,name:string) => void;
-  deleteProfilePreset: (id:string) => void;
   selection: string[];
   elements: Element[];
   groups: Group[];
@@ -138,12 +125,11 @@ const r2 = (n: number) => Math.round(n * 100) / 100;
 
 export const useStore = create<AppState>((set, get) => {
   const snap = (): Snapshot => {
-    const { elements, groups, userTemplates, userProfiles, selection, styleId, canvasBackground, look, direction, properties } = get();
-    return { elements, groups, userTemplates, userProfiles, selection, styleId, canvasBackground, look, direction, properties };
+    const { elements, groups, userTemplates, selection, styleId, canvasBackground, look, direction, properties } = get();
+    return { elements, groups, userTemplates, selection, styleId, canvasBackground, look, direction, properties };
   };
   const selectedSet = (mainOnly=false) => { const s=get(); return new Set(resolveTargets(s.selection,s.elements,s.groups,s.matchMode,s.activeId,mainOnly ? e=>!!e.main : undefined)); };
   const selectedLeavesSet = () => { const s=get(); return new Set(leavesOf(s.selection,s.elements,s.groups).map(e=>e.id)); };
-  let customEdit: Snapshot | null = null;
   let profileEdit: { before: Snapshot; ids: string[]; key: string } | null = null;
   const finishProfileEdit = () => {
     if (!profileEdit) return;
@@ -161,7 +147,6 @@ export const useStore = create<AppState>((set, get) => {
   const restore = (s: Snapshot) => {
     const groups = s.groups ?? [];
     saveUserTemplates(s.userTemplates ?? []);
-    persistProfilePresets(s.userProfiles ?? []);
     const ids = new Set([...s.elements.map((e) => e.id), ...groups.map(g=>g.id)]);
     const selection=s.selection.filter((id) => ids.has(id));
     const leaves=leavesOf(selection,s.elements,groups);
@@ -179,23 +164,6 @@ export const useStore = create<AppState>((set, get) => {
     look: 'slight',
     direction: 's',
     selectedLibraryItem: null,
-    drawProfile: false,
-    userProfiles: loadProfilePresets(),
-    setDrawProfile: (value) => set({drawProfile:value}),
-    setCustomProfile: (custom,commit) => {
-      const targets=selectedSet(); if(!targets.size)return;
-      if(custom.points.length<2 || custom.points.some(p=>!Number.isFinite(p.x)||!Number.isFinite(p.y)) || !Number.isFinite(custom.smooth))return;
-      const points=simplifyStroke(custom.points);
-      if(!customEdit)customEdit=snap();
-      const value:CustomProfile={points,mirror:custom.mirror,smooth:Math.max(0,Math.min(1,custom.smooth))};
-      set(s=>({elements:s.elements.map(el=>targets.has(el.id)?{...el,props:{...el.props,profile:{...el.props.profile,kind:'custom' as const,custom:value}}}:el),
-        properties:{...s.properties,profile:{...s.properties.profile,kind:'custom' as const,custom:value}}}));
-      if(commit&&customEdit){history.push(customEdit);customEdit=null;lastKey=null;}
-    },
-    cancelCustomProfile: () => {if(customEdit){const before=customEdit;customEdit=null;restore(before);}},
-    saveProfilePreset: profile => {get().checkpoint();const list=savePreset(get().userProfiles,newId(),'Custom',profile);persistProfilePresets(list);set({userProfiles:list});},
-    renameProfilePreset: (id,name) => {const list=renamePreset(get().userProfiles,id,name);if(JSON.stringify(list)===JSON.stringify(get().userProfiles))return;get().checkpoint();persistProfilePresets(list);set({userProfiles:list});},
-    deleteProfilePreset: id => {const list=deletePreset(get().userProfiles,id);if(list.length===get().userProfiles.length)return;get().checkpoint();persistProfilePresets(list);set({userProfiles:list});},
     selection: [],
     elements: [],
     groups: [],
@@ -206,7 +174,7 @@ export const useStore = create<AppState>((set, get) => {
     enteredGroupId: null,
     properties: { shape: 'rounded', profile: defaultProfile('raised'), material: materialId(resolveStyle('studio-hardware').palette[0]), size: 96 },
 
-    setMode: (mode) => set(mode === 'face' ? { mode, drawProfile: false } : { mode }),
+    setMode: (mode) => set({ mode }),
     setStyle: (id) => {
       const next = resolveStyle(id);
       const old = resolveStyle(get().styleId);
@@ -364,7 +332,6 @@ export const useStore = create<AppState>((set, get) => {
     },
 
     setSideProfile: (preset) => {
-      customEdit=null;
       const sel = selectedSet();
       if (sel.size === 0) return;
       get().checkpoint();
@@ -372,7 +339,6 @@ export const useStore = create<AppState>((set, get) => {
         ...defaultProfile(preset), height: profile.height ?? 0.5, wall: profile.wall ?? 1, mode: profile.mode, acrossAxis: profile.acrossAxis,
       });
       set((s) => ({
-        drawProfile: false,
         properties: { ...s.properties, profile: withPreset(s.properties.profile) },
         elements: s.elements.map((e) =>
           sel.has(e.id) ? { ...e, props: { ...e.props, profile: withPreset(e.props.profile) } } : e,

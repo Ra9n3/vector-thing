@@ -1,0 +1,157 @@
+{
+  "samples": [
+    {
+      "cycle": 100,
+      "heap": 20342684,
+      "documents": 2,
+      "nodes": 3107,
+      "listeners": 242,
+      "subscribers": 78,
+      "detached": 0,
+      "hasDetachedness": true
+    },
+    {
+      "cycle": 200,
+      "heap": 21132556,
+      "documents": 2,
+      "nodes": 3107,
+      "listeners": 242,
+      "subscribers": 78,
+      "detached": 0,
+      "hasDetachedness": true
+    },
+    {
+      "cycle": 300,
+      "heap": 21846852,
+      "documents": 2,
+      "nodes": 3107,
+      "listeners": 242,
+      "subscribers": 78,
+      "detached": 0,
+      "hasDetachedness": true
+    },
+    {
+      "cycle": 400,
+      "heap": 21725896,
+      "documents": 2,
+      "nodes": 3107,
+      "listeners": 242,
+      "subscribers": 78,
+      "detached": 0,
+      "hasDetachedness": true
+    },
+    {
+      "cycle": 500,
+      "heap": 21826120,
+      "documents": 2,
+      "nodes": 3107,
+      "listeners": 242,
+      "subscribers": 78,
+      "detached": 0,
+      "hasDetachedness": true
+    }
+  ],
+  "slope": 356021.2,
+  "diff": [
+    {
+      "key": "native:PerformanceMeasure",
+      "deltaBytes": 43305880,
+      "deltaCount": 357683
+    },
+    {
+      "key": "code:system / InstructionStream",
+      "deltaBytes": 470656,
+      "deltaCount": 137
+    },
+    {
+      "key": "code:system / TrustedByteArray",
+      "deltaBytes": 163996,
+      "deltaCount": 419
+    },
+    {
+      "key": "native:system / StackFrameInfo",
+      "deltaBytes": 160980,
+      "deltaCount": 8049
+    },
+    {
+      "key": "array:",
+      "deltaBytes": 138252,
+      "deltaCount": 982
+    },
+    {
+      "key": "code:system / ProtectedFixedArray",
+      "deltaBytes": 59452,
+      "deltaCount": 134
+    },
+    {
+      "key": "native:system / WeakArrayList",
+      "deltaBytes": 43980,
+      "deltaCount": 468
+    },
+    {
+      "key": "native:internal",
+      "deltaBytes": 19640,
+      "deltaCount": 491
+    },
+    {
+      "key": "code:system / WeakArrayList",
+      "deltaBytes": 13044,
+      "deltaCount": 428
+    },
+    {
+      "key": "object:Error",
+      "deltaBytes": 11784,
+      "deltaCount": 491
+    },
+    {
+      "key": "native:system / PropertyArray",
+      "deltaBytes": 10436,
+      "deltaCount": 511
+    },
+    {
+      "key": "code:system / Code",
+      "deltaBytes": 9864,
+      "deltaCount": 137
+    },
+    {
+      "key": "object:Object",
+      "deltaBytes": 8624,
+      "deltaCount": 519
+    },
+    {
+      "key": "code:system / TrustedWeakFixedArray",
+      "deltaBytes": 7024,
+      "deltaCount": 134
+    },
+    {
+      "key": "native:system / ErrorStackData",
+      "deltaBytes": 5892,
+      "deltaCount": 491
+    },
+    {
+      "key": "native:system / StackTraceInfo",
+      "deltaBytes": 5892,
+      "deltaCount": 491
+    },
+    {
+      "key": "native:blink::HeapVectorBacking<blink::PaintChunk>",
+      "deltaBytes": 3712,
+      "deltaCount": 0
+    },
+    {
+      "key": "string:MuiTooltip-popper MuiTooltip-popperInteractive MuiTooltip-popperArrow MuiTooltip-popperClose css-1fiaqer-MuiPopper-root-MuiTooltip-popper",
+      "deltaBytes": 3192,
+      "deltaCount": 21
+    },
+    {
+      "key": "code:(constant elements)",
+      "deltaBytes": 2892,
+      "deltaCount": 132
+    },
+    {
+      "key": "native:system / ProtectedFixedArray",
+      "deltaBytes": 2444,
+      "deltaCount": 134
+    }
+  ]
+}

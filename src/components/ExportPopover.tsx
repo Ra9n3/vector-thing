@@ -78,7 +78,7 @@ export function ExportPopover({anchor,onClose}:{anchor:HTMLElement|null;onClose:
         <TipToggle value="svg" tip="Exact at natural size"><ImageOutlinedIcon fontSize="small"/> SVG</TipToggle>
         <TipToggle value="flat" tip="Flat SVG"><ImageOutlinedIcon fontSize="small"/> Flat</TipToggle>
         <TipToggle value="png" tip="PNG"><ImageOutlinedIcon fontSize="small"/> PNG</TipToggle>
-        <TipToggle value="css" tip={eligibility.eligible?'CSS':selected.some(e=>e.props.profile.kind==='custom')?'Custom profile unsupported':selected.some(e=>String(e.type)==='path')?'Path unsupported':'Hexagon unsupported'} disabled={!eligibility.eligible}><CodeIcon fontSize="small"/> CSS</TipToggle>
+        <TipToggle value="css" tip={eligibility.eligible?'CSS':'Hexagon unsupported'} disabled={!eligibility.eligible}><CodeIcon fontSize="small"/> CSS</TipToggle>
       </ToggleButtonGroup>
       <ToggleButtonGroup exclusive value={scope} onChange={(_,v:ExportSettings['scope']|null)=>v&&set('scope',v)} aria-label="Scope">
         <TipToggle value="selection" tip="Selection" disabled={!selection.length}><CropFreeIcon fontSize="small"/> Selection</TipToggle>

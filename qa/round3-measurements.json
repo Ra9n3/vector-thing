@@ -1,0 +1,700 @@
+{
+  "results": [
+    {
+      "mode": "normal",
+      "op": "style",
+      "scriptingMedian": 299.166,
+      "wallMedian": 331.90000000037253,
+      "runs": [
+        {
+          "scripting": 299.166,
+          "wall": 333.5
+        },
+        {
+          "scripting": 295.037,
+          "wall": 327.80000000074506
+        },
+        {
+          "scripting": 302.38300000000004,
+          "wall": 331.90000000037253
+        },
+        {
+          "scripting": 303.875,
+          "wall": 345.2999999988824
+        },
+        {
+          "scripting": 285.534,
+          "wall": 314.19999999925494
+        }
+      ]
+    },
+    {
+      "mode": "normal",
+      "op": "look",
+      "scriptingMedian": 218.304,
+      "wallMedian": 239.2999999988824,
+      "runs": [
+        {
+          "scripting": 221.10399999999998,
+          "wall": 239.2999999988824
+        },
+        {
+          "scripting": 218.304,
+          "wall": 242.40000000037253
+        },
+        {
+          "scripting": 216.331,
+          "wall": 234.59999999962747
+        },
+        {
+          "scripting": 276.738,
+          "wall": 297.1000000014901
+        },
+        {
+          "scripting": 212.93200000000002,
+          "wall": 235.09999999962747
+        }
+      ]
+    },
+    {
+      "mode": "library",
+      "op": "style",
+      "scriptingMedian": 235.92,
+      "wallMedian": 264.7999999988824,
+      "runs": [
+        {
+          "scripting": 234.572,
+          "wall": 265.69999999925494
+        },
+        {
+          "scripting": 237.341,
+          "wall": 264.7999999988824
+        },
+        {
+          "scripting": 247.117,
+          "wall": 276.90000000037253
+        },
+        {
+          "scripting": 235.92,
+          "wall": 262.09999999962747
+        },
+        {
+          "scripting": 233.852,
+          "wall": 263.09999999962747
+        }
+      ]
+    },
+    {
+      "mode": "library",
+      "op": "look",
+      "scriptingMedian": 189.424,
+      "wallMedian": 211.59999999962747,
+      "runs": [
+        {
+          "scripting": 189.424,
+          "wall": 211.59999999962747
+        },
+        {
+          "scripting": 184.39600000000002,
+          "wall": 196.69999999925494
+        },
+        {
+          "scripting": 184.188,
+          "wall": 199.90000000037253
+        },
+        {
+          "scripting": 212.175,
+          "wall": 228.19999999925494
+        },
+        {
+          "scripting": 236.082,
+          "wall": 251.7999999988824
+        }
+      ]
+    },
+    {
+      "mode": "pad",
+      "op": "style",
+      "scriptingMedian": 253.89800000000002,
+      "wallMedian": 289.2000000011176,
+      "runs": [
+        {
+          "scripting": 242.448,
+          "wall": 269
+        },
+        {
+          "scripting": 231.432,
+          "wall": 253.59999999962747
+        },
+        {
+          "scripting": 294.796,
+          "wall": 339.7999999988824
+        },
+        {
+          "scripting": 253.89800000000002,
+          "wall": 289.2000000011176
+        },
+        {
+          "scripting": 275.11400000000003,
+          "wall": 311.80000000074506
+        }
+      ]
+    },
+    {
+      "mode": "pad",
+      "op": "look",
+      "scriptingMedian": 187.57,
+      "wallMedian": 205.90000000037253,
+      "runs": [
+        {
+          "scripting": 208.632,
+          "wall": 231.2000000011176
+        },
+        {
+          "scripting": 197.47500000000002,
+          "wall": 219.40000000037253
+        },
+        {
+          "scripting": 184.142,
+          "wall": 204.7000000011176
+        },
+        {
+          "scripting": 180.519,
+          "wall": 204.2000000011176
+        },
+        {
+          "scripting": 187.57,
+          "wall": 205.90000000037253
+        }
+      ]
+    },
+    {
+      "mode": "both",
+      "op": "style",
+      "scriptingMedian": 205.30599999999998,
+      "wallMedian": 229.69999999925494,
+      "runs": [
+        {
+          "scripting": 212.12300000000002,
+          "wall": 229.69999999925494
+        },
+        {
+          "scripting": 205.30599999999998,
+          "wall": 230.59999999962747
+        },
+        {
+          "scripting": 210.244,
+          "wall": 237.2000000011176
+        },
+        {
+          "scripting": 198.493,
+          "wall": 215.7999999988824
+        },
+        {
+          "scripting": 198.992,
+          "wall": 224.40000000037253
+        }
+      ]
+    },
+    {
+      "mode": "both",
+      "op": "look",
+      "scriptingMedian": 147.24599999999998,
+      "wallMedian": 161.90000000037253,
+      "runs": [
+        {
+          "scripting": 145.944,
+          "wall": 159.89999999850988
+        },
+        {
+          "scripting": 147.24599999999998,
+          "wall": 164.69999999925494
+        },
+        {
+          "scripting": 144.05100000000002,
+          "wall": 157.80000000074506
+        },
+        {
+          "scripting": 149.598,
+          "wall": 164.69999999925494
+        },
+        {
+          "scripting": 150.613,
+          "wall": 161.90000000037253
+        }
+      ]
+    }
+  ],
+  "top": [
+    [
+      "exports.jsxDEV|http://127.0.0.1:5173/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=95bc1d24|239",
+      65.77700000000003
+    ],
+    [
+      "(program)||0",
+      64.034
+    ],
+    [
+      "exports.createElement|http://127.0.0.1:5173/node_modules/.vite/deps/chunk-EMAOOZFV.js?v=95bc1d24|761",
+      36.42599999999998
+    ],
+    [
+      "(garbage collector)||0",
+      18.827999999999996
+    ],
+    [
+      "getBoundingClientRect||0",
+      17.007000000000012
+    ],
+    [
+      "(idle)||0",
+      16.468
+    ],
+    [
+      "run||0",
+      16.284999999999997
+    ],
+    [
+      "exports.jsx|http://127.0.0.1:5173/node_modules/.vite/deps/chunk-WWEA4JLO.js?v=95bc1d24|239",
+      13.335999999999999
+    ],
+    [
+      "getComponentNameFromType|http://127.0.0.1:5173/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=95bc1d24|13",
+      8.753
+    ],
+    [
+      "ReactElement|http://127.0.0.1:5173/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=95bc1d24|127",
+      8.601
+    ],
+    [
+      "createTask||0",
+      8.07
+    ],
+    [
+      "exports.jsxs|http://127.0.0.1:5173/node_modules/.vite/deps/chunk-WWEA4JLO.js?v=95bc1d24|250",
+      7.19
+    ],
+    [
+      "(anonymous)|http://127.0.0.1:5173/node_modules/.vite/deps/chunk-4WDZFZDP.js?v=95bc1d24|3452",
+      6.561000000000001
+    ],
+    [
+      "addObjectDiffToProperties|http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=95bc1d24|3081",
+      6.088
+    ],
+    [
+      "measure||0",
+      5.9270000000000005
+    ]
+  ],
+  "commits": [
+    {
+      "id": "TemplateTile",
+      "phase": "update",
+      "actualDuration": 16.800000000745058,
+      "baseDuration": 18.200000001117587,
+      "startTime": 2330.5,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "TemplateTile",
+      "phase": "update",
+      "actualDuration": 15.5,
+      "baseDuration": 19.000000001862645,
+      "startTime": 2348,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "TemplateTile",
+      "phase": "update",
+      "actualDuration": 8.400000000372529,
+      "baseDuration": 10,
+      "startTime": 2363.7000000011176,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "TemplateTile",
+      "phase": "update",
+      "actualDuration": 6.400000000372529,
+      "baseDuration": 7.899999998509884,
+      "startTime": 2372.300000000745,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "LibraryPanel",
+      "phase": "update",
+      "actualDuration": 63.000000001862645,
+      "baseDuration": 70.90000000223517,
+      "startTime": 2316.300000000745,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.8000000007450581,
+      "baseDuration": 0.8000000007450581,
+      "startTime": 2443.9000000003725,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.5,
+      "baseDuration": 0.5,
+      "startTime": 2444.800000000745,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.599999999627471,
+      "baseDuration": 0.599999999627471,
+      "startTime": 2445.5,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.599999999627471,
+      "baseDuration": 0.599999999627471,
+      "startTime": 2446.2000000011176,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.599999999627471,
+      "baseDuration": 0.599999999627471,
+      "startTime": 2446.9000000003725,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.5,
+      "baseDuration": 0.5,
+      "startTime": 2447.5999999996275,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.5,
+      "baseDuration": 0.5,
+      "startTime": 2448.2000000011176,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.6999999992549419,
+      "baseDuration": 0.6999999992549419,
+      "startTime": 2448.7000000011176,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.8000000007450581,
+      "baseDuration": 0.8000000007450581,
+      "startTime": 2449.4000000003725,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.5,
+      "baseDuration": 0.5,
+      "startTime": 2450.300000000745,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.6999999992549419,
+      "baseDuration": 0.6999999992549419,
+      "startTime": 2450.800000000745,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.7000000011175871,
+      "baseDuration": 0.7000000011175871,
+      "startTime": 2451.5999999996275,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.7000000011175871,
+      "baseDuration": 0.7000000011175871,
+      "startTime": 2452.5,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.5,
+      "baseDuration": 0.5,
+      "startTime": 2453.4000000003725,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.7000000011175871,
+      "baseDuration": 0.7000000011175871,
+      "startTime": 2454,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.7999999988824129,
+      "baseDuration": 0.7999999988824129,
+      "startTime": 2454.800000000745,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.6000000014901161,
+      "baseDuration": 0.6000000014901161,
+      "startTime": 2455.5999999996275,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.6999999992549419,
+      "baseDuration": 0.6999999992549419,
+      "startTime": 2456.300000000745,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.6000000014901161,
+      "baseDuration": 0.6000000014901161,
+      "startTime": 2457.0999999996275,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "update",
+      "actualDuration": 0.599999999627471,
+      "baseDuration": 0.5,
+      "startTime": 2457.9000000003725,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "Canvas",
+      "phase": "update",
+      "actualDuration": 79.20000000298023,
+      "baseDuration": 131.10000000335276,
+      "startTime": 2380.4000000003725,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "DirectionPad",
+      "phase": "update",
+      "actualDuration": 27.699999999254942,
+      "baseDuration": 27.299999997019768,
+      "startTime": 2541,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "PropertiesPanel",
+      "phase": "update",
+      "actualDuration": 118.5,
+      "baseDuration": 120.1999999973923,
+      "startTime": 2460.7000000011176,
+      "commitTime": 2580.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.8000000007450581,
+      "startTime": 2672.5999999996275,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.5,
+      "startTime": 2672.7000000011176,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.599999999627471,
+      "startTime": 2672.7000000011176,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.599999999627471,
+      "startTime": 2672.800000000745,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.599999999627471,
+      "startTime": 2672.9000000003725,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.5,
+      "startTime": 2672.9000000003725,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.5,
+      "startTime": 2672.9000000003725,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.599999999627471,
+      "startTime": 2673,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.7000000011175871,
+      "startTime": 2673,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.5,
+      "startTime": 2673.0999999996275,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.6999999992549419,
+      "startTime": 2673.2000000011176,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.7000000011175871,
+      "startTime": 2673.300000000745,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.7000000011175871,
+      "startTime": 2673.4000000003725,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.5,
+      "startTime": 2673.4000000003725,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.6000000014901161,
+      "startTime": 2673.4000000003725,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.7999999988824129,
+      "startTime": 2673.5,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.6000000014901161,
+      "startTime": 2673.5999999996275,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.6999999992549419,
+      "startTime": 2673.7000000011176,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.6000000014901161,
+      "startTime": 2673.7000000011176,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "ElementView",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 0.5,
+      "startTime": 2673.800000000745,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "Canvas",
+      "phase": "nested-update",
+      "actualDuration": 20.59999999962747,
+      "baseDuration": 130.70000000484288,
+      "startTime": 2654.800000000745,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "DirectionPad",
+      "phase": "nested-update",
+      "actualDuration": 0,
+      "baseDuration": 27.299999997019768,
+      "startTime": 2679.4000000003725,
+      "commitTime": 2681.300000000745
+    },
+    {
+      "id": "PropertiesPanel",
+      "phase": "nested-update",
+      "actualDuration": 3.800000000745058,
+      "baseDuration": 119.69999999925494,
+      "startTime": 2675.5,
+      "commitTime": 2681.300000000745
+    }
+  ]
+}

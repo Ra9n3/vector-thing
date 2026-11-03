@@ -1,0 +1,267 @@
+passed | @export ssl-strip XML and flat renderer | 
+passed | @export shape-grid XML and flat renderer | 
+passed | @export toggles XML and flat renderer | 
+passed | @export neumorphic-panel XML and flat renderer | 
+passed | @export stress XML and flat renderer | 
+passed | @export glass-glow XML and flat renderer | 
+passed | @export medium XML and flat renderer | 
+passed | @export IDs are unique per document and reproducible | 
+passed | @invariant ssl-strip | 
+passed | @invariant shape-grid | 
+passed | @invariant toggles | 
+passed | @invariant neumorphic-panel | 
+passed | @invariant stress | 
+passed | @invariant glass-glow | 
+passed | @invariant medium | 
+passed | @stack ssl-strip all directions and states | 
+passed | @stack toggles all directions and states | 
+passed | @render pressed updates only pressable elements without overrides | 
+passed | @render animation leaves static parts untouched | 
+passed | @defs unique surface keys | 
+passed | @defs look and direction do not rebuild surfaces | 
+passed | @parity ssl-strip live SVG and PNG | 
+passed | @parity shape-grid live SVG and PNG | 
+passed | @parity toggles live SVG and PNG | 
+passed | @parity neumorphic-panel live SVG and PNG | 
+passed | @parity stress live SVG and PNG | 
+passed | @parity glass-glow live SVG and PNG | 
+passed | @parity medium live SVG and PNG | 
+skipped | @performance medium export | 
+skipped | @performance stress export | 
+skipped | @performance place/delete memory and defs | 
+skipped | @settled medium style | 
+skipped | @settled medium look | 
+skipped | @settled medium state | 
+skipped | @settled stress style | 
+skipped | @settled stress look | 
+skipped | @settled stress state | 
+passed | @visual ssl-strip studio-hardware slight n | 
+passed | @visual ssl-strip studio-hardware slight ne | 
+passed | @visual ssl-strip studio-hardware slight e | 
+passed | @visual ssl-strip studio-hardware slight se | 
+passed | @visual ssl-strip studio-hardware slight s | 
+passed | @visual ssl-strip studio-hardware slight sw | 
+passed | @visual ssl-strip studio-hardware slight w | 
+passed | @visual ssl-strip studio-hardware slight nw | 
+passed | @visual shape-grid studio-hardware flat nw | 
+passed | @visual shape-grid studio-hardware flat ne | 
+passed | @visual shape-grid studio-hardware flat sw | 
+passed | @visual shape-grid studio-hardware flat se | 
+passed | @visual shape-grid studio-hardware flat s | 
+passed | @visual shape-grid studio-hardware slight nw | 
+passed | @visual shape-grid studio-hardware slight ne | 
+passed | @visual shape-grid studio-hardware slight sw | 
+passed | @visual shape-grid studio-hardware slight se | 
+passed | @visual shape-grid studio-hardware slight s | 
+passed | @visual shape-grid studio-hardware strong nw | 
+passed | @visual shape-grid studio-hardware strong ne | 
+passed | @visual shape-grid studio-hardware strong sw | 
+passed | @visual shape-grid studio-hardware strong se | 
+passed | @visual shape-grid studio-hardware strong s | 
+passed | @visual shape-grid soft-clay flat nw | 
+passed | @visual shape-grid soft-clay flat ne | 
+passed | @visual shape-grid soft-clay flat sw | 
+passed | @visual shape-grid soft-clay flat se | 
+passed | @visual shape-grid soft-clay flat s | 
+passed | @visual shape-grid soft-clay slight nw | 
+passed | @visual shape-grid soft-clay slight ne | 
+passed | @visual shape-grid soft-clay slight sw | 
+passed | @visual shape-grid soft-clay slight se | 
+passed | @visual shape-grid soft-clay slight s | 
+passed | @visual shape-grid soft-clay strong nw | 
+passed | @visual shape-grid soft-clay strong ne | 
+passed | @visual shape-grid soft-clay strong sw | 
+passed | @visual shape-grid soft-clay strong se | 
+passed | @visual shape-grid soft-clay strong s | 
+passed | @visual shape-grid glossy-mobile flat nw | 
+passed | @visual shape-grid glossy-mobile flat ne | 
+passed | @visual shape-grid glossy-mobile flat sw | 
+passed | @visual shape-grid glossy-mobile flat se | 
+passed | @visual shape-grid glossy-mobile flat s | 
+passed | @visual shape-grid glossy-mobile slight nw | 
+passed | @visual shape-grid glossy-mobile slight ne | 
+passed | @visual shape-grid glossy-mobile slight sw | 
+passed | @visual shape-grid glossy-mobile slight se | 
+passed | @visual shape-grid glossy-mobile slight s | 
+passed | @visual shape-grid glossy-mobile strong nw | 
+passed | @visual shape-grid glossy-mobile strong ne | 
+passed | @visual shape-grid glossy-mobile strong sw | 
+passed | @visual shape-grid glossy-mobile strong se | 
+passed | @visual shape-grid glossy-mobile strong s | 
+passed | @visual shape-grid neumorphic flat nw | 
+passed | @visual shape-grid neumorphic flat ne | 
+passed | @visual shape-grid neumorphic flat sw | 
+passed | @visual shape-grid neumorphic flat se | 
+passed | @visual shape-grid neumorphic flat s | 
+passed | @visual shape-grid neumorphic slight nw | 
+passed | @visual shape-grid neumorphic slight ne | 
+passed | @visual shape-grid neumorphic slight sw | 
+passed | @visual shape-grid neumorphic slight se | 
+passed | @visual shape-grid neumorphic slight s | 
+passed | @visual shape-grid neumorphic strong nw | 
+passed | @visual shape-grid neumorphic strong ne | 
+passed | @visual shape-grid neumorphic strong sw | 
+passed | @visual shape-grid neumorphic strong se | 
+passed | @visual shape-grid neumorphic strong s | 
+passed | @visual toggles studio-hardware flat nw | 
+passed | @visual toggles studio-hardware flat ne | 
+passed | @visual toggles studio-hardware flat sw | 
+passed | @visual toggles studio-hardware flat se | 
+passed | @visual toggles studio-hardware flat s | 
+passed | @visual toggles studio-hardware slight nw | 
+passed | @visual toggles studio-hardware slight ne | 
+passed | @visual toggles studio-hardware slight sw | 
+passed | @visual toggles studio-hardware slight se | 
+passed | @visual toggles studio-hardware slight s | 
+passed | @visual toggles studio-hardware strong nw | 
+passed | @visual toggles studio-hardware strong ne | 
+passed | @visual toggles studio-hardware strong sw | 
+passed | @visual toggles studio-hardware strong se | 
+passed | @visual toggles studio-hardware strong s | 
+passed | @visual toggles soft-clay flat nw | 
+passed | @visual toggles soft-clay flat ne | 
+passed | @visual toggles soft-clay flat sw | 
+passed | @visual toggles soft-clay flat se | 
+passed | @visual toggles soft-clay flat s | 
+passed | @visual toggles soft-clay slight nw | 
+passed | @visual toggles soft-clay slight ne | 
+passed | @visual toggles soft-clay slight sw | 
+passed | @visual toggles soft-clay slight se | 
+passed | @visual toggles soft-clay slight s | 
+passed | @visual toggles soft-clay strong nw | 
+passed | @visual toggles soft-clay strong ne | 
+passed | @visual toggles soft-clay strong sw | 
+passed | @visual toggles soft-clay strong se | 
+passed | @visual toggles soft-clay strong s | 
+passed | @visual toggles glossy-mobile flat nw | 
+passed | @visual toggles glossy-mobile flat ne | 
+passed | @visual toggles glossy-mobile flat sw | 
+passed | @visual toggles glossy-mobile flat se | 
+passed | @visual toggles glossy-mobile flat s | 
+passed | @visual toggles glossy-mobile slight nw | 
+passed | @visual toggles glossy-mobile slight ne | 
+passed | @visual toggles glossy-mobile slight sw | 
+passed | @visual toggles glossy-mobile slight se | 
+passed | @visual toggles glossy-mobile slight s | 
+passed | @visual toggles glossy-mobile strong nw | 
+passed | @visual toggles glossy-mobile strong ne | 
+passed | @visual toggles glossy-mobile strong sw | 
+passed | @visual toggles glossy-mobile strong se | 
+passed | @visual toggles glossy-mobile strong s | 
+passed | @visual toggles neumorphic flat nw | 
+passed | @visual toggles neumorphic flat ne | 
+passed | @visual toggles neumorphic flat sw | 
+passed | @visual toggles neumorphic flat se | 
+passed | @visual toggles neumorphic flat s | 
+passed | @visual toggles neumorphic slight nw | 
+passed | @visual toggles neumorphic slight ne | 
+passed | @visual toggles neumorphic slight sw | 
+passed | @visual toggles neumorphic slight se | 
+passed | @visual toggles neumorphic slight s | 
+passed | @visual toggles neumorphic strong nw | 
+passed | @visual toggles neumorphic strong ne | 
+passed | @visual toggles neumorphic strong sw | 
+passed | @visual toggles neumorphic strong se | 
+passed | @visual toggles neumorphic strong s | 
+passed | @visual neumorphic-panel studio-hardware flat nw | 
+passed | @visual neumorphic-panel studio-hardware flat ne | 
+passed | @visual neumorphic-panel studio-hardware flat sw | 
+passed | @visual neumorphic-panel studio-hardware flat se | 
+passed | @visual neumorphic-panel studio-hardware flat s | 
+passed | @visual neumorphic-panel studio-hardware slight nw | 
+passed | @visual neumorphic-panel studio-hardware slight ne | 
+passed | @visual neumorphic-panel studio-hardware slight sw | 
+passed | @visual neumorphic-panel studio-hardware slight se | 
+passed | @visual neumorphic-panel studio-hardware slight s | 
+passed | @visual neumorphic-panel studio-hardware strong nw | 
+passed | @visual neumorphic-panel studio-hardware strong ne | 
+passed | @visual neumorphic-panel studio-hardware strong sw | 
+passed | @visual neumorphic-panel studio-hardware strong se | 
+passed | @visual neumorphic-panel studio-hardware strong s | 
+passed | @visual neumorphic-panel soft-clay flat nw | 
+passed | @visual neumorphic-panel soft-clay flat ne | 
+passed | @visual neumorphic-panel soft-clay flat sw | 
+passed | @visual neumorphic-panel soft-clay flat se | 
+passed | @visual neumorphic-panel soft-clay flat s | 
+passed | @visual neumorphic-panel soft-clay slight nw | 
+passed | @visual neumorphic-panel soft-clay slight ne | 
+passed | @visual neumorphic-panel soft-clay slight sw | 
+passed | @visual neumorphic-panel soft-clay slight se | 
+passed | @visual neumorphic-panel soft-clay slight s | 
+passed | @visual neumorphic-panel soft-clay strong nw | 
+passed | @visual neumorphic-panel soft-clay strong ne | 
+passed | @visual neumorphic-panel soft-clay strong sw | 
+passed | @visual neumorphic-panel soft-clay strong se | 
+passed | @visual neumorphic-panel soft-clay strong s | 
+passed | @visual neumorphic-panel glossy-mobile flat nw | 
+passed | @visual neumorphic-panel glossy-mobile flat ne | 
+passed | @visual neumorphic-panel glossy-mobile flat sw | 
+passed | @visual neumorphic-panel glossy-mobile flat se | 
+passed | @visual neumorphic-panel glossy-mobile flat s | 
+passed | @visual neumorphic-panel glossy-mobile slight nw | 
+passed | @visual neumorphic-panel glossy-mobile slight ne | 
+passed | @visual neumorphic-panel glossy-mobile slight sw | 
+passed | @visual neumorphic-panel glossy-mobile slight se | 
+passed | @visual neumorphic-panel glossy-mobile slight s | 
+passed | @visual neumorphic-panel glossy-mobile strong nw | 
+passed | @visual neumorphic-panel glossy-mobile strong ne | 
+passed | @visual neumorphic-panel glossy-mobile strong sw | 
+passed | @visual neumorphic-panel glossy-mobile strong se | 
+passed | @visual neumorphic-panel glossy-mobile strong s | 
+passed | @visual neumorphic-panel neumorphic flat nw | 
+passed | @visual neumorphic-panel neumorphic flat ne | 
+passed | @visual neumorphic-panel neumorphic flat sw | 
+passed | @visual neumorphic-panel neumorphic flat se | 
+passed | @visual neumorphic-panel neumorphic flat s | 
+passed | @visual neumorphic-panel neumorphic slight nw | 
+passed | @visual neumorphic-panel neumorphic slight ne | 
+passed | @visual neumorphic-panel neumorphic slight sw | 
+passed | @visual neumorphic-panel neumorphic slight se | 
+passed | @visual neumorphic-panel neumorphic slight s | 
+passed | @visual neumorphic-panel neumorphic strong nw | 
+passed | @visual neumorphic-panel neumorphic strong ne | 
+passed | @visual neumorphic-panel neumorphic strong sw | 
+passed | @visual neumorphic-panel neumorphic strong se | 
+passed | @visual neumorphic-panel neumorphic strong s | 
+passed | @zoom ssl-strip 0.25x dpr1 | 
+passed | @zoom ssl-strip 1x dpr1 | 
+passed | @zoom ssl-strip 4x dpr1 | 
+passed | @zoom ssl-strip 0.25x dpr2 | 
+passed | @zoom ssl-strip 1x dpr2 | 
+passed | @zoom ssl-strip 4x dpr2 | 
+passed | @zoom shape-grid 0.25x dpr1 | 
+passed | @zoom shape-grid 1x dpr1 | 
+passed | @zoom shape-grid 4x dpr1 | 
+passed | @zoom shape-grid 0.25x dpr2 | 
+passed | @zoom shape-grid 1x dpr2 | 
+passed | @zoom shape-grid 4x dpr2 | 
+passed | @zoom toggles 0.25x dpr1 | 
+passed | @zoom toggles 1x dpr1 | 
+passed | @zoom toggles 4x dpr1 | 
+passed | @zoom toggles 0.25x dpr2 | 
+passed | @zoom toggles 1x dpr2 | 
+passed | @zoom toggles 4x dpr2 | 
+passed | @zoom neumorphic-panel 0.25x dpr1 | 
+passed | @zoom neumorphic-panel 1x dpr1 | 
+passed | @zoom neumorphic-panel 4x dpr1 | 
+passed | @zoom neumorphic-panel 0.25x dpr2 | 
+passed | @zoom neumorphic-panel 1x dpr2 | 
+failed | @zoom neumorphic-panel 4x dpr2 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 14410 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+passed | @zoom stress 0.25x dpr1 | 
+passed | @zoom stress 1x dpr1 | 
+passed | @zoom stress 4x dpr1 | 
+passed | @zoom stress 0.25x dpr2 | 
+passed | @zoom stress 1x dpr2 | 
+passed | @zoom stress 4x dpr2 | 
+passed | @zoom glass-glow 0.25x dpr1 | 
+passed | @zoom glass-glow 1x dpr1 | 
+failed | @zoom glass-glow 4x dpr1 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 32547 pixels (ratio 0.05 of all image pixels) are different. Snapsho
+passed | @zoom glass-glow 0.25x dpr2 | 
+passed | @zoom glass-glow 1x dpr2 | 
+failed | @zoom glass-glow 4x dpr2 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 73700 pixels (ratio 0.10 of all image pixels) are different. Snapsho
+passed | @state ssl-strip default | 
+passed | @state ssl-strip pressed | 
+passed | @state ssl-strip disabled | 
+passed | @state toggles default | 
+passed | @state toggles pressed | 
+passed | @state toggles disabled | 

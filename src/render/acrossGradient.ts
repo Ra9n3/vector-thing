@@ -11,7 +11,7 @@ export function acrossStops(profile: ResolvedProfile, material: Material, length
   const length = Math.max(Number.EPSILON, lengthPx);
   const sample = prepareProfile(profile);
   const base = hexToRgb(surfaceMaterial(material).color);
-  const z = (t: number) => (profile.recessed ? -1 : 1) * heightPx * sample(profile.lookup ? (profile.customMirror ? 2*Math.min(Math.max(0,t),Math.max(0,1-t)) : Math.max(0,Math.min(1,t))) : 1 - Math.abs(2 * Math.max(0, Math.min(1, t)) - 1)).value;
+  const z = (t: number) => (profile.recessed ? -1 : 1) * heightPx * sample(1 - Math.abs(2 * Math.max(0, Math.min(1, t)) - 1)).value;
   const eps = 1e-6;
   const colorAt = (t: number, side: -1 | 0 | 1 = 0) => {
     // Sample entirely on one side of a corner when creating a hard stop.
@@ -25,7 +25,7 @@ export function acrossStops(profile: ResolvedProfile, material: Material, length
   const breaks = profile.points.filter((p) => p.sharp && p.u > 0 && p.u < 1)
     .flatMap((p) => [p.u / 2, 1 - p.u / 2]);
   // A nonzero center tangent also creates a corner when the half-profile is mirrored.
-  if ((!profile.lookup || profile.customMirror) && Math.abs(z(0.5) - z(0.5 - eps)) > eps * heightPx * 1e-4) breaks.push(0.5);
+  if (Math.abs(z(0.5) - z(0.5 - eps)) > eps * heightPx * 1e-4) breaks.push(0.5);
   const uniqueBreaks = [...new Set(breaks)].sort((a, b) => a - b);
   const stops: GradientStop[] = [];
   for (let i = 0; i < count; i++) {

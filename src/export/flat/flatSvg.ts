@@ -10,7 +10,6 @@ import { convexHull,outsetHull,polygonPath } from '../../geometry/hull';
 import { acrossStops } from '../../render/acrossGradient';
 import { bandFacets } from './bandFacets';
 import { softLayers } from './softLayers';
-import { reduceStops } from './reduceStops';
 const num=(n:number)=>Number(n.toFixed(3));
 export function buildFlatSvg(v:ExportVariant):string {
   const defs:string[]=[],parts:string[]=[];const {bounds,pack,look,direction,context}=v;
@@ -35,8 +34,7 @@ export function buildFlatSvg(v:ExportVariant):string {
     }
     let cap='';
     if(spec.mode==='across') {
-      const rawStops=acrossStops(spec.profile,spec.material,spec.axis==='vertical'?el.height:el.width,spec.relief,spec.axis);
-      const stops=spec.profile.lookup?reduceStops(rawStops,16):rawStops;
+      const stops=acrossStops(spec.profile,spec.material,spec.axis==='vertical'?el.height:el.width,spec.relief,spec.axis);
       defs.push(`<linearGradient id="${gradient}" x1="0" y1="0" x2="${spec.axis==='horizontal'?1:0}" y2="${spec.axis==='vertical'?1:0}">${stops.map(s=>`<stop offset="${num(s.offset*100)}%" stop-color="${s.color}"/>`).join('')}</linearGradient>`);
       cap=`<path d="${path}" fill="url(#${gradient})"/>`;
     } else cap=`<g clip-path="url(#${clip})">${bandFacets(el.type,el.width,el.height,spec.profile,spec.material,spec.relief).map(f=>`<path d="${f.d}" fill="${f.fill}" stroke="${f.fill}" stroke-width=".5" stroke-linejoin="round"/>`).join('')}</g>`;

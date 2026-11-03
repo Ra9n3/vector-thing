@@ -1,6 +1,5 @@
 import type { ShapeType } from '../geometry/shapePath';
 import { PRESET_BY_ID } from './presets';
-import { customLookup } from './custom';
 import type { ProfilePoint, ProfileSettings, ResolvedProfile } from './types';
 
 const clamp = (n: number) => Math.max(0, Math.min(1, n));
@@ -19,10 +18,6 @@ function normalizePoints(input: ProfilePoint[]): ProfilePoint[] {
 }
 
 export function resolveProfile(s: ProfileSettings): ResolvedProfile {
-  if (s.kind === 'custom' && s.custom) {
-    const lookup=customLookup(s.custom,'around');
-    return {points:lookup.map((h,i)=>({u:i/63,h})),recessed:false,lookup,customMirror:s.custom.mirror !== false};
-  }
   const result = PRESET_BY_ID[s.preset].build(s.params);
   return s.customPoints ? { ...result, points: normalizePoints(s.customPoints) } : result;
 }
@@ -42,13 +37,6 @@ function endpoint(h0: number, h1: number, d0: number, d1: number): number {
 
 /** Precompute the PCHIP coefficients for repeated sampling of one profile. */
 export function prepareProfile(p: ResolvedProfile) {
-  if (p.lookup?.length === 64) {
-    const lookup=p.lookup;
-    return (u:number):{value:number;slope:number}=>{
-      const x=clamp(Number.isNaN(u)?0:u)*63,i=Math.min(62,Math.floor(x)),t=x-i;
-      return {value:lookup[i]+(lookup[i+1]-lookup[i])*t,slope:(lookup[i+1]-lookup[i])*63};
-    };
-  }
   const points = p.points;
   const widths = points.slice(0, -1).map((point, j) => points[j + 1].u - point.u);
   const deltas = widths.map((width, j) => (points[j + 1].h - points[j].h) / width);

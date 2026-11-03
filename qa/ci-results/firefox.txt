@@ -1,0 +1,267 @@
+passed | @export ssl-strip XML and flat renderer | 
+passed | @export shape-grid XML and flat renderer | 
+passed | @export toggles XML and flat renderer | 
+passed | @export neumorphic-panel XML and flat renderer | 
+passed | @export stress XML and flat renderer | 
+passed | @export glass-glow XML and flat renderer | 
+passed | @export medium XML and flat renderer | 
+passed | @export IDs are unique per document and reproducible | 
+passed | @invariant ssl-strip | 
+passed | @invariant shape-grid | 
+passed | @invariant toggles | 
+passed | @invariant neumorphic-panel | 
+passed | @invariant stress | 
+passed | @invariant glass-glow | 
+passed | @invariant medium | 
+passed | @stack ssl-strip all directions and states | 
+passed | @stack toggles all directions and states | 
+passed | @render pressed updates only pressable elements without overrides | 
+passed | @render animation leaves static parts untouched | 
+passed | @defs unique surface keys | 
+passed | @defs look and direction do not rebuild surfaces | 
+passed | @parity ssl-strip live SVG and PNG | 
+passed | @parity shape-grid live SVG and PNG | 
+passed | @parity toggles live SVG and PNG | 
+passed | @parity neumorphic-panel live SVG and PNG | 
+passed | @parity stress live SVG and PNG | 
+passed | @parity glass-glow live SVG and PNG | 
+passed | @parity medium live SVG and PNG | 
+skipped | @performance medium export | 
+skipped | @performance stress export | 
+skipped | @performance place/delete memory and defs | 
+skipped | @settled medium style | 
+skipped | @settled medium look | 
+skipped | @settled medium state | 
+skipped | @settled stress style | 
+skipped | @settled stress look | 
+skipped | @settled stress state | 
+passed | @visual ssl-strip studio-hardware slight n | 
+passed | @visual ssl-strip studio-hardware slight ne | 
+passed | @visual ssl-strip studio-hardware slight e | 
+passed | @visual ssl-strip studio-hardware slight se | 
+passed | @visual ssl-strip studio-hardware slight s | 
+passed | @visual ssl-strip studio-hardware slight sw | 
+passed | @visual ssl-strip studio-hardware slight w | 
+passed | @visual ssl-strip studio-hardware slight nw | 
+failed | @visual shape-grid studio-hardware flat nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11415 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware flat ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11415 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware flat sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11415 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware flat se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11415 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware flat s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11415 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware slight nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 10512 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware slight ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11176 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware slight sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11352 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware slight se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11986 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware slight s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11765 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware strong nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 9563 pixels (ratio 0.02 of all image pixels) are different. Snapshot
+failed | @visual shape-grid studio-hardware strong ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 10734 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware strong sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 10981 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware strong se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12131 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid studio-hardware strong s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11713 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay flat nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12677 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay flat ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12677 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay flat sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12677 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay flat se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12677 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay flat s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12677 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay slight nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12218 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay slight ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12453 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay slight sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12514 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay slight se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12728 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay slight s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12657 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay strong nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11327 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay strong ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12002 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay strong sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12030 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay strong se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12643 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid soft-clay strong s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12504 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile flat nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12056 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile flat ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12056 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile flat sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12056 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile flat se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12056 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile flat s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12056 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile slight nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11209 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile slight ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11489 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile slight sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11741 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile slight se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11887 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile slight s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11855 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile strong nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 10694 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile strong ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11268 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile strong sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11399 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile strong se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11987 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid glossy-mobile strong s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11988 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic flat nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 15380 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic flat ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 15380 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic flat sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 15380 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic flat se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 15380 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic flat s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 15380 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic slight nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 14807 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic slight ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 14928 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic slight sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 15134 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic slight se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 15343 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic slight s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 15355 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic strong nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 14003 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic strong ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 14701 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic strong sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 14575 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic strong se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 15258 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual shape-grid neumorphic strong s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 15150 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+passed | @visual toggles studio-hardware flat nw | 
+passed | @visual toggles studio-hardware flat ne | 
+passed | @visual toggles studio-hardware flat sw | 
+passed | @visual toggles studio-hardware flat se | 
+passed | @visual toggles studio-hardware flat s | 
+passed | @visual toggles studio-hardware slight nw | 
+passed | @visual toggles studio-hardware slight ne | 
+passed | @visual toggles studio-hardware slight sw | 
+passed | @visual toggles studio-hardware slight se | 
+passed | @visual toggles studio-hardware slight s | 
+passed | @visual toggles studio-hardware strong nw | 
+passed | @visual toggles studio-hardware strong ne | 
+passed | @visual toggles studio-hardware strong sw | 
+passed | @visual toggles studio-hardware strong se | 
+passed | @visual toggles studio-hardware strong s | 
+passed | @visual toggles soft-clay flat nw | 
+passed | @visual toggles soft-clay flat ne | 
+passed | @visual toggles soft-clay flat sw | 
+passed | @visual toggles soft-clay flat se | 
+passed | @visual toggles soft-clay flat s | 
+passed | @visual toggles soft-clay slight nw | 
+passed | @visual toggles soft-clay slight ne | 
+passed | @visual toggles soft-clay slight sw | 
+passed | @visual toggles soft-clay slight se | 
+passed | @visual toggles soft-clay slight s | 
+passed | @visual toggles soft-clay strong nw | 
+passed | @visual toggles soft-clay strong ne | 
+passed | @visual toggles soft-clay strong sw | 
+passed | @visual toggles soft-clay strong se | 
+passed | @visual toggles soft-clay strong s | 
+passed | @visual toggles glossy-mobile flat nw | 
+passed | @visual toggles glossy-mobile flat ne | 
+passed | @visual toggles glossy-mobile flat sw | 
+passed | @visual toggles glossy-mobile flat se | 
+passed | @visual toggles glossy-mobile flat s | 
+passed | @visual toggles glossy-mobile slight nw | 
+passed | @visual toggles glossy-mobile slight ne | 
+passed | @visual toggles glossy-mobile slight sw | 
+passed | @visual toggles glossy-mobile slight se | 
+passed | @visual toggles glossy-mobile slight s | 
+passed | @visual toggles glossy-mobile strong nw | 
+passed | @visual toggles glossy-mobile strong ne | 
+passed | @visual toggles glossy-mobile strong sw | 
+passed | @visual toggles glossy-mobile strong se | 
+passed | @visual toggles glossy-mobile strong s | 
+passed | @visual toggles neumorphic flat nw | 
+passed | @visual toggles neumorphic flat ne | 
+passed | @visual toggles neumorphic flat sw | 
+passed | @visual toggles neumorphic flat se | 
+passed | @visual toggles neumorphic flat s | 
+passed | @visual toggles neumorphic slight nw | 
+passed | @visual toggles neumorphic slight ne | 
+passed | @visual toggles neumorphic slight sw | 
+passed | @visual toggles neumorphic slight se | 
+passed | @visual toggles neumorphic slight s | 
+passed | @visual toggles neumorphic strong nw | 
+passed | @visual toggles neumorphic strong ne | 
+passed | @visual toggles neumorphic strong sw | 
+passed | @visual toggles neumorphic strong se | 
+passed | @visual toggles neumorphic strong s | 
+failed | @visual neumorphic-panel studio-hardware flat nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13975 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware flat ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13975 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware flat sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13975 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware flat se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13975 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware flat s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13975 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware slight nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 14065 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware slight ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 14078 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware slight sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13918 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware slight se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13949 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware slight s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13492 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware strong nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 14068 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware strong ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 14095 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware strong sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12690 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware strong se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12706 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel studio-hardware strong s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11767 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay flat nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13497 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay flat ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13497 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay flat sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13497 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay flat se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13497 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay flat s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13497 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay slight nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13635 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay slight ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13774 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay slight sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13200 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay slight se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13345 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay slight s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12926 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay strong nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13565 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay strong ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13607 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay strong sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12176 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay strong se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12247 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel soft-clay strong s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11130 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile flat nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13192 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile flat ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13192 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile flat sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13192 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile flat se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13192 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile flat s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13192 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile slight nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13157 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile slight ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13262 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile slight sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13033 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile slight se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12973 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile slight s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12580 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile strong nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12444 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile strong ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12881 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile strong sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11732 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile strong se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11961 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel glossy-mobile strong s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 10788 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic flat nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13747 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic flat ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13747 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic flat sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13747 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic flat se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13747 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic flat s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13747 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic slight nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13709 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic slight ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13915 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic slight sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13311 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic slight se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13529 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic slight s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13162 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic strong nw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13396 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic strong ne | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13638 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic strong sw | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12132 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic strong se | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 12399 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @visual neumorphic-panel neumorphic strong s | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11276 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+passed | @zoom ssl-strip 0.25x dpr1 | 
+passed | @zoom ssl-strip 1x dpr1 | 
+passed | @zoom ssl-strip 4x dpr1 | 
+passed | @zoom ssl-strip 0.25x dpr2 | 
+passed | @zoom ssl-strip 1x dpr2 | 
+passed | @zoom ssl-strip 4x dpr2 | 
+passed | @zoom shape-grid 0.25x dpr1 | 
+failed | @zoom shape-grid 1x dpr1 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11765 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @zoom shape-grid 4x dpr1 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 25294 pixels (ratio 0.04 of all image pixels) are different. Snapsho
+passed | @zoom shape-grid 0.25x dpr2 | 
+failed | @zoom shape-grid 1x dpr2 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 11771 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @zoom shape-grid 4x dpr2 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 25300 pixels (ratio 0.04 of all image pixels) are different. Snapsho
+passed | @zoom toggles 0.25x dpr1 | 
+passed | @zoom toggles 1x dpr1 | 
+failed | @zoom toggles 4x dpr1 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 16770 pixels (ratio 0.03 of all image pixels) are different. Snapsho
+passed | @zoom toggles 0.25x dpr2 | 
+passed | @zoom toggles 1x dpr2 | 
+failed | @zoom toggles 4x dpr2 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 16776 pixels (ratio 0.03 of all image pixels) are different. Snapsho
+passed | @zoom neumorphic-panel 0.25x dpr1 | 
+failed | @zoom neumorphic-panel 1x dpr1 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13162 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @zoom neumorphic-panel 4x dpr1 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 116222 pixels (ratio 0.15 of all image pixels) are different. Snapsh
+passed | @zoom neumorphic-panel 0.25x dpr2 | 
+failed | @zoom neumorphic-panel 1x dpr2 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13168 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+failed | @zoom neumorphic-panel 4x dpr2 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 116228 pixels (ratio 0.15 of all image pixels) are different. Snapsh
+passed | @zoom stress 0.25x dpr1 | 
+passed | @zoom stress 1x dpr1 | 
+failed | @zoom stress 4x dpr1 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13464 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+passed | @zoom stress 0.25x dpr2 | 
+passed | @zoom stress 1x dpr2 | 
+failed | @zoom stress 4x dpr2 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 13470 pixels (ratio 0.02 of all image pixels) are different. Snapsho
+passed | @zoom glass-glow 0.25x dpr1 | 
+passed | @zoom glass-glow 1x dpr1 | 
+failed | @zoom glass-glow 4x dpr1 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 95380 pixels (ratio 0.12 of all image pixels) are different. Snapsho
+passed | @zoom glass-glow 0.25x dpr2 | 
+passed | @zoom glass-glow 1x dpr2 | 
+failed | @zoom glass-glow 4x dpr2 | Error: expect(locator).toHaveScreenshot(expected) failed Locator: locator('main') 95386 pixels (ratio 0.12 of all image pixels) are different. Snapsho
+passed | @state ssl-strip default | 
+passed | @state ssl-strip pressed | 
+passed | @state ssl-strip disabled | 
+passed | @state toggles default | 
+passed | @state toggles pressed | 
+passed | @state toggles disabled | 

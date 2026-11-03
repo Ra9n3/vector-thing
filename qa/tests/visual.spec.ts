@@ -22,9 +22,3 @@ for(const fixture of ['ssl-strip','toggles'])for(const state of ['default','pres
  await page.goto(`/?fixture=${fixture}`);await page.evaluate(async state=>{const {useStore}=await import('/src/store.ts');useStore.getState().setElementState(state)},state);await page.waitForTimeout(600);
  await expect(page.locator('main')).toHaveScreenshot(`${fixture}-state-${state}.png`,{animations:'disabled',timeout:process.env.CI?10000:45000});
 });
-
-for(const direction of ['e','s'] as const)test(`@visual custom-profile slight ${direction}`,async({page})=>{
- await page.goto('/?fixture=custom-profile');await expect(page.locator('svg[data-view="face"]')).toBeVisible();
- await page.evaluate(async direction=>{const {useStore}=await import('/src/store.ts');useStore.getState().setDirection(direction);},direction);await page.waitForTimeout(650);
- await expect(page.locator('main')).toHaveScreenshot(`custom-profile-slight-${direction}.png`,{animations:'disabled'});
-});

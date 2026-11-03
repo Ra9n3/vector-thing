@@ -39,8 +39,6 @@ import { ProfileIcon } from './icons/ProfileIcon';
 import { leavesOf, resolveTargets } from '../selection/targets';
 import { MatchToggle } from './MatchToggle';
 import { PanelHeaderActions } from './PanelHeaderActions';
-import { CustomProfileControls } from './CustomProfileControls';
-import TimelineIcon from '@mui/icons-material/Timeline';
 
 export const PROPERTIES_WIDTH = 280;
 const EMPTY_ELEMENTS:Element[]=[];
@@ -86,8 +84,6 @@ export function PropertiesPanel() {
   const setMaterial = useStore((s) => s.setMaterial);
   const setSize = useStore((s) => s.setSize);
   const setWall = useStore((s) => s.setWall);
-  const userProfiles = useStore(s=>s.userProfiles);
-  const setCustomProfile = useStore(s=>s.setCustomProfile);
 
   const leaves = useMemo(() => leavesOf(selection,elements,groups), [selection,elements,groups]);
   const sel = useMemo(() => { const ids=new Set(resolveTargets(selection,elements,groups,matchMode,activeId)); return elements.filter(e=>ids.has(e.id)); }, [selection,elements,groups,matchMode,activeId]);
@@ -100,9 +96,7 @@ export function PropertiesPanel() {
 
   // Values reflect the selection; undefined means the selected elements differ.
   const shape = has ? uniform(sel.map((e) => e.type)) : properties.shape;
-  const profile = has ? uniform(sel.map((e) => e.props.profile.kind === 'custom' ? undefined : e.props.profile.preset)) : properties.profile.preset;
-  const editingProfile = sel[0]?.props.profile ?? properties.profile;
-  const profileMixed = sel.length > 1 && uniform(sel.map(e=>JSON.stringify(e.props.profile))) === undefined;
+  const profile = has ? uniform(sel.map((e) => e.props.profile.preset)) : properties.profile.preset;
   const profileMode = has ? uniform(sel.map((e) => e.props.profile.mode)) : properties.profile.mode;
   const profileAxis = has ? uniform(sel.map((e) => e.props.profile.acrossAxis)) : properties.profile.acrossAxis;
   const resolvedMode = has
@@ -154,7 +148,7 @@ export function PropertiesPanel() {
           </ToggleButtonGroup>
         </Section>
 
-        <Section label="Side" mixed={profileMixed}>
+        <Section label="Side" mixed={has && profile === undefined}>
           <ToggleButtonGroup
             exclusive
             disabled={inactive}
@@ -180,7 +174,6 @@ export function PropertiesPanel() {
               );
             })}
           </ToggleButtonGroup>
-          {userProfiles.length>0 && <Box sx={{display:'flex',flexWrap:'wrap',gap:.5,mt:.5}}>{userProfiles.map(p=><Tooltip key={p.id} title={p.name}><span><IconButton aria-label={p.name} size="small" disabled={inactive} onClick={()=>setCustomProfile(p.profile,true)}><TimelineIcon fontSize="small"/></IconButton></span></Tooltip>)}</Box>}
         </Section>
 
         <Section label="Material" labelTooltip={mainGroup ? "Main parts" : undefined} mixed={has && material === undefined} action={<MaterialPicker disabled={inactive} />}>
@@ -245,7 +238,6 @@ export function PropertiesPanel() {
               </Typography>
             </AccordionSummary>
             <AccordionDetails sx={{ minHeight: 48, display: 'grid', gap: 1.5 }}>
-              <CustomProfileControls profile={editingProfile} disabled={inactive} />
               <ColorOverride selected={colorSel} mainParts={mainGroup} />
               {has && <Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

@@ -8,7 +8,6 @@ import { resolveMaterial } from '../materials/resolve';
 import { GlowDefinition, GlowHalo } from './GlowHalo';
 import { TextureDefinition, TextureOverlay } from './TextureOverlay';
 import { shadingSpec } from './shadingKey';
-import { lookupHash } from '../profiles/custom';
 import type { ShadingSpec } from './shadingKey';
 import type { Direction, Look } from '../viewTypes';
 import type { StylePack } from '../styles/types';
@@ -78,8 +77,7 @@ export function useShadingDefinitions(elements: Element[], selection: string[], 
       if (!ids.current.has(spec.filterKey)) ids.current.set(spec.filterKey, `shading-${prefix}-${nextId.current++}`);
       elementIds.set(el.id, ids.current.get(spec.filterKey)!);
       if (spec.mode === 'around') {
-        const geometryProfile=spec.profile.lookup ? [lookupHash(spec.profile.lookup),spec.profile.lookup] : spec.profile;
-        const key = JSON.stringify(['heightmap', spec.type, spec.width, spec.height, geometryProfile]);
+        const key = JSON.stringify(['heightmap', spec.type, spec.width, spec.height, spec.profile]);
         if (!auxIds.current.has(key)) auxIds.current.set(key, `shading-${prefix}-map-${nextId.current++}`);
         const mapId = auxIds.current.get(key)!;
         geometry.set(key, { id: mapId, spec });

@@ -6,7 +6,6 @@ import type { Material } from '../materials/types';
 import { resolveMaterial } from '../materials/resolve';
 import { effectiveHeight } from './lighting';
 import { surfaceMaterial } from './shade';
-import { lookupHash } from '../profiles/custom';
 
 export interface ShadingSpec {
   key: string; filterKey:string; type: ShapeType; width: number; height: number; profile: ResolvedProfile;
@@ -24,8 +23,7 @@ export function shadingSpec(el: Element, override?: {material:Material; state:st
   const surface = surfaceMaterial(material);
   const relief = effectiveHeight(width, height, settings.height);
   // Halo geometry and texture are separate definitions; only the resulting surface affects this key.
-  const profileKey=profile.lookup ? [lookupHash(profile.lookup),profile.lookup,mode === 'across' ? profile.customMirror : null] : profile;
-  const visual=[type, width, height, profileKey, mode, axis, material.id, el.props.customColor ?? null,
+  const visual=[type, width, height, profile, mode, axis, material.id, el.props.customColor ?? null,
     surface.color, surface.contrast, surface.specular, surface.shininess, surface.metallic, relief, override?.pressMode ?? 'lower'];
   const filterKey=JSON.stringify(visual);
   const key=JSON.stringify([...visual,override?.state ?? 'default',override?.press ?? 0]);

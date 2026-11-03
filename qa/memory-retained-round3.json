@@ -1,0 +1,408 @@
+{
+  "rootRetained100": 57178609,
+  "rootRetained300": 101431117,
+  "reachable100": 676719,
+  "reachable300": 1048448,
+  "diff": [
+    {
+      "key": "native:PerformanceMeasure",
+      "count": 357683,
+      "self": 43305880,
+      "retained": 43305880,
+      "maxRetained100": 136,
+      "maxRetained300": 136
+    },
+    {
+      "key": "native:Performance",
+      "count": 0,
+      "self": 0,
+      "retained": 43232768,
+      "maxRetained100": 22685648,
+      "maxRetained300": 65918416
+    },
+    {
+      "key": "native:blink::UserTiming",
+      "count": 0,
+      "self": 0,
+      "retained": 43231776,
+      "maxRetained100": 22377808,
+      "maxRetained300": 65609584
+    },
+    {
+      "key": "object:Object",
+      "count": 519,
+      "self": 8624,
+      "retained": 646932,
+      "maxRetained100": 767139,
+      "maxRetained300": 767243
+    },
+    {
+      "key": "object:Error",
+      "count": 491,
+      "self": 11784,
+      "retained": 323056,
+      "maxRetained100": 768003,
+      "maxRetained300": 768107
+    },
+    {
+      "key": "native:system / ErrorStackData",
+      "count": 491,
+      "self": 5892,
+      "retained": 311272,
+      "maxRetained100": 767979,
+      "maxRetained300": 768083
+    },
+    {
+      "key": "native:system / StackTraceInfo",
+      "count": 491,
+      "self": 5892,
+      "retained": 202996,
+      "maxRetained100": 524,
+      "maxRetained300": 524
+    },
+    {
+      "key": "object:Array",
+      "count": 18,
+      "self": 288,
+      "retained": 169988,
+      "maxRetained100": 240440,
+      "maxRetained300": 240440
+    },
+    {
+      "key": "native:system / StackFrameInfo",
+      "count": 8049,
+      "self": 160980,
+      "retained": 160980,
+      "maxRetained100": 20,
+      "maxRetained300": 20
+    },
+    {
+      "key": "native:system / Cell",
+      "count": 0,
+      "self": 0,
+      "retained": 111532,
+      "maxRetained100": 34892,
+      "maxRetained300": 34892
+    },
+    {
+      "key": "object:system / Context / scope @92353",
+      "count": 0,
+      "self": 0,
+      "retained": 64812,
+      "maxRetained100": 978136,
+      "maxRetained300": 1042948
+    },
+    {
+      "key": "object:system / Context / scope @115619",
+      "count": 0,
+      "self": 0,
+      "retained": 57800,
+      "maxRetained100": 905576,
+      "maxRetained300": 963376
+    },
+    {
+      "key": "native:system / WeakArrayList",
+      "count": 468,
+      "self": 43980,
+      "retained": 43980,
+      "maxRetained100": 8484,
+      "maxRetained300": 8484
+    },
+    {
+      "key": "native:internal",
+      "count": 491,
+      "self": 19640,
+      "retained": 19640,
+      "maxRetained100": 64,
+      "maxRetained300": 64
+    },
+    {
+      "key": "native:blink::HeapHashTableBacking<blink::HashTable<blink::PropertyHandle, blink::KeyValuePair<blink::PropertyHandle, cppgc::internal::BasicMember<blink::CSSAnimations::RunningTransition, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>, blink::KeyValuePairExtractor, blink::HashMapValueTraits<blink::HashTraits<blink::PropertyHandle>, blink::HashTraits<cppgc::internal::BasicMember<blink::CSSAnimations::RunningTransition, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>>, blink::HashTraits<blink::PropertyHandle>, blink::HeapAllocator>>",
+      "count": 0,
+      "self": 256,
+      "retained": 15152,
+      "maxRetained100": 16736,
+      "maxRetained300": 16736
+    },
+    {
+      "key": "native:blink::CSSAnimations::RunningTransition",
+      "count": 0,
+      "self": 0,
+      "retained": 14008,
+      "maxRetained100": 3432,
+      "maxRetained300": 3432
+    },
+    {
+      "key": "native:<button class=\"MuiButtonBase-root Mui-disabled MuiToggleButtonGroup-grouped Mui-disabled MuiToggleButton-root Mui-disabled MuiToggleButton-sizeSmall MuiToggleButton-standard MuiToggleButtonGroup-grouped Mui-disabled MuiToggleButtonGroup-firstButton css-mpqfun-MuiButtonBase-root-MuiToggleButton-root\" tabindex=\"-1\" type=\"button\" value=\"default\" aria-pressed=\"false\" disabled=\"\">",
+      "count": 0,
+      "self": 0,
+      "retained": 12592,
+      "maxRetained100": 4740,
+      "maxRetained300": 17332
+    },
+    {
+      "key": "native:CSSTransition",
+      "count": 0,
+      "self": 0,
+      "retained": 12496,
+      "maxRetained100": 3000,
+      "maxRetained300": 3000
+    },
+    {
+      "key": "native:blink::NodeRareData",
+      "count": 0,
+      "self": 0,
+      "retained": 11840,
+      "maxRetained100": 19840,
+      "maxRetained300": 19840
+    },
+    {
+      "key": "native:blink::ElementAnimations",
+      "count": 0,
+      "self": 0,
+      "retained": 11840,
+      "maxRetained100": 19784,
+      "maxRetained300": 19784
+    },
+    {
+      "key": "native:system / PropertyArray",
+      "count": 511,
+      "self": 10436,
+      "retained": 10436,
+      "maxRetained100": 312,
+      "maxRetained300": 312
+    },
+    {
+      "key": "object:system / Context / scope @92443",
+      "count": 0,
+      "self": 0,
+      "retained": 8004,
+      "maxRetained100": 33720,
+      "maxRetained300": 41724
+    },
+    {
+      "key": "object:FiberNode",
+      "count": 0,
+      "self": 0,
+      "retained": 7948,
+      "maxRetained100": 13272,
+      "maxRetained300": 13224
+    },
+    {
+      "key": "object:system / Context / scope @134019",
+      "count": 0,
+      "self": 0,
+      "retained": 6044,
+      "maxRetained100": 88,
+      "maxRetained300": 6132
+    },
+    {
+      "key": "object:Window [JSGlobalObject] / http://127.0.0.1:5173",
+      "count": 0,
+      "self": 0,
+      "retained": 4368,
+      "maxRetained100": 47412,
+      "maxRetained300": 51780
+    },
+    {
+      "key": "object:system / Context / scope @178951",
+      "count": 0,
+      "self": 0,
+      "retained": 3928,
+      "maxRetained100": 188,
+      "maxRetained300": 4116
+    },
+    {
+      "key": "native:blink::LocalFrameView",
+      "count": 0,
+      "self": 0,
+      "retained": 3712,
+      "maxRetained100": 70192,
+      "maxRetained300": 73904
+    },
+    {
+      "key": "native:blink::PaintArtifact",
+      "count": 0,
+      "self": 0,
+      "retained": 3712,
+      "maxRetained100": 61560,
+      "maxRetained300": 65272
+    },
+    {
+      "key": "native:blink::HeapVectorBacking<blink::PaintChunk>",
+      "count": 0,
+      "self": 3712,
+      "retained": 3712,
+      "maxRetained100": 61496,
+      "maxRetained300": 65208
+    },
+    {
+      "key": "native:system / PropertyCell",
+      "count": 0,
+      "self": 0,
+      "retained": 3512,
+      "maxRetained100": 4400,
+      "maxRetained300": 4400
+    },
+    {
+      "key": "native:<button class=\"MuiButtonBase-root Mui-disabled MuiButton-root MuiButton-contained MuiButton-sizeSmall MuiButton-colorPrimary MuiButton-disableElevation css-13wzogz-MuiButtonBase-root-MuiButton-root\" tabindex=\"-1\" type=\"button\" aria-haspopup=\"dialog\" aria-expanded=\"false\" disabled=\"\">",
+      "count": 0,
+      "self": 0,
+      "retained": 3280,
+      "maxRetained100": 2332,
+      "maxRetained300": 5612
+    },
+    {
+      "key": "native:system / SourceTextModule",
+      "count": 0,
+      "self": 0,
+      "retained": 3228,
+      "maxRetained100": 318772,
+      "maxRetained300": 321916
+    },
+    {
+      "key": "object:system / Context / scope @92131",
+      "count": 12,
+      "self": 768,
+      "retained": 2580,
+      "maxRetained100": 1092,
+      "maxRetained300": 1092
+    },
+    {
+      "key": "native:system / ProtectedFixedArray",
+      "count": 134,
+      "self": 2444,
+      "retained": 2444,
+      "maxRetained100": 56,
+      "maxRetained300": 56
+    },
+    {
+      "key": "native:blink::BasicHeapHashMap<blink::internal::HeapCollectionType::kGCed, int, cppgc::internal::BasicMember<blink::Node, cppgc::internal::WeakMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>",
+      "count": 0,
+      "self": 0,
+      "retained": 2048,
+      "maxRetained100": 2088,
+      "maxRetained300": 4136
+    },
+    {
+      "key": "native:blink::HeapHashTableBacking<blink::HashTable<int, blink::KeyValuePair<int, cppgc::internal::BasicMember<blink::Node, cppgc::internal::WeakMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>, blink::KeyValuePairExtractor, blink::HashMapValueTraits<blink::HashTraits<int>, blink::HashTraits<cppgc::internal::BasicMember<blink::Node, cppgc::internal::WeakMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>>, blink::HashTraits<int>, blink::HeapAllocator>>",
+      "count": 0,
+      "self": 2048,
+      "retained": 2048,
+      "maxRetained100": 2056,
+      "maxRetained300": 4104
+    },
+    {
+      "key": "object:system / Context / scope @93583",
+      "count": 0,
+      "self": 0,
+      "retained": 1996,
+      "maxRetained100": 6508,
+      "maxRetained300": 8504
+    },
+    {
+      "key": "object:Math",
+      "count": 0,
+      "self": 0,
+      "retained": 1620,
+      "maxRetained100": 3072,
+      "maxRetained300": 4692
+    },
+    {
+      "key": "native:system / SharedFunctionInfoWrapper",
+      "count": 134,
+      "self": 1072,
+      "retained": 1072,
+      "maxRetained100": 8,
+      "maxRetained300": 8
+    },
+    {
+      "key": "object:Array Iterator",
+      "count": 0,
+      "self": 0,
+      "retained": 1044,
+      "maxRetained100": 428,
+      "maxRetained300": 1472
+    },
+    {
+      "key": "native:PerformanceLongTaskTiming",
+      "count": 4,
+      "self": 416,
+      "retained": 992,
+      "maxRetained100": 248,
+      "maxRetained300": 248
+    },
+    {
+      "key": "native:blink::HeapVectorBacking<cppgc::internal::BasicMember<blink::TaskAttributionTiming, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>",
+      "count": 4,
+      "self": 96,
+      "retained": 576,
+      "maxRetained100": 144,
+      "maxRetained300": 144
+    },
+    {
+      "key": "native:TaskAttributionTiming",
+      "count": 4,
+      "self": 480,
+      "retained": 480,
+      "maxRetained100": 120,
+      "maxRetained300": 120
+    },
+    {
+      "key": "object:UtilityScript",
+      "count": 0,
+      "self": 0,
+      "retained": 424,
+      "maxRetained100": 4340,
+      "maxRetained300": 4764
+    },
+    {
+      "key": "native:blink::HeapVectorBacking<cppgc::internal::BasicMember<blink::SampledEffect, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>",
+      "count": 0,
+      "self": 0,
+      "retained": 400,
+      "maxRetained100": 272,
+      "maxRetained300": 280
+    },
+    {
+      "key": "object:FiberRootNode",
+      "count": 0,
+      "self": 0,
+      "retained": 360,
+      "maxRetained100": 6964,
+      "maxRetained300": 7324
+    },
+    {
+      "key": "object:system / Context / scope @208631",
+      "count": 1,
+      "self": 88,
+      "retained": 228,
+      "maxRetained100": 767279,
+      "maxRetained300": 767383
+    },
+    {
+      "key": "object:Performance (prototype) / http://127.0.0.1:5173",
+      "count": 0,
+      "self": 0,
+      "retained": 132,
+      "maxRetained100": 744,
+      "maxRetained300": 876
+    },
+    {
+      "key": "object:system / Context / scope @196019",
+      "count": 0,
+      "self": 0,
+      "retained": 84,
+      "maxRetained100": 376,
+      "maxRetained300": 460
+    },
+    {
+      "key": "object:History",
+      "count": 0,
+      "self": 0,
+      "retained": 84,
+      "maxRetained100": 264,
+      "maxRetained300": 348
+    }
+  ]
+}

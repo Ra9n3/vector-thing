@@ -317,7 +317,3 @@
 [visual] [WebKit] glass-glow 400% DPR1/DPR2, surfaceScale ×1 → 32414/73838 differing pixels vs ×4 → 90/99 pixels → workaround under test
 [visual] [WebKit] neumorphic-panel 400% DPR2, surfaceScale ×1 → 15180 differing pixels vs ×4 → 96 pixels → workaround under test
 [visual] [WebKit] glass-glow/neumorphic zoom 25/100/400%, DPR1/2, scale variants → qa/ci-results/webkit-scale.json → measured
-
-[visual] [WebKit] 400% lighting → surfaceScale differs under zoom/DPR vs expected Chromium baseline → unverified locally
-[visual] [WebKit] 400% fix → canvas multiplies surfaceScale by zoom × DPR for WebKit → unverified locally
-[environment] [WebKit] browser absent; one mirror install command → TLS ECONNRESET → WebKit not runnable locally; unverified

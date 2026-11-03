@@ -1,15 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Box, Chip } from '@mui/material';
 import { PRESET_BY_ID, defaultProfile } from '../profiles/presets';
-import { resolveMode, resolveProfile, sampleProfile, profileToSamples } from '../profiles/sample';
+import { resolveMode, resolveProfile, sampleProfile } from '../profiles/sample';
 import type { Element } from '../store';
 import { resolveMaterial } from '../materials/resolve';
 import { selectionColor, isLightColor } from '../render/contrast';
 import { useStore } from '../store';
 import { Handle } from './Handle';
-import { CustomProfileEditor } from './CustomProfileEditor';
 import { sectionPathFromSamples, sectionSamples, sectionSurface } from './sectionPath';
-import { profileHandles } from './profileHandles';
 
 function useMorphedSamples(preset: string, target: number[]) {
   const [shown, setShown] = useState(target);
@@ -18,7 +16,7 @@ function useMorphedSamples(preset: string, target: number[]) {
   useEffect(() => {
     const changed = previousPreset.current !== preset;
     previousPreset.current = preset;
-    if (!changed || preset === 'custom' || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+    if (!changed || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
       current.current = target; setShown(target); return;
     }
     const startValues = current.current;
@@ -43,18 +41,15 @@ export function SectionView({ primary, selected, width, height }: { primary: Ele
   const settings = primary.props.profile;
   const resolved = useMemo(() => resolveProfile(settings), [settings]);
   const preset = PRESET_BY_ID[settings.preset];
-  const mode = resolveMode(settings, primary.type);
-  const draw = useStore(s=>s.drawProfile);
-  const custom = settings.kind==='custom' ? settings.custom ?? null : null;
-  const fullSection = !!custom && mode==='across' && !custom.mirror;
   const heightValue = settings.height ?? 0.5;
   const params = useMemo<Record<string, number>>(() => ({ ...settings.params, height: heightValue }), [settings.params, heightValue]);
-  const target = useMemo(() => fullSection ? profileToSamples(resolved,128).map(v=>-v*(0.15+0.25*heightValue)) : sectionSamples(resolved, heightValue), [resolved, heightValue, fullSection]);
-  const shown = useMorphedSamples(settings.kind === 'custom' ? 'custom' : settings.preset, target);
+  const target = useMemo(() => sectionSamples(resolved, heightValue), [resolved, heightValue]);
+  const shown = useMorphedSamples(settings.preset, target);
   const ghost = useMemo(() => sectionSamples(resolveProfile(defaultProfile(settings.preset)), 0.5), [settings.preset]);
   const mixed = selected.some((el) => el.props.profile.preset !== settings.preset);
   const ids = useMemo(() => selected.filter((el) => el.props.profile.preset === settings.preset).map((el) => el.id), [selected, settings.preset]);
   const [dragging, setDragging] = useState(false);
+  const mode = resolveMode(settings, primary.type);
   const extent = mode === 'around' ? Math.min(primary.width, primary.height)
     : settings.acrossAxis === 'vertical' ? primary.height : primary.width;
   const sectionWidth = Math.max(1, Math.min(width - 80, (height - 100) / 0.8, Math.max(300, extent * 3)));
@@ -71,10 +66,10 @@ export function SectionView({ primary, selected, width, height }: { primary: Ele
       <g transform={`translate(${x} ${y})`}>
         <path d={sectionPathFromSamples(ghost, sectionWidth)} fill={color} stroke={accent} strokeWidth={1}
           opacity={dragging ? 0.22 : 0} style={{ transition: 'opacity 180ms ease', pointerEvents: 'none' }} />
-        <path d={sectionPathFromSamples(shown, sectionWidth, fullSection)} fill={color} fillOpacity={0.5} />
-        <path d={sectionSurface(shown, sectionWidth, fullSection)} fill="none" stroke={accent} strokeWidth={1.5} strokeLinejoin="round" />
+        <path d={sectionPathFromSamples(shown, sectionWidth)} fill={color} fillOpacity={0.5} />
+        <path d={sectionSurface(shown, sectionWidth)} fill="none" stroke={accent} strokeWidth={1.5} strokeLinejoin="round" />
         <line x1={-12} x2={sectionWidth + 12} y1={0} y2={0} stroke={isLightColor(background) ? '#42454d' : '#a6a9b1'} strokeOpacity={0.55} strokeWidth={1} />
-        {!draw && !custom && profileHandles(preset).flatMap((handle, i) => {
+        {preset.handles.flatMap((handle, i) => {
           const position = handle.position(params, resolved);
           // Depth on a rib is at its peak; its inverse coordinate stores groove depth.
           const u = position.u;
@@ -87,7 +82,6 @@ export function SectionView({ primary, selected, width, height }: { primary: Ele
             side={side} ids={ids} x={sectionWidth * (side === 'left' ? u / 2 : 1 - u / 2)} y={cy}
             defaultValue={defaultValue} accent={accent} onDrag={setDragging} anyDragging={dragging} />);
         })}
-        {(draw || custom) && <CustomProfileEditor profile={custom} draw={draw} mode={mode} width={sectionWidth} amplitude={amplitude} accent={accent} surface={sectionSurface(shown,sectionWidth,fullSection)} />}
       </g>
     </svg>
   </>;

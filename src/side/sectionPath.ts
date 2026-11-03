@@ -9,16 +9,16 @@ export function sectionSamples(profile: ResolvedProfile, height: number): number
   return profileToSamples(profile, 128).map((h) => (profile.recessed ? 1 : -1) * amplitude * h);
 }
 
-export function sectionSurface(samples: number[], extent: number, full = false): string {
+export function sectionSurface(samples: number[], extent: number): string {
   if (!samples.length) return '';
   const half = samples.length - 1;
   if (half === 0) return `M0 ${fmt(samples[0] * extent)}H${fmt(extent)}`;
-  const all = full ? samples : [...samples, ...samples.slice(0, -1).reverse()];
-  return all.map((h, i) => `${i ? 'L' : 'M'}${fmt(extent * i / (full ? half : 2 * half))} ${fmt(h * extent)}`).join(' ');
+  const all = [...samples, ...samples.slice(0, -1).reverse()];
+  return all.map((h, i) => `${i ? 'L' : 'M'}${fmt(extent * i / (2 * half))} ${fmt(h * extent)}`).join(' ');
 }
 
-export function sectionPathFromSamples(samples: number[], extent: number, full = false): string {
-  return `${sectionSurface(samples, extent, full)} L${fmt(extent)} 0 L0 0 Z`;
+export function sectionPathFromSamples(samples: number[], extent: number): string {
+  return `${sectionSurface(samples, extent)} L${fmt(extent)} 0 L0 0 Z`;
 }
 
 /** Full mirrored section. extent is its display width; scale is the height parameter. */
