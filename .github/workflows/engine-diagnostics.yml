@@ -1,0 +1,57 @@
+name: Engine diagnostics
+on:
+  push:
+    paths:
+      - .github/workflows/engine-diagnostics.yml
+      - qa/engine-capture.mjs
+      - qa/scale-diagnostic.mjs
+  workflow_dispatch:
+permissions:
+  contents: read
+  checks: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [firefox, webkit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps ${{ matrix.browser }}
+      - run: node qa/engine-capture.mjs ${{ matrix.browser }}
+      - uses: actions/github-script@v7
+        if: always()
+        with:
+          script: |
+            const fs = require('fs');
+            if (!fs.existsSync('/tmp/qa-engine.json')) throw new Error('capture failed');
+            const data = JSON.parse(fs.readFileSync('/tmp/qa-engine.json', 'utf8'));
+            for (const c of data.captures) {
+              await github.rest.checks.create({owner:context.repo.owner,repo:context.repo.repo,head_sha:context.sha,name:`QA capture ${data.engine} ${c.fixture} ${c.zoom}x ${c.variant}`,status:'completed',conclusion:'success',output:{title:`${c.fixture} ${c.zoom}x ${c.variant}`,summary:c.jpeg}});
+            }
+  scale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps webkit
+      - run: node qa/scale-diagnostic.mjs > /tmp/qa-scale.log 2>&1
+      - uses: actions/github-script@v7
+        if: always()
+        with:
+          script: |
+            const fs = require('fs');
+            const ok = fs.existsSync('/tmp/qa-scale.json');
+            await github.rest.checks.create({owner:context.repo.owner,repo:context.repo.repo,head_sha:context.sha,name:'QA scale comparison webkit',status:'completed',conclusion:ok?'success':'failure',output:{title:'Scale comparison',summary:fs.readFileSync(ok?'/tmp/qa-scale.json':'/tmp/qa-scale.log','utf8').slice(0,60000) || 'No output'}});
